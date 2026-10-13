@@ -53,8 +53,9 @@ Two rules keep the library honest:
 
 ## Layer 3 — Compositions
 
-A composition is ~40 lines: preamble, `\input` of fragments, section headings. It **cannot** contain a
-fact. A compiling, invented example of both layers: [`examples/latex/`](../examples/latex/). The same fragment set produces five showcase CVs (three tracks in Spanish, two of them also in English) and one tailored CV per
+A composition is ~40 lines: preamble, `\input` of fragments, section headings. It **cannot** contain a fact. A
+compiling, invented example of both layers: [`examples/latex/`](../examples/latex/). The same fragment set
+produces five showcase CVs (three tracks in Spanish, two of them also in English) and one tailored CV per
 application.
 
 Each application folder holds: the posting text, a written analysis (family of role, gaps, risks), the
@@ -76,8 +77,9 @@ Build rules enforced by the build helper:
 | Radar reports | what was captured on a given day, scored and deduplicated | capture scripts |
 | Board (HTML + CSV) | a generated view: today, pipeline, live, funnel, presence | a generator; **never edited by hand** |
 
-The split between pipeline and triage is deliberate ([ADR 0003](decisions/0003-triage-separate-from-pipeline.md)):
-an analysis must survive even when the authorization question goes unanswered.
+The split between pipeline and triage is deliberate
+([ADR 0003](decisions/0003-triage-separate-from-pipeline.md)): an analysis must survive even when the
+authorization question goes unanswered.
 
 ## Why one-way dependencies
 

@@ -14,12 +14,12 @@ folder names ([architecture](../../docs/architecture.md)); in a real checkout th
 
 ## Why the "proposed" rows exist
 
-The private system keeps its boundaries ([what the agent never does](../../docs/agent-operating-model.md#boundaries--what-the-agent-never-does))
+The private system keeps its boundaries
+([what the agent never does](../../docs/agent-operating-model.md#boundaries--what-the-agent-never-does))
 through **instructions** — the project's `CLAUDE.md` and each skill's hard rules — and through the owner's
-explicit OK in the conversation. That has held in daily use, but it is a policy, not a mechanism. A
-review of this repository pointed out the difference: an agent with a shell could, in principle, type the
-approval itself. The two proposed rows turn the most important boundaries into something the harness
-enforces:
+explicit OK in the conversation. That has held in daily use, but it is a policy, not a mechanism. A review of
+this repository pointed out the difference: an agent with a shell could, in principle, type the approval
+itself. The two proposed rows turn the most important boundaries into something the harness enforces:
 
 - a **deny rule** is evaluated by Claude Code before any tool call, whatever the agent was told;
 - a **PreToolUse hook** sees every shell command first, and exit code 2 blocks it with a message the agent

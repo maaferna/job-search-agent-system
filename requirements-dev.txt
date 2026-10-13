@@ -1,0 +1,2 @@
+-r requirements.txt
+codespell==2.4.1     # spelling of the documentation (make spell)

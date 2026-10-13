@@ -2,7 +2,9 @@ MIT License
 
 Copyright (c) 2026 Marco Antonio Parra Fernández
 
-Applies to the source code of this repository: files ending in .py, .mjs and .sh, and the CI workflow.
+Applies to the source code of this repository: files ending in .py, .mjs, .sh, .tex and .html, the JSON
+files (schema, settings, package manifests), the Makefile, the CI workflow and the tool configuration files.
+Everything else is documentation, under LICENSE (CC BY 4.0).
 The documentation is licensed under CC BY 4.0 (see LICENSE).
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and

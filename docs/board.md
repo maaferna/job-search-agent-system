@@ -4,10 +4,11 @@ The board is a single HTML page **generated** from the pipeline, never edited by
 owner opens every day: what needs an answer today, where every live opportunity stands, and whether the
 funnel is working.
 
-> **Every number and name in these pictures is invented.** They are screenshots of the real generator run
-> on [invented data](../examples/data/pipeline.example.yaml) in a sandbox; the employer names are the
-> fictional companies commonly used in software documentation. The interface is in Spanish, as it is in
-> daily use. How the pictures are produced and checked: [ADR 0009](decisions/0009-board-published-as-synthetic-screenshots.md).
+> **Every number and name in these pictures is invented.** They are screenshots of the real generator run on
+> [invented data](../examples/data/pipeline.example.yaml) in a sandbox; the employer names are the fictional
+> companies commonly used in software documentation. The interface is in Spanish, as it is in daily use. How
+> the pictures are produced and checked:
+> [ADR 0009](decisions/0009-board-published-as-synthetic-screenshots.md).
 
 ## Today (*Hoy*)
 
@@ -91,10 +92,10 @@ freshness chip: platforms keep some of these numbers only for days, so a reading
 turns red. Below the cards: the portal signals of the applications by strength (read → CV downloaded →
 process advanced), the profile's sections and posts, and the weekly signals log.
 
-These series are **generated** ([`tools/presence_fixture.py`](../tools/presence_fixture.py)); the real
-view reads the owner's own metrics and would never be published. Before capturing, job-board names and the names of the platforms are replaced on the page by generic
-labels (*red profesional*, *credenciales*); the metrics of the real view are read by the owner on their
-own profiles.
+These series are **generated** ([`tools/presence_fixture.py`](../tools/presence_fixture.py)); the real view
+reads the owner's own metrics and would never be published. Before capturing, job-board names and the names of
+the platforms are replaced on the page by generic labels (*red profesional*, *credenciales*); the metrics of
+the real view are read by the owner on their own profiles.
 
 ## On a phone
 

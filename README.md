@@ -12,21 +12,25 @@ decision — with a human reading and approving every document, and making every
 
 [Architecture](docs/architecture.md) · [The board](docs/board.md) · [Audits](docs/audits.md) ·
 [Quality controls](docs/quality-controls.md) · [Decisions (ADR)](docs/decisions/) ·
-[Lessons](docs/lessons.md) · [Examples](examples/) · [Reference code](reference/) ·
-[One-page poster](docs/img/poster-architecture.png)
+[Lessons](docs/lessons.md) · [Glossary](docs/glossary.md) · [Examples](examples/) ·
+[Reference code](reference/) · [One-page poster](docs/img/poster-architecture.png)
 
 > <a id="lector-no-tecnico"></a>**Para el lector no técnico.** Este repositorio describe un sistema que
 > su autor usa a diario para gestionar su propia búsqueda de empleo junto a un agente de IA (Claude Code).
-> El sistema encuentra avisos, los evalúa contra reglas escritas, arma cada CV desde una biblioteca de
-> hechos verificados, lo revisa con controles automáticos y registra cada decisión. **Ningún documento
-> sale sin que el autor lea y apruebe su texto completo, y el envío siempre lo hace el autor.** El sistema
-> descarta muchas más oportunidades de las que llegan a enviarse: unos 14.800 avisos vistos, 822
-> analizados por escrito y 77 postulaciones enviadas. No es un bot que postula en masa. El sistema real es
-> privado porque contiene datos personales; aquí se publica cómo está diseñado, con capturas generadas con
-> **datos inventados**. Para empezar: [el póster](docs/img/poster-architecture.png), que resume el
-> sistema en una página; [el tablero](docs/board.md), que muestra el trabajo diario; y
-> [las lecciones](docs/lessons.md), que cuentan qué falló y qué control nació de cada falla (en inglés,
-> como el resto del repositorio).
+>
+> - **Qué hace:** encuentra avisos, los evalúa contra reglas escritas, arma cada CV desde una biblioteca
+>   de hechos verificados, lo revisa con controles automáticos y registra cada decisión.
+> - **Quién decide:** ningún documento sale sin que el autor lea y apruebe su texto completo, y el envío
+>   siempre lo hace el autor.
+> - **No es un bot que postula en masa:** unos 14.800 avisos vistos, 822 analizados por escrito y
+>   77 postulaciones enviadas.
+> - **Qué se publica:** el sistema real es privado porque contiene datos personales; aquí está su diseño,
+>   con capturas generadas con **datos inventados**.
+>
+> Para empezar: [el póster](docs/img/poster-architecture.png), que lo resume en una página;
+> [el tablero](docs/board.md), que muestra el trabajo diario; y [las lecciones](docs/lessons.md), que
+> cuentan qué falló y qué control nació de cada falla. Las páginas están en inglés; el
+> [glosario](docs/glossary.md) explica cada término.
 
 ## What this project demonstrates
 
@@ -43,7 +47,8 @@ decision — with a human reading and approving every document, and making every
 **Start here**
 
 - *Recruiters:* [the one-page poster](docs/img/poster-architecture.png) → [the board](docs/board.md) →
-  [lessons](docs/lessons.md) → [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does).
+  [lessons](docs/lessons.md) →
+  [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does).
 - *Engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
   [audits](docs/audits.md) → run [`reference/gate.py`](reference/) and the [LaTeX example](examples/latex/).
 
@@ -63,7 +68,7 @@ published · **License:** documentation [CC BY 4.0](LICENSE), code [MIT](LICENSE
 
 **Contents:** [What it does](#what-it-does--and-what-it-does-not) · [Stack](#stack) ·
 [Architecture](#architecture-in-one-page) · [Life of a posting](#the-life-of-a-posting) ·
-[Numbers](#numbers-measured-on-2026-10-13) · [Repository map](#repository-map) ·
+[Numbers](#numbers) · [Repository map](#repository-map) ·
 [Run it](#run-the-reference-code) · [Kept clean](#how-this-repository-is-kept-clean) · [Author](#author)
 
 ---
@@ -141,7 +146,11 @@ flowchart LR
 Every arrow that crosses into a submission passes through a human. Details:
 [`docs/posting-lifecycle.md`](docs/posting-lifecycle.md).
 
-## Numbers (measured on 2026-10-13)
+## Numbers
+
+**Measured on 2026-10-13** in the private repository, read only. Every figure published here comes from
+[`docs/numbers.yaml`](docs/numbers.yaml), and CI checks that the README, the metrics page and the poster agree
+with it.
 
 | | |
 |---|---|
@@ -162,10 +171,10 @@ Every arrow that crosses into a submission passes through a human. Details:
 (about a thousand discards between triage and pipeline), and none was sent without the owner approving
 its full text.
 
-**The agent is evaluated against the owner's decisions, in both directions.** Its picks: the owner
-authorized all 33 of its recommendations; 24 were sent and 8 were dropped later, at the posting audit
-(GO / NO-GO). Its discards — the error that is easiest to miss, since nobody looks at a posting again once
-it is discarded: the owner reopened 5 of 789. See [`docs/metrics.md`](docs/metrics.md) for definitions, how each number is
+**The agent is evaluated against the owner's decisions, in both directions.** Its picks: the owner authorized
+all 33 of its recommendations; 24 were sent and 8 were dropped later, at the posting audit (GO / NO-GO). Its
+discards — the error that is easiest to miss, since nobody looks at a posting again once it is discarded: the
+owner reopened 5 of 789. See [`docs/metrics.md`](docs/metrics.md) for definitions, how each number is
 recomputed, and the calibration of the call probability.
 
 ## Repository map
@@ -182,6 +191,8 @@ recomputed, and the calibration of the call probability.
 | [`docs/metrics.md`](docs/metrics.md) | Fit score vs. call probability: two numbers that are never mixed |
 | [`docs/lessons.md`](docs/lessons.md) | Real failures turned into controls |
 | [`docs/decisions/`](docs/decisions/) | Architecture decision records |
+| [`docs/glossary.md`](docs/glossary.md) | Every term with one meaning, and the Spanish words of the screenshots |
+| [`docs/numbers.yaml`](docs/numbers.yaml) | The single source of every published number, checked in CI |
 | [`examples/`](examples/) | Invented example data, the pipeline JSON Schema, seven translated agent skills, the [Claude Code settings and hooks](examples/claude/), local-model prompts, a `CLAUDE.md` template, and a [compiling LaTeX example](examples/latex/) of fragments and compositions |
 | [`reference/`](reference/) | Working minimal versions of six mechanisms: closed-vocabulary validator, dated rules, fit and call probability, per-application gate, ATS coverage, rendered-page test |
 | [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews, the architecture poster — each gated before it is written |
@@ -215,4 +226,7 @@ physical operations · [LinkedIn](https://www.linkedin.com/in/marco-antonio-parr
 
 ## License
 
-Documentation under [CC BY 4.0](LICENSE); source code under the [MIT License](LICENSE-CODE).
+| What | License | Files |
+|---|---|---|
+| Documentation | [CC BY 4.0](LICENSE) — reuse with attribution | Markdown, images, example data (YAML), example skills and prompts |
+| Code | [MIT](LICENSE-CODE) | `.py`, `.mjs`, `.sh`, `.tex`, `.html`, JSON, the Makefile, CI and tool configuration |

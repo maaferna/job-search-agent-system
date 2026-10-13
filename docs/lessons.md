@@ -94,8 +94,8 @@ old rule stayed discarded, including one whose posting was still open.
 ## A retired claim traveled again
 
 **What happened.** Several claims were removed from the CV on purpose (a figure later re-measured more
-conservatively, a hardware detail, a project name). Keeping them out depended on someone remembering what had been removed, and
-copying an older paragraph into a new fragment is enough to bring one back.
+conservatively, a hardware detail, a project name). Keeping them out depended on someone remembering what had
+been removed, and copying an older paragraph into a new fragment is enough to bring one back.
 
 **Control.** A list of retired claims, searched in the text **extracted from every PDF**, in the sources,
 in the `.docx` backups and in the PDF metadata. The script does not forget.

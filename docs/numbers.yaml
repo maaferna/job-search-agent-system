@@ -1,0 +1,37 @@
+# The single source of every aggregate number published in this repository.
+#
+# Recomputed from the private repository (read only) with the commands in docs/metrics.md, usually through
+# the refresh-numbers skill. scripts/check_numbers.py fails when a published file says something else, so
+# change a number here first and then everywhere the check points to.
+as_of: 2026-10-13
+since: 2026-08            # start of active development
+
+repository:
+  commits: 876
+  skills: 25
+  scripts: 35
+  qa_blocks: 25
+  gate_checks: 12
+  fragments: 80
+  radar_reports: 74
+  role_families: 13
+  memory_notes: 56
+
+funnel:
+  seen: 14800             # approximate: the radar's "seen" index ("~14,800")
+  triage: 822
+  pipeline: 332
+  pipeline_discarded: 256
+  pipeline_sent: 75
+  pipeline_prospects: 1
+  triage_discarded: 789
+  sent: 77
+  sent_withdrawn: 2
+  compositions: 76
+
+agent_evaluation:
+  recommended: 33
+  recommended_sent: 24
+  recommended_dropped: 8
+  recommended_pending: 1
+  discards_reopened: 5

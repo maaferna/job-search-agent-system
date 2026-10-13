@@ -48,9 +48,10 @@ records *how the owner wants the work done*. Facts never live in memory: they li
 
 ## Hooks
 
-Hooks are commands the Claude Code harness runs on events ([example configuration](../examples/claude/)). At session start a hook synchronizes the repository, launches the automatic capture in the background
-if there is no report for today, captures technical-presence metrics once a day, and prints a short
-status: pipeline counts, overdue follow-ups, latest radar, days since the last portal review.
+Hooks are commands the Claude Code harness runs on events ([example configuration](../examples/claude/)). At
+session start a hook synchronizes the repository, launches the automatic capture in the background if there is
+no report for today, captures technical-presence metrics once a day, and prints a short status: pipeline
+counts, overdue follow-ups, latest radar, days since the last portal review.
 
 ## Boundaries — what the agent never does
 

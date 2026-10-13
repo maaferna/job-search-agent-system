@@ -26,11 +26,11 @@ The board is published **only as PNG screenshots**, produced by `tools/board_scr
 4. each PNG is written without metadata chunks, next to a **manifest** holding its SHA-256 and its visible
    text; the sanitization gate requires a manifest for every image, checks the hash, and searches the text.
 
-Four views are captured: today, pipeline, funnel and presence. The presence view reads the owner's own
-metrics on external platforms, so it is captured only with **generated** series in their place, chosen so
-that no alert built from the owner's real history is rendered. Job-board names, the names of the owner's
-profile platforms, and a few fixed interface texts that cite real things are replaced on the page by a generic label before capturing; their patterns
-live in the local denylist, never in the public code.
+Four views are captured: today, pipeline, funnel and presence. The presence view reads the owner's own metrics
+on external platforms, so it is captured only with **generated** series in their place, chosen so that no
+alert built from the owner's real history is rendered. Job-board names, the names of the owner's profile
+platforms, and a few fixed interface texts that cite real things are replaced on the page by a generic label
+before capturing; their patterns live in the local denylist, never in the public code.
 
 ## Consequences
 - An image is a checked artifact: replacing it without regenerating its manifest fails the gate.

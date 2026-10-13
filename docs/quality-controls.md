@@ -19,7 +19,8 @@ Grouped by what they protect:
 2. Orphan fragments — written and used by no composition.
 3. Language parity — a fragment changed in one language must change in the other.
 4. Retired claims must not reappear — searched in the **text extracted from the PDFs**, not the source.
-   A claim removed on purpose (a figure later re-measured more conservatively, a hardware detail, a project name) is easy to bring
+   A claim removed on purpose (a figure later re-measured more conservatively, a hardware detail, a project
+   name) is easy to bring
    back by copying an old paragraph; the script does not forget what a person forgets.
 5. Retired claims in the **sources** too (a clean PDF built from a dirty `.tex` is a time bomb), and in
    the `.docx` backups that are also sent.
@@ -27,7 +28,8 @@ Grouped by what they protect:
 7. Contact data lives in one file only.
 8. Deliverables: page count, missing glyphs, Unicode map present for every font (ATS extractability).
 9. Deliverables are newer than the sources they use.
-10. An external parser must read full dates, role · employer and footer from every showcase PDF.
+10. Parser extraction: an external parser must read full date ranges and role · employer from every
+    showcase PDF, and find no build date in the footer ([why](audits.md#layer-1--ats-mechanics)).
 
 **Operations data**
 11. Pipeline: every application folder has an entry and vice versa; states, dates and vocabularies valid.
@@ -80,6 +82,7 @@ The checks remove the mechanical failures so that the human attention goes there
 ## Try it
 
 [`reference/gate.py`](../reference/gate.py) implements G1, G2, G4, G7 and G12 over two invented
-applications — one ready, one that is blocked six times across four checks — and [`reference/render_test.mjs`](../reference/render_test.mjs)
+applications — one ready, one that is blocked six times across four checks — and
+[`reference/render_test.mjs`](../reference/render_test.mjs)
 is a small working version of the rendered-board test. What the real board looks like:
 [the board](board.md).

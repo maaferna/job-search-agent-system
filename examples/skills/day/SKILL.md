@@ -67,8 +67,8 @@ A generator silenced this way once froze the board for three days.
 Do not dump tables. Report only what changed or is red:
 
 - goals in red, and the action that fixes each one;
-- **call-probability calibration**: if the call probabilities of closed applications no longer differ from the live
-  ones, the gate does not discriminate — say so;
+- **call-probability calibration**: if the call probabilities of closed applications no longer differ from the
+  live ones, the gate does not discriminate — say so;
 - `closure_reason`: what is closing and why. `conditions` is **not** a profile rejection and stays out
   of the calibration;
 - ATS coverage only when a prepared application is below the median, and only to fix the CV *before*
@@ -84,7 +84,8 @@ version, do not remember it. Coverage of the posting's terms does not override i
 
 In this order, without filler:
 
-1. **Urgent today** — overdue follow-ups, prepared applications not sent, unanswered invitations, stale captures.
+1. **Urgent today** — overdue follow-ups, prepared applications not sent, unanswered invitations, stale
+   captures.
 2. **What changed since yesterday** — new portal signals, replies, closures.
 3. **Goals in red** and the concrete action.
 4. **Ranking of the day's actions, five at most**, ordered by real return, not apparent urgency.

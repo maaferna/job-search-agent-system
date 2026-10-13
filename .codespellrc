@@ -1,0 +1,5 @@
+# Spelling check for the whole repository (make spell, and CI). codespell only flags known misspellings,
+# so prose in Spanish passes; the words below are Spanish, or fragments of bold initials (**R**equirements).
+[codespell]
+skip = ./.git,./node_modules,*.png,package-lock.json,./examples/latex/out
+ignore-words-list = autor,controles,hace,profesional,equirements,cliente,historial,te,mis,avance,serie

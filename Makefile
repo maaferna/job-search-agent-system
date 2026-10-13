@@ -1,13 +1,19 @@
 # Everything CI runs, in one command:  make check
-.PHONY: check sanitize links schema test render latex
+.PHONY: check sanitize links numbers spell schema test render latex
 
-check: sanitize links schema test render
+check: sanitize links numbers spell schema test render
 
 sanitize:
 	./scripts/sanitize_check.sh
 
 links:
 	python3 scripts/check_links.py
+
+numbers:
+	python3 scripts/check_numbers.py
+
+spell:   # pip install -r requirements-dev.txt
+	codespell $$(git ls-files)
 
 schema:
 	python3 reference/pipeline_check.py

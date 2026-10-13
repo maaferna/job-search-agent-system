@@ -16,7 +16,8 @@ thing this skill writes is the form's screening questions (step 4), and only aft
 - `facts/master-profile.md` — what is true of the profile: real years, stack, evidence.
 - `facts/owner-rules.yaml` — the owner's dated decision rules (thresholds, locations, role types).
 - `facts/career-focus.md` — the current career focus.
-- `operations/pipeline.yaml` and `operations/triage.yaml` — whether it is already in progress, sent or discarded.
+- `operations/pipeline.yaml` and `operations/triage.yaml` — whether it is already in progress, sent or
+  discarded.
 
 ## Procedure
 

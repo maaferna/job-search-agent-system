@@ -72,9 +72,9 @@ like every image in the repository ([`docs/img/README.md`](../../docs/img/README
 
 ## Differences from the private library
 
-The private library has about 80 fragments in two languages (a QA block fails if one language changes
-without the other), five showcase compositions (three tracks in Spanish, two of them also in English) and one composition per application,
-with a fixed rule: a fragment is justified when two compositions use it. The application's PDF reaches
-its `sent/` folder only after the owner read and approved its full text, and is never rebuilt after
-being sent ([ADR 0001](../../docs/decisions/0001-human-approval-before-send.md),
+The private library has about 80 fragments in two languages (a QA block fails if one language changes without
+the other), five showcase compositions (three tracks in Spanish, two of them also in English) and one
+composition per application, with a fixed rule: a fragment is justified when two compositions use it. The
+application's PDF reaches its `sent/` folder only after the owner read and approved its full text, and is
+never rebuilt after being sent ([ADR 0001](../../docs/decisions/0001-human-approval-before-send.md),
 [ADR 0006](../../docs/decisions/0006-sent-documents-are-immutable.md)).

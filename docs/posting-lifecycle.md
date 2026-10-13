@@ -102,7 +102,9 @@ changes afterwards, the approval no longer matches
 ## 8 · Quality gate
 
 Twelve checks per application, from unresolved placeholders to the owner's approval fingerprint; a red check
-blocks the document ([quality controls](quality-controls.md)).
+blocks the document ([quality controls](quality-controls.md)). The gate runs **after** the review: its last
+check, G12, does not ask for approval again — it verifies that the approval recorded in step 7 still matches
+the current text, so any change made to turn a check green sends the document back to the owner.
 
 ## 9 · Submission — always by the person
 

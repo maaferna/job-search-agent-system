@@ -8,7 +8,8 @@ contains **no code copied from the private system and no personal data**. Beside
 holds:
 
 - `examples/` — invented data, the pipeline JSON Schema, translated skills and prompts, a CLAUDE.md template;
-- `reference/` — small implementations of key mechanisms, **written from scratch** here, with tests in `tests/`;
+- `reference/` — small implementations of key mechanisms, **written from scratch** here, with tests in
+  `tests/`;
 - `docs/img/` — board screenshots and CV previews generated from invented data, and the architecture poster,
   all by `tools/`;
 - `scripts/` — the sanitization gate, the link checker and the hook installer.
@@ -54,17 +55,24 @@ operating the owner's accounts: browser work happens only in a session the owner
 SHA-256 and its visible text. Board screenshots and CV previews are only regenerated with
 `tools/board_screenshots.py` and `tools/latex_previews.py`, and the poster only with `tools/poster.py` from
 `tools/poster.html` (its numbers must match the README's "Numbers" table); never edited or replaced by hand.
-Diagrams stay in Mermaid inside the Markdown, so they can be diffed and searched. The presence
-view must keep running on generated series (`tools/presence_fixture.py`), never on the owner's metrics. The owner reviews every image before publishing.
+Diagrams stay in Mermaid inside the Markdown, so they can be diffed and searched. The presence view must keep
+running on generated series (`tools/presence_fixture.py`), never on the owner's metrics. The owner reviews
+every image before publishing.
 
 **The local denylist.** `.sanitize-local.yaml` (gitignored; template in `.sanitize-local.example.yaml`)
 holds the private-source path, job-board names, the owner's name and the stopwords. It is never committed
 and its content is never written into a tracked file: the list would leak what it protects. Without it,
 the gate only runs its static patterns — the full gate is the one on the owner's machine.
 
-**Before every commit:** run `scripts/sanitize_check.sh` (it must print `OK`), `python3 scripts/check_links.py`
-and `python3 -m unittest discover -s tests -t .`. If the gate finds a hit, fix the text — never weaken the
-pattern list to make it pass. `scripts/install_hooks.sh` installs the gate as a pre-commit hook.
+**Numbers.** Every aggregate number lives in `docs/numbers.yaml`; `scripts/check_numbers.py` fails when the
+README (both languages), `docs/metrics.md`, the poster or another page says something else. Change the YAML
+first, then each place the check points to, then regenerate the poster. Never edit a check to make it pass:
+if a sentence changed, review the check with it.
+
+**Before every commit:** run `make check` (needs `pip install -r requirements-dev.txt`, Node and Chrome): the
+sanitization gate (it must print `OK`), links and anchors, published numbers, spelling, the schema, the unit
+tests and the rendered-page test. If the gate finds a hit, fix the text — never weaken the pattern list to make
+it pass. `scripts/install_hooks.sh` installs the gate as a pre-commit hook.
 
 ## Framing rules (do not drift from these)
 
@@ -78,7 +86,8 @@ pattern list to make it pass. `scripts/install_hooks.sh` installs the gate as a 
 
 ## Language
 
-English throughout. The README opens with badges, quick links and a **«Para el lector no técnico»** block in Spanish, followed by the English summary, a status line and a table of contents.
+English throughout. The README opens with badges, quick links and a **«Para el lector no técnico»** block in
+Spanish, followed by the English summary, a status line and a table of contents.
 
 ## Publishing
 

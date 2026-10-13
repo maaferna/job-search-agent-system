@@ -1,8 +1,9 @@
 # Images
 
-Every image here is checked by the sanitization gate ([ADR 0009](../decisions/0009-board-published-as-synthetic-screenshots.md)).
-An image cannot be searched, so each one is covered by a **manifest**: a `.txt` file next to it that
-starts with `# image-manifest`, lists each image with its SHA-256, and holds the image's visible text.
+Every image here is checked by the sanitization gate
+([ADR 0009](../decisions/0009-board-published-as-synthetic-screenshots.md)). An image cannot be searched, so
+each one is covered by a **manifest**: a `.txt` file next to it that starts with `# image-manifest`, lists
+each image with its SHA-256, and holds the image's visible text.
 
 ```
 # image-manifest

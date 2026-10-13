@@ -1,9 +1,9 @@
 # Audits — what is checked, by whom, and what is not
 
-[Quality controls](quality-controls.md) lists the checks as they run (repository QA, per-application
-gate). This page groups the **audits by what they protect**, in three layers: what a machine can verify
-alone, what a machine can find but a person has to judge, and what only reading decides. Each one can be traced
-to a failure in [lessons](lessons.md).
+[Quality controls](quality-controls.md) lists the checks as they run (repository QA, per-application gate).
+This page groups the **audits by what they protect**, in three layers: what a machine can verify alone, what a
+machine can find but a person has to judge, and what only reading decides. Each one can be traced to a failure
+in [lessons](lessons.md).
 
 | Layer | Who | Blocks? |
 |---|---|---|
