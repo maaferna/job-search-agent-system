@@ -13,7 +13,7 @@ decision — with a human reading and approving every document, and making every
 [Architecture](docs/architecture.md) · [The board](docs/board.md) · [Audits](docs/audits.md) ·
 [Quality controls](docs/quality-controls.md) · [Decisions (ADR)](docs/decisions/) ·
 [Lessons](docs/lessons.md) · [Examples](examples/) · [Reference code](reference/) ·
-[Poster](docs/img/poster-architecture.png)
+[One-page poster](docs/img/poster-architecture.png)
 
 > <a id="lector-no-tecnico"></a>**Para el lector no técnico.** Este repositorio describe un sistema que
 > su autor usa a diario para gestionar su propia búsqueda de empleo junto a un agente de IA (Claude Code).
@@ -23,11 +23,14 @@ decision — with a human reading and approving every document, and making every
 > descarta muchas más oportunidades de las que llegan a enviarse: unos 14.800 avisos vistos, 822
 > analizados por escrito y 77 postulaciones enviadas. No es un bot que postula en masa. El sistema real es
 > privado porque contiene datos personales; aquí se publica cómo está diseñado, con capturas generadas con
-> **datos inventados**. Para empezar: [el tablero](docs/board.md), que muestra el trabajo diario, y
-> [las lecciones](docs/lessons.md), que cuentan qué falló y qué control nació de cada falla (ambas páginas
-> en inglés, como el resto del repositorio).
+> **datos inventados**. Para empezar: [el póster](docs/img/poster-architecture.png), que resume el
+> sistema en una página; [el tablero](docs/board.md), que muestra el trabajo diario; y
+> [las lecciones](docs/lessons.md), que cuentan qué falló y qué control nació de cada falla (en inglés,
+> como el resto del repositorio).
 
 ## What this project demonstrates
+
+<a href="docs/img/poster-architecture.png"><img align="right" width="300" alt="Architecture poster: the funnel from about 14,800 postings seen to 77 documents sent, who does what between the agent and the owner, the twelve checks of the application gate, four design decisions and how the agent is evaluated" src="docs/img/poster-architecture.png"></a>
 
 - **Governing an agent, not just using one.** Written procedures (skills), explicit boundaries, a human
   approval bound to a fingerprint of the approved text, and rules the agent must cite with their date.
@@ -37,10 +40,14 @@ decision — with a human reading and approving every document, and making every
 - **Data design for decisions.** Every fact lives in one file, closed vocabularies validated by a schema,
   dated rules that reopen old decisions, sent documents kept as immutable records.
 
-**Start here** — *recruiters:* [the one-page poster](docs/img/poster-architecture.png) → [the board](docs/board.md) → [lessons](docs/lessons.md) →
-[what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does) ·
-*engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
-[audits](docs/audits.md) → run [`reference/gate.py`](reference/) and the [LaTeX example](examples/latex/).
+**Start here**
+
+- *Recruiters:* the poster on the right (click to enlarge) → [the board](docs/board.md) →
+  [lessons](docs/lessons.md) → [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does).
+- *Engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
+  [audits](docs/audits.md) → run [`reference/gate.py`](reference/) and the [LaTeX example](examples/latex/).
+
+<br clear="right">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/img/board-pipeline-desktop-dark.png">
@@ -53,6 +60,11 @@ decision — with a human reading and approving every document, and making every
 **Data:** everything shown here is invented · **Code:** [reference implementations](reference/) written
 from scratch for this repository, by the agent under the owner's review; the private code is not
 published · **License:** documentation [CC BY 4.0](LICENSE), code [MIT](LICENSE-CODE).
+
+**Contents:** [What it does](#what-it-does--and-what-it-does-not) · [Stack](#stack) ·
+[Architecture](#architecture-in-one-page) · [Life of a posting](#the-life-of-a-posting) ·
+[Numbers](#numbers-measured-on-2026-10-13) · [Repository map](#repository-map) ·
+[Run it](#run-the-reference-code) · [Kept clean](#how-this-repository-is-kept-clean) · [Author](#author)
 
 ---
 
@@ -148,8 +160,13 @@ Every arrow that crosses into a submission passes through a human. Details:
 
 **For every document sent, more than ten opportunities were discarded with a written reason**
 (about a thousand discards between triage and pipeline), and none was sent without the owner approving
-its full text. See [`docs/metrics.md`](docs/metrics.md) for definitions, how each number is recomputed,
-and how the agent itself is evaluated.
+its full text.
+
+**The agent is evaluated against the owner's decisions, in both directions.** Its picks: the owner
+authorized all 33 of its recommendations; 24 were sent and 8 were dropped later, at the posting audit
+(GO / NO-GO). Its discards — the error that is easiest to miss, since nobody looks at a posting again once
+it is discarded: the owner reopened 5 of 789. See [`docs/metrics.md`](docs/metrics.md) for definitions, how each number is
+recomputed, and the calibration of the call probability.
 
 ## Repository map
 
@@ -176,7 +193,9 @@ python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt
 python3 reference/gate.py reference/fixtures/applications/blocked   # the gate refusing an application
 python3 reference/dated_rules.py                                    # a discard that a rule change reopened
 python3 -m unittest discover -s tests -t .                          # all tests (also run in CI)
+npm ci && node reference/render_test.mjs                            # the page shows what the data says
 ./examples/latex/build.sh all                                       # three CVs from one fragment library
+make check                                                          # everything CI runs
 ```
 
 ## How this repository is kept clean
