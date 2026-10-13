@@ -1,0 +1,160 @@
+# image-manifest
+# image: poster-overview.png sha256=1a1f82818c4c5e3c29e367a305d9b788dca4fb988d79c599b641e73e755ea5bd
+# source: tools/poster-overview.html, rendered by tools/poster.py (overview infographic poster; aggregate numbers only)
+# visible text below
+
+AGENTIC DECISION SUPPORT FOR A JOB SEARCH
+WITH A HUMAN IN THE LOOP
+From public postings to documents a human approved and sent
+SCAN ME
+1
+MOTIVATION
+A job search is hundreds of small decisions a week: which posting to read, which to discard, what each CV should say. An AI agent reads and writes fast — and it can also invent a fact, forget a rule or attach the wrong file.
+This project pairs an AI agent (Claude Code) with written rules, one library of verified facts and blocking checks: the agent does the reading, the human keeps every decision.
+2
+WORKFLOW OVERVIEW
+Capture
+public sources, deduplicated
+→
+Triage
+written analysis, saved first
+→
+Owner authorizes
+by name
+→
+Posting audit
+GO / NO-GO
+→
+Compose CV
+from fact fragments
+→
+Approve + gate
+full text, G1–G12
+→
+Owner submits
+always by hand
+Board & metrics — funnel, response windows, call-probability calibration · generated, never edited by hand
+a human decision
+3
+KEY COMPONENTS
+Claude Code + 25 skills
+Written procedures for every recurring task, and boundaries the agent never crosses.
+One library of facts
+Every fact lives in one file; each CV is composed from LaTeX fragments.
+Closed vocabularies
+States, channels and closures validated by a JSON Schema.
+Application gate
+12 blocking checks, from ATS readability to the approval fingerprint.
+Rendered-page test
+A headless browser compares what the board shows with what the data says.
+4
+EXAMPLE RESULTS
+· invented data
+The board · pipeline view
+The board · funnel view
+Tailored CV (LaTeX)
+$ python3 reference/gate.py …/applications/blocked
+✗ G1  placeholder left in the CV: [[metric?]]
+✗ G1  open question left in the analysis (ASK:)
+✗ G4  retired claim in text: "led a team of 12"
+✗ G4  retired claim in metadata 'Subject'
+✗ G7  date range 2012–2019 is not in the master profile
+✗ G12 the text changed after the owner approved it
+BLOCKED — 6 problem(s). Nothing is sent.
+# invented example — one pipeline entry
+state: no_response
+closed_by: own         # who closed it
+closure_reason: silence
+channel_type: board
+fit: 68                # employer's view
+fit_detail: "23/25/15/5"
+call_probability: 3   # %, at submission
+gaps: ["orchestrator X"]
+5
+EVALUATION RESULTS
+· measured in the private system
+Postings analyzed
+822
+Documents sent
+77
+Recommendations authorized
+33/33
+Discards reopened
+5/789
+Sent without the owner approving the full text
+0
+The funnel
+Seen
+14,800
+Analyzed
+822
+Pipeline
+332
+Sent
+77
+postings at each stage · bar length on a log scale
+What happened to the agent's recommendations
+24
+8
+1
+sent after the posting audit
+dropped at the posting audit (GO / NO-GO)
+pending
+all 33 were authorized by the owner
+The agent's discards, reviewed by the owner
+0.6 %
+kept as discarded
+reopened by the owner
+5 of 789 discards reopened · 784 kept
+6
+OUTPUTS
+Tailored CV (PDF)
+two pages, ATS-readable, every line traced to a fact
+A written analysis per posting
+verdict and reason, kept even when nobody answers
+The board (HTML)
+today, pipeline, funnel and presence, generated daily
+An immutable sent record
+what the recruiter read is never rebuilt
+7
+DESIGN PRINCIPLES
+Approval before send
+bound to a fingerprint of the approved text
+Gates block, never warn
+exceptions are written down, never coded in
+Rules carry dates
+a changed rule reopens the discards it justified
+Every failure becomes a control
+each check traces to a real lesson
+8
+IMPACT
+Fewer, better applications: about a thousand opportunities discarded with a written reason against 77 documents sent — none without the owner reading and approving it, every one submitted by hand.
+Focused
+effort
+Every claim
+traceable
+A measured
+agent
+The human
+decides
+TECHNOLOGIES
+Claude Code
+agent · skills · hooks
+Python
+gates · metrics
+LaTeX
+CV fragments
+Playwright
+render test
+HTML/CSS/JS
+the board
+GitHub Actions
+CI
+DATA
+Public postings — aggregates only
+Examples and screenshots: invented data
+No personal data, employers or postings
+AUTHOR
+Industrial engineer
+Applied AI & automation
+for physical operations

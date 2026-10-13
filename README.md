@@ -13,7 +13,8 @@ decision — with a human reading and approving every document, and making every
 [Architecture](docs/architecture.md) · [The board](docs/board.md) · [Audits](docs/audits.md) ·
 [Quality controls](docs/quality-controls.md) · [Decisions (ADR)](docs/decisions/) ·
 [Lessons](docs/lessons.md) · [Glossary](docs/glossary.md) · [Examples](examples/) ·
-[Reference code](reference/) · [One-page poster](docs/img/poster-architecture.png)
+[Reference code](reference/) · Posters: [architecture](docs/img/poster-architecture.png),
+[overview](docs/img/poster-overview.png)
 
 > <a id="lector-no-tecnico"></a>**Para el lector no técnico.** Este repositorio describe un sistema que
 > su autor usa a diario para gestionar su propia búsqueda de empleo junto a un agente de IA (Claude Code).

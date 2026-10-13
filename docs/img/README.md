@@ -50,7 +50,7 @@ python3 tools/latex_previews.py         # needs lualatex and poppler
 ## Architecture poster and social card
 
 The one-page view used outside the code host (the project image on the professional network). Its source
-is `tools/poster.html` (the card's, `tools/social-card.html`); they hold only aggregate numbers, which must
+is `tools/poster.html` (the overview's, `tools/poster-overview.html`; the card's, `tools/social-card.html`); they hold only aggregate numbers, which must
 match `docs/numbers.yaml` (`scripts/check_numbers.py`).
 
 ```bash
@@ -60,6 +60,7 @@ python3 tools/poster.py                 # needs Chrome and Node (npm ci)
 | Manifest | Image | What it is |
 |---|---|---|
 | `poster-architecture.txt` | `poster-architecture.png` | A4 portrait, 2480×3508: funnel, who does what, the gate, decisions, evaluation |
+| `poster-overview.txt` | `poster-overview.png` | 1024×1536 at 2x: the infographic companion — workflow, components, example results, evaluation charts |
 | `social-card.txt` | `social-card.png` | 1280×640, the picture shown when the repository link is shared |
 
 The social card is not used by any page: the owner uploads it by hand in the repository's *Settings →

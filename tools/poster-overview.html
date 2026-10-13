@@ -1,0 +1,273 @@
+<!doctype html>
+<!-- Overview poster (1024×1536 CSS px, rendered at 2x): the infographic companion of tools/poster.html.
+     Source of docs/img/poster-overview.png: edit here, then run python3 tools/poster.py. Every number must match
+     docs/numbers.yaml (scripts/check_numbers.py); the bars and the ring are drawn from the numbers on the page.
+     The screenshots are the published images of docs/img (invented data). tools/qr-repo.svg was made once with
+     segno (QR of the repository URL). -->
+<html><head><meta charset="utf-8">
+<style>
+:root{--ink:#0F1B2D;--ink2:#33445C;--mut:#5B6B82;--line:#DCE3EC;--bg:#EEF2F6;--card:#FFFFFF;
+--acc:#E8833A;--acc2:#F2B544;--blue:#2F6FB5;--green:#2E8B57;--red:#C8463D;--soft:#F5F8FB}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1024px;height:1536px;background:var(--bg);color:var(--ink);font-family:Lato,'DejaVu Sans',sans-serif;font-size:12.5px}
+svg.i{width:26px;height:26px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+header{background:var(--ink);color:#fff;display:flex;align-items:center;gap:18px;padding:18px 24px;height:168px}
+header .logo svg{width:96px;height:96px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+header .tt{flex:1;text-align:center;min-width:0}
+header h1{font:700 37px/1.1 'Cabin Condensed',sans-serif;letter-spacing:.01em;text-transform:uppercase}
+header p{font:italic 600 21px Lato;color:var(--acc2);margin-top:10px}
+header .qr{text-align:center;font:700 12px Lato;letter-spacing:.12em}
+header .qr div{background:#fff;padding:6px;border-radius:6px;width:92px;height:92px;margin-bottom:6px}
+header .qr svg{width:80px;height:80px}
+main{padding:12px 16px 0;display:grid;gap:10px}
+.row{display:grid;gap:10px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+h2{display:flex;align-items:center;gap:9px;font:800 15.5px Montserrat,sans-serif;letter-spacing:.02em;margin-bottom:8px;text-transform:uppercase}
+h2 b{width:24px;height:24px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font:800 13px Montserrat}
+p.t{color:var(--ink2);line-height:1.55;font-size:13px}
+p.t+p.t{margin-top:7px}
+/* workflow */
+.flow{display:flex;align-items:flex-start;justify-content:space-between}
+.st{width:80px;text-align:center;font-size:11.5px;line-height:1.3;color:var(--ink2)}
+.st svg.i{width:42px;height:42px;margin-bottom:4px}
+.st b{display:block;color:var(--ink);font-size:12.5px}
+.st.h svg.i{stroke:var(--acc)}
+.ar{color:var(--mut);font:700 17px Lato;padding-top:10px}
+.dash{margin:10px 6px 2px;border:1.5px dashed #9AA8BA;border-radius:8px;padding:6px 10px;text-align:center;font-size:12px;color:var(--ink2)}
+.dash b{color:var(--ink)}
+.hint{font-size:10.5px;color:var(--mut);margin-top:6px;display:flex;gap:6px;align-items:center;justify-content:center}
+.hint i{width:12px;height:12px;border-radius:3px;background:var(--acc);display:inline-block}
+/* components */
+.comp{display:flex;gap:10px;margin:11px 0}
+.comp b{display:block;font-size:13.5px}
+.comp span{color:var(--mut);line-height:1.4}
+/* results */
+.shots{display:grid;grid-template-columns:1fr 1fr 0.78fr;gap:8px}
+.shot{font-size:11px;text-align:center;font-weight:700}
+.shot .im{margin-top:4px;height:184px;border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.code{display:grid;grid-template-columns:1.45fr 1fr;gap:8px;margin-top:8px}
+pre{background:#101826;color:#D6E2F0;border-radius:6px;padding:9px 10px;font:9.6px/1.6 'Liberation Mono',monospace;white-space:pre;height:166px;overflow:hidden}
+pre .r{color:#FF8A80}pre .k{color:#8EC9FF}pre .s{color:#B9E39A}pre .c{color:#7D8CA3}
+/* evaluation */
+.ev{display:grid;grid-template-columns:200px 1fr 1fr 1fr;gap:14px;align-items:start}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tile{background:var(--soft);border:1px solid var(--line);border-radius:7px;padding:6px 8px}
+.tile span{display:block;font-size:11px;color:var(--mut);line-height:1.2}
+.tile b{font:800 26px Montserrat;color:var(--ink)}
+.tile b small{font-size:13px;color:var(--mut)}
+.chart h3{font-size:12.5px;text-align:center;margin-bottom:6px}
+.chart .note{font-size:9.5px;color:var(--mut);text-align:center;margin-top:4px}
+.fb{display:grid;grid-template-columns:62px 1fr;align-items:center;gap:6px;margin:10px 0;font-size:11.5px;color:var(--ink2)}
+.fb i{display:block;height:20px;border-radius:3px;background:var(--c)}
+.fb em{font-style:normal;font-weight:800;color:var(--ink);font-size:11px;margin-left:5px}
+.stack{display:flex;height:32px;border-radius:5px;overflow:hidden;margin:10px 0 8px}
+.stack div{background:var(--c);color:#fff;font-weight:800;display:grid;place-items:center;font-size:11px}
+.leg div{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink2);margin:3px 0}
+.leg i{width:10px;height:10px;border-radius:2px;background:var(--c)}
+.ring{display:flex;gap:12px;align-items:center;justify-content:center}
+/* bottom */
+.list>div{display:flex;gap:8px;align-items:flex-start;margin:9px 0}
+.list svg.i{width:20px;height:20px;stroke:var(--green)}
+.list p b{display:block;font-size:13px}
+.list p span{color:var(--mut);font-size:12px;line-height:1.35}
+.imp{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px;text-align:center;font-size:12px;font-weight:700;line-height:1.3}
+.imp svg.i{width:34px;height:34px;stroke:var(--green);margin:0 auto 4px;display:block}
+footer{position:absolute;left:0;right:0;bottom:0;height:90px;background:var(--ink);color:#fff;display:grid;grid-template-columns:1.9fr 1fr 0.75fr;padding:12px 22px;gap:22px}
+footer h4{font:800 11px Montserrat;letter-spacing:.12em;margin-bottom:8px;color:#C9D6E6}
+footer .tech{display:flex;gap:13px;align-items:center}
+footer .tech div{text-align:center;font:700 13px Lato;line-height:1.2;white-space:nowrap}
+footer .tech span{display:block;font:400 9.5px Lato;color:#AFC0D6}
+footer .data{font-size:10.5px;line-height:1.5;color:#DCE6F2}
+footer .auth{font-size:10.5px;line-height:1.5;color:#DCE6F2}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></symbol>
+  <symbol id="filter" viewBox="0 0 24 24"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></symbol>
+  <symbol id="doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><path d="M15 2v5h5M9 12h8M9 16h8M9 8h3"/></symbol>
+  <symbol id="user" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21c0-4 3-6 7-6 2 0 3.5.5 4.5 1.3"/><path d="m15 19 2 2 4-4"/></symbol>
+  <symbol id="clip" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 4V2h6v2M9 13l2 2 4-4"/></symbol>
+  <symbol id="layers" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5z"/><path d="m3 13 9 5 9-5"/></symbol>
+  <symbol id="shield" viewBox="0 0 24 24"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+  <symbol id="send" viewBox="0 0 24 24"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4z"/></symbol>
+  <symbol id="bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 14h.01M15 14h.01M9 17h6"/><circle cx="12" cy="3" r="1"/></symbol>
+  <symbol id="book" viewBox="0 0 24 24"><path d="M4 4h7a2 2 0 0 1 2 2v14a2 2 0 0 0-2-2H4zM20 4h-5a2 2 0 0 0-2 2v14a2 2 0 0 1 2-2h5z"/></symbol>
+  <symbol id="list" viewBox="0 0 24 24"><path d="M9 6h12M9 12h12M9 18h12M4 6h.01M4 12h.01M4 18h.01"/></symbol>
+  <symbol id="browser" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 9h20M6 6.5h.01M9 6.5h.01M7 14l2 2 4-4"/></symbol>
+  <symbol id="check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+  <symbol id="link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="hand" viewBox="0 0 24 24"><path d="M8 13V5a1.5 1.5 0 0 1 3 0v6M11 10V3.5a1.5 1.5 0 0 1 3 0V11M14 10V5a1.5 1.5 0 0 1 3 0v8c0 4-2.5 8-7 8-3 0-4.5-1.5-6-4l-2-3.5a1.5 1.5 0 0 1 2.6-1.5L8 15"/></symbol>
+  <symbol id="lock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+</svg>
+
+<header>
+  <div class="logo"><svg viewBox="0 0 64 64"><rect x="6" y="20" width="30" height="24" rx="5"/><path d="M21 20v-7"/><circle cx="21" cy="11" r="2"/><path d="M14 31h.01M28 31h.01M15 37h12"/><circle cx="47" cy="26" r="7"/><path d="M35 54c0-8 5-13 12-13s12 5 12 13"/><path d="m40 13 4 4 8-8"/></svg></div>
+  <div class="tt">
+    <h1>Agentic decision support for a job search<br>with a human in the loop</h1>
+    <p>From public postings to documents a human approved and sent</p>
+  </div>
+  <div class="qr"><div><img src="qr-repo.svg" alt="" style="width:80px;height:80px"></div>SCAN ME</div>
+</header>
+
+<main>
+  <div class="row" style="grid-template-columns:300px 1fr">
+    <div class="card">
+      <h2><b>1</b>Motivation</h2>
+      <p class="t">A job search is hundreds of small decisions a week: which posting to read, which to discard, what
+        each CV should say. An AI agent reads and writes fast — and it can also invent a fact, forget a rule or
+        attach the wrong file.</p>
+      <p class="t">This project pairs an AI agent (Claude Code) with written rules, one library of verified facts and
+        blocking checks: <b>the agent does the reading, the human keeps every decision.</b></p>
+    </div>
+    <div class="card">
+      <h2><b>2</b>Workflow overview</h2>
+      <div class="flow">
+        <div class="st"><svg class="i"><use href="#globe"/></svg><b>Capture</b>public sources, deduplicated</div><div class="ar">→</div>
+        <div class="st"><svg class="i"><use href="#doc"/></svg><b>Triage</b>written analysis, saved first</div><div class="ar">→</div>
+        <div class="st h"><svg class="i"><use href="#user"/></svg><b>Owner authorizes</b>by name</div><div class="ar">→</div>
+        <div class="st"><svg class="i"><use href="#clip"/></svg><b>Posting audit</b>GO / NO-GO</div><div class="ar">→</div>
+        <div class="st"><svg class="i"><use href="#layers"/></svg><b>Compose CV</b>from fact fragments</div><div class="ar">→</div>
+        <div class="st h"><svg class="i"><use href="#shield"/></svg><b>Approve + gate</b>full text, <span style="white-space:nowrap">G1–G12</span></div><div class="ar">→</div>
+        <div class="st h"><svg class="i"><use href="#send"/></svg><b>Owner submits</b>always by hand</div>
+      </div>
+      <div class="dash"><b>Board &amp; metrics</b> — funnel, response windows, call-probability calibration · generated, never edited by hand</div>
+      <div class="hint"><i></i> a human decision</div>
+    </div>
+  </div>
+
+  <div class="row" style="grid-template-columns:300px 1fr">
+    <div class="card">
+      <h2><b>3</b>Key components</h2>
+      <div class="comp"><svg class="i"><use href="#bot"/></svg><div><b>Claude Code + 25 skills</b><span>Written procedures for every recurring task, and boundaries the agent never crosses.</span></div></div>
+      <div class="comp"><svg class="i"><use href="#book"/></svg><div><b>One library of facts</b><span>Every fact lives in one file; each CV is composed from LaTeX fragments.</span></div></div>
+      <div class="comp"><svg class="i"><use href="#list"/></svg><div><b>Closed vocabularies</b><span>States, channels and closures validated by a JSON Schema.</span></div></div>
+      <div class="comp"><svg class="i"><use href="#shield"/></svg><div><b>Application gate</b><span>12 blocking checks, from ATS readability to the approval fingerprint.</span></div></div>
+      <div class="comp"><svg class="i"><use href="#browser"/></svg><div><b>Rendered-page test</b><span>A headless browser compares what the board shows with what the data says.</span></div></div>
+    </div>
+    <div class="card">
+      <h2><b>4</b>Example results <span style="font:600 11px Lato;color:var(--mut);text-transform:none;margin-left:4px">· invented data</span></h2>
+      <div class="shots">
+        <div class="shot">The board · pipeline view<div class="im"><img src="../docs/img/board-pipeline-desktop-light.png" alt=""></div></div>
+        <div class="shot">The board · funnel view<div class="im"><img src="../docs/img/board-funnel-desktop-light.png" alt=""></div></div>
+        <div class="shot">Tailored CV (LaTeX)<div class="im"><img src="../docs/img/cv-application.png" alt=""></div></div>
+      </div>
+      <div class="code">
+<pre><span class="c">$ python3 reference/gate.py …/applications/blocked</span>
+<span class="r">✗ G1</span>  placeholder left in the CV: [[metric?]]
+<span class="r">✗ G1</span>  open question left in the analysis (ASK:)
+<span class="r">✗ G4</span>  retired claim in text: "led a team of 12"
+<span class="r">✗ G4</span>  retired claim in metadata 'Subject'
+<span class="r">✗ G7</span>  date range 2012–2019 is not in the master profile
+<span class="r">✗ G12</span> the text changed after the owner approved it
+<span class="r">BLOCKED — 6 problem(s).</span> Nothing is sent.</pre>
+<pre><span class="c"># invented example — one pipeline entry</span>
+<span class="k">state:</span> no_response
+<span class="k">closed_by:</span> own         <span class="c"># who closed it</span>
+<span class="k">closure_reason:</span> silence
+<span class="k">channel_type:</span> board
+<span class="k">fit:</span> 68                <span class="c"># employer's view</span>
+<span class="k">fit_detail:</span> <span class="s">"23/25/15/5"</span>
+<span class="k">call_probability:</span> 3   <span class="c"># %, at submission</span>
+<span class="k">gaps:</span> [<span class="s">"orchestrator X"</span>]</pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><b>5</b>Evaluation results <span style="font:600 11px Lato;color:var(--mut);text-transform:none;margin-left:4px">· measured in the private system</span></h2>
+    <div class="ev">
+      <div class="tiles">
+        <div class="tile"><span>Postings analyzed</span><b>822</b></div>
+        <div class="tile"><span>Documents sent</span><b>77</b></div>
+        <div class="tile"><span>Recommendations authorized</span><b>33<small>/33</small></b></div>
+        <div class="tile"><span>Discards reopened</span><b>5<small>/789</small></b></div>
+        <div class="tile" style="grid-column:span 2"><span>Sent without the owner approving the full text</span><b>0</b></div>
+      </div>
+      <div class="chart" id="funnel">
+        <h3>The funnel</h3>
+        <div class="fb" style="--c:#2F6FB5"><span>Seen</span><div><i data-v="14800"></i></div></div>
+        <div class="fb" style="--c:#3E8FA8"><span>Analyzed</span><div><i data-v="822"></i></div></div>
+        <div class="fb" style="--c:#7B61C4"><span>Pipeline</span><div><i data-v="332"></i></div></div>
+        <div class="fb" style="--c:#2E8B57"><span>Sent</span><div><i data-v="77"></i></div></div>
+        <div class="note">postings at each stage · bar length on a log scale</div>
+      </div>
+      <div class="chart">
+        <h3>What happened to the agent's recommendations</h3>
+        <div class="stack" id="recs">
+          <div style="--c:#2E8B57" data-v="24"></div><div style="--c:#E8833A" data-v="8"></div><div style="--c:#9AA8BA" data-v="1"></div>
+        </div>
+        <div class="leg">
+          <div style="--c:#2E8B57"><i></i>sent after the posting audit</div>
+          <div style="--c:#E8833A"><i></i>dropped at the posting audit (GO / NO-GO)</div>
+          <div style="--c:#9AA8BA"><i></i>pending</div>
+        </div>
+        <div class="note">all 33 were authorized by the owner</div>
+      </div>
+      <div class="chart">
+        <h3>The agent's discards, reviewed by the owner</h3>
+        <div class="ring"><svg id="ring" width="118" height="118" viewBox="0 0 42 42" data-total="789" data-part="5"></svg>
+          <div class="leg"><div style="--c:#2F6FB5"><i></i>kept as discarded</div><div style="--c:#C8463D"><i></i>reopened by the owner</div></div></div>
+        <div class="note" id="ringnote"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="grid-template-columns:1fr 1fr 1.1fr">
+    <div class="card list">
+      <h2><b>6</b>Outputs</h2>
+      <div><svg class="i"><use href="#doc"/></svg><p><b>Tailored CV (PDF)</b><span>two pages, ATS-readable, every line traced to a fact</span></p></div>
+      <div><svg class="i"><use href="#list"/></svg><p><b>A written analysis per posting</b><span>verdict and reason, kept even when nobody answers</span></p></div>
+      <div><svg class="i"><use href="#chart"/></svg><p><b>The board (HTML)</b><span>today, pipeline, funnel and presence, generated daily</span></p></div>
+      <div><svg class="i"><use href="#lock"/></svg><p><b>An immutable sent record</b><span>what the recruiter read is never rebuilt</span></p></div>
+    </div>
+    <div class="card list">
+      <h2><b>7</b>Design principles</h2>
+      <div><svg class="i"><use href="#check"/></svg><p><b>Approval before send</b><span>bound to a fingerprint of the approved text</span></p></div>
+      <div><svg class="i"><use href="#check"/></svg><p><b>Gates block, never warn</b><span>exceptions are written down, never coded in</span></p></div>
+      <div><svg class="i"><use href="#check"/></svg><p><b>Rules carry dates</b><span>a changed rule reopens the discards it justified</span></p></div>
+      <div><svg class="i"><use href="#check"/></svg><p><b>Every failure becomes a control</b><span>each check traces to a real lesson</span></p></div>
+    </div>
+    <div class="card">
+      <h2><b>8</b>Impact</h2>
+      <p class="t">Fewer, better applications: about a thousand opportunities discarded with a written reason against
+        <b>77 documents sent</b> — none without the owner reading and approving it, every one submitted by hand.</p>
+      <div class="imp">
+        <div><svg class="i"><use href="#target"/></svg>Focused<br>effort</div>
+        <div><svg class="i"><use href="#link"/></svg>Every claim<br>traceable</div>
+        <div><svg class="i"><use href="#chart"/></svg>A measured<br>agent</div>
+        <div><svg class="i"><use href="#hand"/></svg>The human<br>decides</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div><h4>TECHNOLOGIES</h4><div class="tech">
+    <div>Claude Code<span>agent · skills · hooks</span></div><div>Python<span>gates · metrics</span></div>
+    <div>LaTeX<span>CV fragments</span></div><div>Playwright<span>render test</span></div>
+    <div>HTML/CSS/JS<span>the board</span></div><div>GitHub Actions<span>CI</span></div></div></div>
+  <div><h4>DATA</h4><div class="data">Public postings — aggregates only<br>Examples and screenshots: invented data<br>No personal data, employers or postings</div></div>
+  <div><h4>AUTHOR</h4><div class="auth">Industrial engineer<br>Applied AI &amp; automation<br>for physical operations</div></div>
+</footer>
+
+<script>
+// Bars, stack and ring are drawn from the numbers written on the page, so a number is stated once.
+const fb = [...document.querySelectorAll("#funnel i")];
+const max = Math.log10(Math.max(...fb.map((i) => +i.dataset.v)));
+for (const i of fb) {
+  i.style.width = `${(100 * Math.log10(+i.dataset.v) / max).toFixed(1)}%`;
+  i.insertAdjacentHTML("afterend", `<em>${(+i.dataset.v).toLocaleString("en-US")}</em>`);
+  i.parentElement.style.display = "flex"; i.parentElement.style.alignItems = "center";
+}
+const parts = [...document.querySelectorAll("#recs div")];
+for (const p of parts) { p.style.flex = p.dataset.v; p.textContent = p.dataset.v; }
+const ring = document.getElementById("ring"), total = +ring.dataset.total, part = +ring.dataset.part;
+const c = 2 * Math.PI * 15.9155, share = part / total;
+ring.innerHTML = `<circle cx="21" cy="21" r="15.9155" fill="none" stroke="#2F6FB5" stroke-width="6"/>` +
+  `<circle cx="21" cy="21" r="15.9155" fill="none" stroke="#C8463D" stroke-width="6" stroke-dasharray="${Math.max(share * c, 1.2)} ${c}" transform="rotate(-90 21 21)"/>` +
+  `<text x="21" y="22.5" text-anchor="middle" font-size="6.5" font-weight="800" fill="#0F1B2D" font-family="Montserrat">${(100 * share).toFixed(1)} %</text>`;
+document.getElementById("ringnote").textContent = `${part} of ${total} discards reopened · ${total - part} kept`;
+</script>
+</body></html>

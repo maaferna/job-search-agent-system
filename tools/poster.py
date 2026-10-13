@@ -23,6 +23,7 @@ import imaging  # noqa: E402
 # image name → (source page, CSS width, CSS height, device scale, what it is)
 PAGES = {
     "poster-architecture": ("poster.html", 1240, 1754, 2, "A4 architecture poster"),
+    "poster-overview": ("poster-overview.html", 1024, 1536, 2, "overview infographic poster"),
     "social-card": ("social-card.html", 1280, 640, 1, "social preview card"),
 }
 

@@ -54,7 +54,7 @@ operating the owner's accounts: browser work happens only in a session the owner
 **Images.** A raster image cannot be searched: each one needs a manifest (`docs/img/README.md`) with its
 SHA-256 and its visible text. Board screenshots and CV previews are only regenerated with
 `tools/board_screenshots.py` and `tools/latex_previews.py`, and the poster and social card only with
-`tools/poster.py` from `tools/poster.html` and `tools/social-card.html` (their numbers must match
+`tools/poster.py` from `tools/poster.html`, `tools/poster-overview.html` and `tools/social-card.html` (their numbers must match
 `docs/numbers.yaml`); never edited or replaced by hand.
 Diagrams stay in Mermaid inside the Markdown, so they can be diffed and searched. The presence view must keep
 running on generated series (`tools/presence_fixture.py`), never on the owner's metrics. The owner reviews

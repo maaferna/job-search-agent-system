@@ -7,7 +7,8 @@ The same figures are written in the README (twice, once in Spanish), in docs/met
 and nothing kept them together: a refresh that missed one place would publish two different numbers.
 Each check below is a pattern with named groups; a group named after a key of numbers.yaml must hold that
 value. A pattern that no longer matches also fails — the sentence changed, so the check must be reviewed
-with it. Spaces in a pattern match any run of whitespace. `<key>__es` writes the number in Spanish format (14.800) and `<key>__en` in English (14,800).
+with it. Spaces in a pattern match any run of whitespace. `<key>__es` writes the number in Spanish format (14.800), `<key>__en` in English (14,800) and `<key>__raw` without
+separators (an HTML attribute).
 
 The number of decision records is not stored: it is counted in docs/decisions/.
 """
@@ -86,6 +87,22 @@ CHECKS = [
     ("tools/poster.html", r'<div class="big">(?P<recommended>\d+) <small>approved by the owner</small></div>'
                           r'<div class="d"[^>]*>(?P<recommended_dropped>\d+) of them'),
     ("tools/poster.html", r'<div class="big">(?P<discards_reopened>\d+) <small>of (?P<triage_discarded>\d+) reopened'),
+    # the overview poster
+    ("tools/poster-overview.html", r"Claude Code \+ (?P<skills>\d+) skills"),
+    ("tools/poster-overview.html", r"(?P<gate_checks>\d+) blocking checks"),
+    ("tools/poster-overview.html", r'<span>Postings analyzed</span><b>(?P<triage>\d+)</b>'),
+    ("tools/poster-overview.html", r'<span>Documents sent</span><b>(?P<sent>\d+)</b>'),
+    ("tools/poster-overview.html", r'<b>(?P<recommended>\d+)<small>/(?P=recommended)</small></b>'),
+    ("tools/poster-overview.html", r'Discards reopened</span><b>(?P<discards_reopened>\d+)<small>/(?P<triage_discarded>\d+)</small></b>'),
+    ("tools/poster-overview.html", r'<span>Seen</span><div><i data-v="(?P<seen__raw>\d+)">'),
+    ("tools/poster-overview.html", r'<span>Analyzed</span><div><i data-v="(?P<triage>\d+)">'),
+    ("tools/poster-overview.html", r'<span>Pipeline</span><div><i data-v="(?P<pipeline>\d+)">'),
+    ("tools/poster-overview.html", r'<span>Sent</span><div><i data-v="(?P<sent>\d+)">'),
+    ("tools/poster-overview.html", r'data-v="(?P<recommended_sent>\d+)"></div><div style="--c:#E8833A" data-v="(?P<recommended_dropped>\d+)"></div>'
+                                   r'<div style="--c:#9AA8BA" data-v="(?P<recommended_pending>\d+)">'),
+    ("tools/poster-overview.html", r"all (?P<recommended>\d+) were authorized"),
+    ("tools/poster-overview.html", r'data-total="(?P<triage_discarded>\d+)" data-part="(?P<discards_reopened>\d+)"'),
+    ("tools/poster-overview.html", r"against <b>(?P<sent>\d+) documents sent"),
     # the social card
     ("tools/social-card.html", r'<div class="n">~(?P<seen__en>[\d,]+)</div><div class="l">postings seen'),
     ("tools/social-card.html", r'<div class="n">(?P<triage>\d+)</div><div class="l">analyzed in writing'),
@@ -104,7 +121,7 @@ def expected_values(numbers: dict) -> dict[str, str]:
 
 
 def formatted(value: str, style: str) -> str:
-    if not value.isdigit():
+    if not value.isdigit() or style == "raw":
         return value
     en = f"{int(value):,}"
     return en.replace(",", ".") if style == "es" else en
