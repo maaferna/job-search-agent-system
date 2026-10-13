@@ -12,7 +12,10 @@ holds:
   `tests/`;
 - `docs/img/` — board screenshots and CV previews generated from invented data, the architecture poster and
   the social card, all by `tools/`;
-- `scripts/` — the sanitization gate, the link checker and the hook installer.
+- `scripts/` — the sanitization gate, the link and anchor checker, the numbers check and the hook installer;
+- `.claude/skills/` — the skills that maintain this repository: `doc-review` before committing text,
+  `refresh-numbers` to update the published figures, `publish-check` before a push or a release, `new-adr`
+  for a new decision record.
 
 The private system lives in a sibling folder and is the **read-only source** for this repository.
 

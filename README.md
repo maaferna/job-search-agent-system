@@ -28,7 +28,7 @@ decision — with a human reading and approving every document, and making every
 > - **Qué se publica:** el sistema real es privado porque contiene datos personales; aquí está su diseño,
 >   con capturas generadas con **datos inventados**.
 >
-> Para empezar: [el póster](docs/img/poster-architecture.png), que lo resume en una página;
+> Para empezar: [el póster](docs/img/poster-overview.png), que lo resume en una página;
 > [el tablero](docs/board.md), que muestra el trabajo diario; y [las lecciones](docs/lessons.md), que
 > cuentan qué falló y qué control nació de cada falla. Las páginas están en inglés; el
 > [glosario](docs/glossary.md) explica cada término.
@@ -47,7 +47,7 @@ decision — with a human reading and approving every document, and making every
 
 **Start here**
 
-- *Recruiters:* [the one-page poster](docs/img/poster-architecture.png) → [the board](docs/board.md) →
+- *Recruiters:* [the overview poster](docs/img/poster-overview.png) → [the board](docs/board.md) →
   [lessons](docs/lessons.md) →
   [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does).
 - *Engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
@@ -197,6 +197,7 @@ recomputed, and the calibration of the call probability.
 | [`docs/numbers.yaml`](docs/numbers.yaml) | The single source of every published number, checked in CI |
 | [`examples/`](examples/) | Invented example data, the pipeline JSON Schema, seven translated agent skills, the [Claude Code settings and hooks](examples/claude/), local-model prompts, a `CLAUDE.md` template, and a [compiling LaTeX example](examples/latex/) of fragments and compositions |
 | [`reference/`](reference/) | Working minimal versions of six mechanisms: closed-vocabulary validator, dated rules, fit and call probability, per-application gate, ATS coverage, rendered-page test |
+| [`.claude/skills/`](.claude/skills/) | The four skills this repository is maintained with: [`doc-review`](.claude/skills/doc-review/SKILL.md) (editorial review), [`refresh-numbers`](.claude/skills/refresh-numbers/SKILL.md), [`publish-check`](.claude/skills/publish-check/SKILL.md) and [`new-adr`](.claude/skills/new-adr/SKILL.md) |
 | [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews, the architecture poster — each gated before it is written |
 
 ## Run the reference code
