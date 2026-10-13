@@ -1,0 +1,40 @@
+% INVENTED EXAMPLE — showcase CV, operations track, English. Same fragment library, other choices:
+% the .ops variant of the current role, the plant roles expanded (.full) instead of compressed, and
+% operations skills first.
+\documentclass[a4paper,10pt]{article}
+\newcommand{\cvpdftitle}{Example Candidate - Operations and Planning Engineer}
+\newcommand{\cvkeywords}{Production planning, sales and operations planning, continuous improvement, operations research, Python, SQL}
+\input{fragments/preamble/base.tex}
+\input{fragments/preamble/styles.tex}
+\input{fragments/preamble/contact.tex}
+\input{fragments/en/headline/ops.tex}
+
+\begin{document}
+\input{fragments/preamble/header.tex}
+
+\section*{Profile}
+\input{fragments/en/summary/ops.tex}
+
+\section*{Experience}
+\begin{cvexperience}
+\input{fragments/en/experience/example-institute.ops.tex}
+\input{fragments/en/experience/example-manufacturing.full.tex}
+\end{cvexperience}
+
+\section*{Skills}
+\begin{cvcompact}
+\input{fragments/en/skills/ops.tex}
+\input{fragments/en/skills/data.tex}
+\end{cvcompact}
+
+\section*{Projects}
+\begin{cvblock}
+\input{fragments/en/projects/scheduling-optimizer.tex}
+\end{cvblock}
+
+\section*{Education and languages}
+\begin{cvcompact}
+\input{fragments/en/sections/education.tex}
+\input{fragments/en/sections/languages.tex}
+\end{cvcompact}
+\end{document}

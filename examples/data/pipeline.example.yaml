@@ -1,0 +1,679 @@
+# INVENTED EXAMPLE DATA — not a real application, employer or outcome.
+# Employer names come from the fictional companies commonly used in software documentation.
+# Schema: docs/state-machine.md and examples/schemas/pipeline-entry.schema.json.
+# Dates are written relative to `as_of`; tools/board_screenshots.py shifts them to the day it runs.
+as_of: 2026-10-13
+entries:
+- id: ex-01
+  employer: Relecloud
+  role: Computer Vision Engineer
+  family: C2
+  profile: P2
+  state: discarded
+  priority: 3
+  url: https://example.com/postings/1
+  modality: remote
+  published: 2026-08-17
+  fit: 68
+  fit_detail: 28/15/20/5
+  reason: 'Invented example: rotating shifts outside the home region (owner rule)'
+- id: ex-02
+  employer: Tailspin Energy
+  role: Python Backend Developer
+  family: B1
+  profile: P3
+  state: discarded
+  priority: 3
+  url: https://example.com/postings/2
+  modality: remote
+  published: 2026-09-21
+  fit: 83
+  fit_detail: 18/25/25/15
+  reason: 'Invented example: rotating shifts outside the home region (owner rule)'
+- id: ex-03
+  employer: Northwind Foods
+  role: Computer Vision Engineer
+  family: C2
+  profile: P1
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/3
+  modality: hybrid
+  published: 2026-10-06
+  fit: 65
+  fit_detail: 15/25/20/5
+  reason: 'Invented example: overqualified, asks for a fraction of the experience'
+- id: ex-04
+  employer: Litware Analytics
+  role: Computer Vision Engineer
+  family: B1
+  profile: P3
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/4
+  modality: hybrid
+  published: 2026-09-26
+  fit: 63
+  fit_detail: 23/15/25/0
+  reason: 'Invented example: a hard requirement is missing (years in an industry the profile lacks)'
+- id: ex-05
+  employer: Woodgrove Retail
+  role: Data Scientist
+  family: N1-5
+  profile: P3
+  state: discarded
+  priority: 1
+  url: https://example.com/postings/5
+  modality: hybrid
+  published: 2026-08-23
+  fit: 41
+  fit_detail: 21/5/15/0
+  reason: 'Invented example: a hard requirement is missing (years in an industry the profile lacks)'
+- id: ex-06
+  employer: Alpine Ski House
+  role: BI Analyst
+  family: A1
+  profile: P1
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/6
+  modality: hybrid
+  published: 2026-10-06
+  fit: 49
+  fit_detail: 14/5/25/5
+  reason: 'Invented example: overqualified, asks for a fraction of the experience'
+- id: ex-07
+  employer: Trey Research
+  role: ML Engineer
+  family: N1-5
+  profile: P2
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/7
+  modality: onsite
+  published: 2026-09-04
+  fit: 50
+  fit_detail: 20/5/15/10
+  reason: 'Invented example: overqualified, asks for a fraction of the experience'
+- id: ex-08
+  employer: Tailspin Energy
+  role: Operations Analyst
+  family: B1
+  profile: P1
+  state: discarded
+  priority: 3
+  url: https://example.com/postings/8
+  modality: remote
+  published: 2026-09-25
+  fit: 82
+  fit_detail: 17/25/25/15
+  reason: 'Invented example: rotating shifts outside the home region (owner rule)'
+- id: ex-09
+  employer: Litware Analytics
+  role: Operations Analyst
+  family: A1
+  profile: P1
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/9
+  modality: remote
+  published: 2026-09-14
+  fit: 71
+  fit_detail: 26/25/5/15
+  reason: 'Invented example: the day-to-day work has no data, automation or model'
+- id: ex-10
+  employer: Northwind Foods
+  role: AI Engineer
+  family: A1
+  profile: P1
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/10
+  modality: hybrid
+  published: 2026-09-29
+  fit: 56
+  fit_detail: 26/5/25/0
+  reason: 'Invented example: a hard requirement is missing (years in an industry the profile lacks)'
+- id: ex-11
+  employer: Coho Winery
+  role: Process Automation Lead
+  family: C2
+  profile: P3
+  state: no_response
+  priority: 1
+  url: https://example.com/postings/11
+  modality: onsite
+  published: 2026-09-16
+  fit: 71
+  fit_detail: 16/25/25/5
+  sent: 2026-09-20
+  channel_type: ats
+  submitted_via: email
+  direct_contact: false
+  call_probability: 4
+  gaps:
+  - English C1
+  - cloud certification
+  closed_by: own
+  closure_reason: silence
+- id: ex-12
+  employer: Margie's Travel
+  role: Production Planner
+  family: A1
+  profile: P3
+  state: no_response
+  priority: 1
+  url: https://example.com/postings/12
+  modality: remote
+  published: 2026-10-02
+  fit: 81
+  fit_detail: 26/25/20/10
+  sent: 2026-10-03
+  channel_type: board
+  submitted_via: other
+  direct_contact: false
+  call_probability: 2
+  gaps: []
+  closed_by: own
+  closure_reason: silence
+- id: ex-13
+  employer: Lucerne Manufacturing
+  role: Python Backend Developer
+  family: N1-5
+  profile: P1
+  state: no_response
+  priority: 3
+  url: https://example.com/postings/13
+  modality: hybrid
+  published: 2026-09-02
+  fit: 56
+  fit_detail: 16/15/25/0
+  sent: &id001 2026-09-03
+  channel_type: direct
+  submitted_via: email
+  direct_contact: true
+  call_probability: 20
+  gaps:
+  - streaming platform
+  history:
+  - date: *id001
+    type: connection
+  closed_by: own
+  closure_reason: silence
+- id: ex-14
+  employer: Margie's Travel
+  role: Process Automation Lead
+  family: A1
+  profile: P2
+  state: no_response
+  priority: 3
+  url: https://example.com/postings/14
+  modality: remote
+  published: 2026-09-07
+  fit: 54
+  fit_detail: 19/5/25/5
+  sent: 2026-09-11
+  channel_type: board
+  submitted_via: email
+  direct_contact: false
+  call_probability: 2
+  gaps: []
+  closed_by: own
+  closure_reason: silence
+- id: ex-15
+  employer: Litware Analytics
+  role: Data Engineer
+  family: N1-5
+  profile: P1
+  state: no_response
+  priority: 1
+  url: https://example.com/postings/15
+  modality: hybrid
+  published: 2026-10-06
+  fit: 47
+  fit_detail: 22/15/5/5
+  sent: 2026-10-08
+  channel_type: board
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - cloud certification
+  closed_by: own
+  closure_reason: silence
+- id: ex-16
+  employer: Relecloud
+  role: Data Scientist
+  family: N1-5
+  profile: P2
+  state: no_response
+  priority: 2
+  url: https://example.com/postings/16
+  modality: remote
+  published: 2026-08-29
+  fit: 55
+  fit_detail: 30/5/20/0
+  sent: 2026-08-31
+  channel_type: board
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - industry experience
+  - orchestrator X
+  closed_by: own
+  closure_reason: silence
+- id: ex-17
+  employer: Margie's Travel
+  role: ML Engineer
+  family: N1-5
+  profile: P2
+  state: rejected
+  priority: 3
+  url: https://example.com/postings/17
+  modality: hybrid
+  published: 2026-08-25
+  fit: 58
+  fit_detail: 23/15/20/0
+  sent: 2026-08-25
+  channel_type: board
+  submitted_via: email
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - orchestrator X
+  closed_by: employer
+  closure_reason: other_candidate
+- id: ex-18
+  employer: Fabrikam Logistics
+  role: BI Analyst
+  family: B1
+  profile: P3
+  state: rejected
+  priority: 1
+  url: https://example.com/postings/18
+  modality: remote
+  published: 2026-08-21
+  fit: 69
+  fit_detail: 14/15/25/15
+  sent: 2026-08-21
+  channel_type: board
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - orchestrator X
+  - 5 years in role
+  closed_by: employer
+  closure_reason: other_candidate
+- id: ex-19
+  employer: Coho Winery
+  role: BI Analyst
+  family: C2
+  profile: P1
+  state: rejected
+  priority: 3
+  url: https://example.com/postings/19
+  modality: remote
+  published: 2026-08-12
+  fit: 67
+  fit_detail: 32/15/5/15
+  sent: 2026-08-12
+  channel_type: ats
+  submitted_via: other
+  direct_contact: false
+  call_probability: 4
+  gaps: []
+  closed_by: employer
+  closure_reason: other_candidate
+- id: ex-20
+  employer: Northwind Foods
+  role: Data Scientist
+  family: A3
+  profile: P3
+  state: rejected
+  priority: 2
+  url: https://example.com/postings/20
+  modality: hybrid
+  published: 2026-09-21
+  fit: 48
+  fit_detail: 18/5/20/5
+  sent: 2026-09-22
+  channel_type: ats
+  submitted_via: agency_site
+  direct_contact: false
+  call_probability: 4
+  gaps:
+  - 5 years in role
+  - cloud certification
+  closed_by: employer
+  closure_reason: other_candidate
+- id: ex-21
+  employer: Litware Analytics
+  role: AI Engineer
+  family: A1
+  profile: P1
+  state: rejected
+  priority: 2
+  url: https://example.com/postings/21
+  modality: hybrid
+  published: 2026-09-16
+  fit: 46
+  fit_detail: 21/5/15/5
+  sent: 2026-09-16
+  channel_type: board
+  submitted_via: email
+  direct_contact: false
+  call_probability: 2
+  gaps: []
+  closed_by: board
+  closure_reason: generic_board
+- id: ex-22
+  employer: Relecloud
+  role: Python Backend Developer
+  family: A3
+  profile: P3
+  state: sent
+  priority: 3
+  url: https://example.com/postings/22
+  modality: hybrid
+  published: 2026-09-23
+  fit: 55
+  fit_detail: 20/15/5/15
+  sent: 2026-09-25
+  channel_type: board
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - streaming platform
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-11
+- id: ex-23
+  employer: Woodgrove Retail
+  role: Production Planner
+  family: B1
+  profile: P2
+  state: sent
+  priority: 1
+  url: https://example.com/postings/23
+  modality: onsite
+  published: 2026-09-18
+  fit: 58
+  fit_detail: 23/5/25/5
+  sent: 2026-09-20
+  channel_type: board
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 2
+  gaps: []
+  portal_signal: Viewed
+  signal_date: 2026-09-22
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-12
+- id: ex-24
+  employer: Relecloud
+  role: ML Engineer
+  family: A1
+  profile: P1
+  state: sent
+  priority: 2
+  url: https://example.com/postings/24
+  modality: hybrid
+  published: 2026-08-31
+  fit: 51
+  fit_detail: 31/5/15/0
+  sent: 2026-09-01
+  channel_type: board
+  submitted_via: agency_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - industry experience
+  - orchestrator X
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-13
+- id: ex-25
+  employer: Proseware Robotics
+  role: Process Automation Lead
+  family: A1
+  profile: P1
+  state: sent
+  priority: 2
+  url: https://example.com/postings/25
+  modality: remote
+  published: 2026-08-22
+  fit: 65
+  fit_detail: 25/5/20/15
+  sent: 2026-08-25
+  channel_type: board
+  submitted_via: agency_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - cloud certification
+  portal_signal: Viewed
+  signal_date: 2026-08-27
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-11
+- id: ex-26
+  employer: Lucerne Manufacturing
+  role: Computer Vision Engineer
+  family: A1
+  profile: P1
+  state: sent
+  priority: 3
+  url: https://example.com/postings/26
+  modality: remote
+  published: 2026-09-04
+  fit: 60
+  fit_detail: 30/15/5/10
+  sent: 2026-09-04
+  channel_type: board
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 2
+  gaps:
+  - orchestrator X
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-15
+- id: ex-27
+  employer: Humongous Insurance
+  role: Data Scientist
+  family: B1
+  profile: P2
+  state: sent
+  priority: 3
+  url: https://example.com/postings/27
+  modality: hybrid
+  published: 2026-09-24
+  fit: 54
+  fit_detail: 14/15/25/0
+  sent: &id002 2026-09-26
+  channel_type: direct
+  submitted_via: company_site
+  direct_contact: true
+  call_probability: 20
+  gaps: []
+  history:
+  - date: *id002
+    type: connection
+  portal_signal: Viewed
+  signal_date: 2026-09-28
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-12
+- id: ex-28
+  employer: Trey Research
+  role: Data Engineer
+  family: A1
+  profile: P3
+  state: contact
+  priority: 3
+  url: https://example.com/postings/28
+  modality: remote
+  published: 2026-09-29
+  fit: 81
+  fit_detail: 31/15/20/15
+  sent: &id003 2026-10-02
+  channel_type: direct
+  submitted_via: other
+  direct_contact: true
+  call_probability: 20
+  gaps:
+  - orchestrator X
+  - cloud certification
+  history:
+  - date: *id003
+    type: connection
+  - date: 2026-10-08
+    type: reply
+- id: ex-29
+  employer: Humongous Insurance
+  role: Process Automation Lead
+  family: A3
+  profile: P3
+  state: contact
+  priority: 2
+  url: https://example.com/postings/29
+  modality: remote
+  published: 2026-08-18
+  fit: 66
+  fit_detail: 31/5/20/10
+  sent: 2026-08-19
+  channel_type: ats
+  submitted_via: company_site
+  direct_contact: false
+  call_probability: 4
+  gaps:
+  - streaming platform
+  - 5 years in role
+  history:
+  - date: 2026-08-25
+    type: reply
+- id: ex-30
+  employer: Margie's Travel
+  role: AI Engineer
+  family: N1-5
+  profile: P3
+  state: interview
+  priority: 1
+  url: https://example.com/postings/30
+  modality: remote
+  published: 2026-09-14
+  fit: 96
+  fit_detail: 31/25/25/15
+  sent: 2026-09-17
+  channel_type: board
+  submitted_via: agency_site
+  direct_contact: false
+  call_probability: 2
+  gaps: []
+  history:
+  - date: 2026-09-23
+    type: reply
+  - date: 2026-09-27
+    type: interview
+- id: ex-31
+  employer: Wide World Importers
+  role: ML Engineer
+  family: A3
+  profile: P1
+  state: prepared
+  priority: 2
+  url: https://example.com/postings/31
+  modality: hybrid
+  published: 2026-08-12
+  fit: 66
+  fit_detail: 31/15/5/15
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-13
+- id: ex-32
+  employer: Margie's Travel
+  role: Computer Vision Engineer
+  family: A3
+  profile: P1
+  state: prepared
+  priority: 3
+  url: https://example.com/postings/32
+  modality: onsite
+  published: 2026-09-20
+  fit: 47
+  fit_detail: 17/25/5/0
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-11
+- id: ex-33
+  employer: Proseware Robotics
+  role: Data Engineer
+  family: C2
+  profile: P2
+  state: prospect
+  priority: 1
+  url: https://example.com/postings/33
+  modality: hybrid
+  published: 2026-08-28
+  fit: 58
+  fit_detail: 23/15/15/5
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-12
+- id: ex-34
+  employer: Graphic Design Institute
+  role: Production Planner
+  family: B1
+  profile: P3
+  state: prospect
+  priority: 2
+  url: https://example.com/postings/34
+  modality: remote
+  published: 2026-09-24
+  fit: 30
+  fit_detail: 20/5/5/0
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-13
+- id: ex-35
+  employer: Humongous Insurance
+  role: AI Engineer
+  family: C2
+  profile: P3
+  state: prospect
+  priority: 3
+  url: https://example.com/postings/35
+  modality: onsite
+  published: 2026-08-16
+  fit: 61
+  fit_detail: 31/5/20/5
+  next_action: 'Invented example: check the status on the board'
+  action_date: 2026-10-14
+- id: ex-36
+  employer: Fourth Coffee
+  role: Operations Analyst
+  family: A1
+  profile: P1
+  state: outreach
+  priority: 1
+  url: https://example.com/postings/36
+  modality: onsite
+  published: 2026-09-20
+  fit: 73
+  fit_detail: 33/15/20/5
+  direct_contact: true
+  submitted_via: email
+  channel_type: direct
+  history:
+  - date: 2026-10-11
+    type: connection
+  action_date: 2026-10-16
+  next_action: 'Invented example: one reminder if there is no reply'
+- id: ex-37
+  employer: Coho Winery
+  role: Operations Manager
+  family: C1
+  profile: P3
+  state: discarded
+  priority: 2
+  url: https://example.com/postings/37
+  modality: onsite
+  published: 2026-08-29
+  closes: 2026-10-26
+  fit: 71
+  fit_detail: 26/15/20/10
+  reason: 'Invented example: management role, discarded on 2026-09-02 under rule management-roles-location'

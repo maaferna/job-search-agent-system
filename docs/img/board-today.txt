@@ -1,0 +1,77 @@
+# image-manifest
+# image: board-today-desktop-dark.png sha256=ed6d9a498779c63934aee410c5aef5070d5b29c87a6be14d8a48f4ada14948c5
+# image: board-today-desktop-light.png sha256=80996df7c0aff0065963e556c2eb57edb0e89abda24b96444b3b1c64bc6ee03b
+# image: board-today-mobile-light.png sha256=3d84616c84d3474da6c7def78fd3cd8b6f3e168a0d7f50960f97e8b633c9fc6a
+# source: invented data (examples/data/pipeline.example.yaml), rendered by tools/board_screenshots.py
+# the board's interface is in Spanish
+# visible text below
+
+Tablero de postulaciones
+Demo owner · generado el 2026-10-13 desde postulaciones/pipeline.yaml. Las alertas se calculan con la fecha de hoy en tu navegador.
+Hoy
+Pipeline
+Vivas
+Embudo
+Presencia
+CONVERSACIONES CON PERSONAS · 5
+Data Scientist · Humongous Insurance
+Escribiste tú · 2026-09-26Enviada
+→ Invented example: check the status on the board 2026-10-12 · atrasada 1 d
+Operations Analyst · Fourth Coffee
+Escribiste tú · 2026-10-11Contacto enviado
+→ Invented example: one reminder if there is no reply 2026-10-16 · en 3 d
+Data Engineer · Trey Research
+Respondieron · 2026-10-08Contacto
+→ · sin fecha
+Process Automation Lead · Humongous Insurance
+Respondieron · 2026-08-25Contacto
+→ · sin fecha
+AI Engineer · Margie's Travel
+Entrevista · 2026-09-27Entrevista
+→ · sin fecha
+ACCIONES DE HOY Y ATRASADAS · 9
+Python Backend Developer · Relecloud
+→ Invented example: check the status on the board 2026-10-11 · atrasada 2 d
+Process Automation Lead · Proseware Robotics
+→ Invented example: check the status on the board 2026-10-11 · atrasada 2 d
+Computer Vision Engineer · Margie's Travel
+→ Invented example: check the status on the board 2026-10-11 · atrasada 2 d
+Production Planner · Woodgrove Retail
+→ Invented example: check the status on the board 2026-10-12 · atrasada 1 d
+Data Engineer · Proseware Robotics
+→ Invented example: check the status on the board 2026-10-12 · atrasada 1 d
+ML Engineer · Relecloud
+→ Invented example: check the status on the board 2026-10-13 · hoy
+ML Engineer · Wide World Importers
+→ Invented example: check the status on the board 2026-10-13 · hoy
+Production Planner · Graphic Design Institute
+→ Invented example: check the status on the board 2026-10-13 · hoy
+AI Engineer · Humongous Insurance
+→ Invented example: check the status on the board 2026-10-14 · mañana
+1 enviada(s) pasaron su plazo de respuesta sin señal → proponer cierre por silencio (scripts/embudo.py --cierres)
+METAS DE LA SEMANA
+Envíos esta semana
+0
+meta 6–10
+Envíos semana anterior
+1
+meta 6–10
+Contacto directo esta semana
+0
+meta ≥2
+Contacto directo semana anterior
+0
+meta ≥2
+Entrevistas últimos 14 días
+0
+meta —
+Latencia publicado→enviado (mediana, 14 d)
+2
+meta ≤3 d
+POR DECIDIR · 3
+Data Engineer · Proseware Robotics · 2026-10-12
+Production Planner · Graphic Design Institute · 2026-10-13
+AI Engineer · Humongous Insurance · 2026-10-14
+PRESENCIA · 1
+Red profesional: 1 mensaje(s) de reclutador esta semana
+Estados: prospecto → invitación → contacto enviado → preparada → enviada → contacto → entrevista → oferta · cierres: rechazada, sin respuesta, descartada. El CSV para Excel está en postulaciones/pipeline.csv.

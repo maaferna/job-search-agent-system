@@ -1,0 +1,20 @@
+# Template for .sanitize-local.yaml (that file is local only and listed in .gitignore).
+# Copy it, fill it with the real values, never commit the copy: the real list names what it protects.
+# All values below are invented.
+
+# The private repository, read only. PRIVATE_SOURCE in the environment overrides it.
+# Employer and contact names are read from <private_source>/postulaciones/pipeline.yaml.
+private_source: /path/to/private/repository
+
+# Extra patterns: label → list of regular expressions (case-insensitive).
+deny_patterns:
+  job-board URL or name: ['jobs\.example-board\.com', 'example board']
+  internal code name: ['project heron']
+
+# Fixed texts of the private interface that cite real things, replaced on the board screenshots
+# by tools/board_screenshots.py (regular expression → replacement).
+screenshot_redactions:
+  'example-repo: 12 clones': 'a repository: many clones'
+
+# Words that appear inside employer strings but are too generic to deny (city names, "holding"…).
+stopwords: [holding, retail]

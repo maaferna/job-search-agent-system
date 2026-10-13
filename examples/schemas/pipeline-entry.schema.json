@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pipeline-entry.schema.json",
+  "title": "Pipeline entry",
+  "description": "One opportunity that was worked. Closed vocabularies are enums on purpose: free text that a generator has to interpret was the source of a board that showed 'remote' for an onsite job (ADR 0005). Field names are the public, translated ones; see docs/state-machine.md.",
+  "type": "object",
+  "required": [
+    "id",
+    "employer",
+    "role",
+    "state"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "employer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "description": "Role family code: a recipe to compose a CV for that kind of role."
+    },
+    "profile": {
+      "type": "string",
+      "description": "Search profile the posting was captured under."
+    },
+    "state": {
+      "enum": [
+        "prospect",
+        "invitation",
+        "outreach",
+        "prepared",
+        "sent",
+        "contact",
+        "interview",
+        "offer",
+        "rejected",
+        "no_response",
+        "discarded"
+      ]
+    },
+    "priority": {
+      "enum": [
+        1,
+        2,
+        3
+      ],
+      "description": "Triage decision when the entry was created; never updated afterwards."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "modality": {
+      "enum": [
+        "onsite",
+        "hybrid",
+        "remote",
+        "unresolved",
+        "not_stated"
+      ]
+    },
+    "published": {
+      "type": "string",
+      "format": "date"
+    },
+    "closes": {
+      "type": "string",
+      "format": "date",
+      "description": "Last day the posting accepts applications, when it says so. A discard of a posting still open can be revisited (ADR 0004)."
+    },
+    "sent": {
+      "type": "string",
+      "format": "date"
+    },
+    "next_action": {
+      "type": "string"
+    },
+    "action_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "reason": {
+      "type": "string",
+      "description": "Why it was discarded. Required for 'discarded'."
+    },
+    "closed_by": {
+      "enum": [
+        "board",
+        "employer",
+        "own"
+      ]
+    },
+    "closure_reason": {
+      "enum": [
+        "generic_board",
+        "with_feedback",
+        "other_candidate",
+        "conditions",
+        "posting_down",
+        "silence",
+        "to_classify"
+      ]
+    },
+    "channel_type": {
+      "enum": [
+        "board",
+        "ats",
+        "public_sector",
+        "direct"
+      ]
+    },
+    "submitted_via": {
+      "enum": [
+        "company_site",
+        "email",
+        "agency_site",
+        "other"
+      ],
+      "description": "Generic in the public schema; the private one names the actual job board."
+    },
+    "direct_contact": {
+      "type": "boolean",
+      "description": "True only if a person was written to; requires a 'connection' event."
+    },
+    "fit": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "fit_detail": {
+      "type": "string",
+      "pattern": "^\\d{1,2}/\\d{1,2}/\\d{1,2}/\\d{1,2}$",
+      "description": "functions 0-35 / seniority 0-25 / requirements 0-25 / differentiator 0-15"
+    },
+    "call_probability": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Percent, estimated BEFORE sending and never edited afterwards."
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Requirements of THIS posting the profile lacks."
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Distances that are not requirements (e.g. overqualification)."
+    },
+    "portal_signal": {
+      "enum": [
+        "Viewed",
+        "CV downloaded",
+        "In process"
+      ]
+    },
+    "signal_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "date",
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "type": {
+            "enum": [
+              "connection",
+              "reply",
+              "interview",
+              "offer",
+              "rejection"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "discarded"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "reason"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "enum": [
+              "sent",
+              "contact",
+              "interview",
+              "offer",
+              "rejected",
+              "no_response"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "sent"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "enum": [
+              "rejected",
+              "no_response"
+            ]
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "closed_by",
+          "closure_reason"
+        ]
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "state": {
+            "const": "outreach"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "action_date",
+          "history"
+        ]
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "signal_date"
+        ]
+      },
+      "then": {
+        "required": [
+          "portal_signal"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "job-search-agent-system",
+  "private": true,
+  "type": "module",
+  "description": "Tooling for the documentation repository: the rendered-board test and the board screenshots.",
+  "scripts": {
+    "render-test": "node reference/render_test.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.62.1"
+  },
+  "engines": {
+    "node": ">=20.11"
+  }
+}

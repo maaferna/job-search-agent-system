@@ -1,0 +1,18 @@
+EXAMPLE CANDIDATE — Software & AI Developer for industrial operations
+example.candidate@example.com · github.com/example-candidate
+
+SUMMARY
+Engineer who builds the software that optimizes a physical process. Sole developer of computer vision
+and data systems used in field operations, after six years planning production in an industrial plant.
+
+EXPERIENCE
+Software & AI Developer · Example Research Institute · 2019–present
+- Built and operated an inference service for field images (Python, FastAPI, Docker).
+- Designed the data pipeline that feeds the planning models of three operating sites, and led a team of 12.
+Production Planning Engineer · Example Manufacturing Co. · 2012–2019
+- Planned weekly production for two lines and automated the planning report.
+Process Engineer · Example Manufacturing Co. · 2011–2013
+- Documented and standardized [[metric?]] the changeover procedure of the main line.
+
+EDUCATION
+MSc in Operations Research · Industrial Engineering degree

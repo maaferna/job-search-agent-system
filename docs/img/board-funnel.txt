@@ -1,0 +1,159 @@
+# image-manifest
+# image: board-funnel-desktop-dark.png sha256=5fd507040d69bd0efc912f31a891746540124f28fc2cb270bd826392c0a63d9e
+# image: board-funnel-desktop-light.png sha256=9ff8fde8d374afa8f01cbfccffc7c9827284ee5e92a2d55c3700ec1e3d9d0233
+# image: board-funnel-mobile-light.png sha256=63ec9edc92dbdbb75179297ccf4e6812c690980874b4c92db0dd9ef6f75d94e8
+# source: invented data (examples/data/pipeline.example.yaml), rendered by tools/board_screenshots.py
+# the board's interface is in Spanish
+# visible text below
+
+Tablero de postulaciones
+Demo owner · generado el 2026-10-13 desde postulaciones/pipeline.yaml. Las alertas se calculan con la fecha de hoy en tu navegador.
+Hoy
+Pipeline
+Vivas
+Embudo
+Presencia
+6
+enviadas vigentes hoy
+de 20 enviadas en total · 3 fuera de plazo
+3
+3
+3
+5
+6
+0
+20 enviadas
+Con respuesta
+Vigentes en plazo
+Fuera de plazo
+Rechazadas (portal o empresa)
+Cierre propio · sin respuesta
+15
+VIVAS
+5
+CON CONVERSACIÓN
+6
+VIGENTES
+2
+PREPARADAS
+11
+CERRADAS (RECHAZO O SILENCIO)
+11
+DESCARTADAS (NO POSTULADAS)
+37
+TOTAL REGISTRADAS
+EMBUDO Y TASA DE RESPUESTA
+Por decidir
+3
+Preparadas
+2
+Contacto enviado
+1
+Enviadas vigentes
+6
+Con respuesta
+3
+Cerradas
+11
+15%
+tasa de respuesta
+3 con respuesta de 20 enviada(s) · 11 descartadas sin postular no cuentan
+P1: 15
+P2: 8
+P3: 14
+METAS Y BRECHAS
+METAS (PERFIL/METAS.YAML)
+META	VALOR	OBJETIVO
+Envíos esta semana (día 2 de 7)	0	6–10	…
+Envíos semana anterior	1	6–10	✗
+Contacto directo esta semana	0	≥2	…
+Contacto directo semana anterior	0	≥2	✗
+Entrevistas últimos 14 días (indicador, no meta: depende de terceros)	0	—	…
+Latencia publicado→enviado (mediana, 14 d) (n=3)	2	≤3 d	✓
+Por canal: portal 17 enviadas · 2 resp. · 5 rech. · directo 3 enviadas · 1 resp. · 0 rech.. 3 enviada(s) fuera de plazo → scripts/embudo.py --cierres.
+BRECHAS MÁS REPETIDAS Y CALIBRACIÓN DEL GATE
+BRECHA	AVISOS
+orchestrator X	6
+cloud certification	5
+streaming platform	3
+5 years in role	3
+industry experience	2
+Inglés avanzado	1
+Gate: 5 con prob_llamada, 3 con desenlace · estimada 8 % vs observada 33 % · Brier 0.214. Señal del portal: sin señal 3/17 con llamado · con señal 0/3 con llamado.
+POR PORTAL
+PORTAL / CANAL	ENVIADAS		CON RESPUESTA	TASA	RECHAZOS	SIN RESPUESTA	VIVAS
+Portal corporativo	8
+	1	12%	1	2	4
+Correo directo	5
+	0	0%	2	3	0
+Sitio de consultora	4
+	1	25%	1	0	2
+Otro	3
+	1	33%	1	1	0
+Desde scripts/embudo.py: el portal es el campo portal de cada entrada (vocabulario cerrado). «Con respuesta» = estado contacto, entrevista u oferta, o un evento respuesta, entrevista u oferta en el historial.
+ACTIVIDAD SEMANAL
+¿CUMPLO MI META? · ¿QUÉ PASÓ CON CADA SEMANA?
+0
+2
+4
+6
+8
+meta 6–8
+3
+antes
+hasta 23/8
+2
+24
+4
+31
+1
+7/9
+4
+14/9
+3
+21/9
+2
+28/9
+1
+5/10
+0
+12/10
+en curso
+Con respuesta
+Vigentes en plazo
+Fuera de plazo
+Rechazadas (portal o empresa)
+Cierre propio · sin respuesta
+Meta semanal
+Cada barra son los envíos de esa semana, coloreados según cómo están hoy. Portal y contacto directo, en el detalle al pasar el cursor.
+¿QUÉ ME DEVUELVE EL MERCADO?
+Conexiones (escribiste tú)
+Respuestas (te escribieron)
+Entrevistas
+Rechazos
+24
+31
+7/9
+14/9
+21/9
+28/9
+5/10
+12/10
+Un punto por evento. Los resultados llegan semanas después del envío: por eso la tasa de respuesta no se grafica por semana, va en los KPIs (3 de 20).
+¿QUÉ ESTÁ POR VENCER?
+0 %
+25 %
+50 %
+75 %
+100 %
+125 %
+150 %
+175 %
+plazo de respuesta
+Vigente
+Fuera de plazo
+Pasó el plazo, pero el aviso sigue recibiendo
+Un punto por postulación vigente (6), según qué parte de su plazo de respuesta ya pasó. 3 fuera de plazo · 1 entre el 75 % y el 100 %. Plazo por defecto 30 días, o el que declara el portal.
+Ver como tabla
+Últimas 8 semanas · envíos 17 (3 directos) · conexiones 4 · respuestas 3 · entrevistas 1 · rechazos 0. Misma cuenta que scripts/embudo.py y postulaciones/embudo.md; la meta sale de perfil/metas.yaml. Pasa el cursor sobre una semana para ver qué hay detrás de cada número.
+Estados: prospecto → invitación → contacto enviado → preparada → enviada → contacto → entrevista → oferta · cierres: rechazada, sin respuesta, descartada. El CSV para Excel está en postulaciones/pipeline.csv.

@@ -1,0 +1,10 @@
+# INVENTED EXAMPLE — claims removed from the CV on purpose. Searched in every PDF's text and metadata.
+- claim: "reduced costs by 40%"
+  retired_on: 2026-08-20
+  why: "overstated: the measured figure was smaller and only for one line"
+- claim: "led a team of 12"
+  retired_on: 2026-09-04
+  why: "the candidate coordinated people from other areas; nobody reported to them"
+- claim: "Project Kestrel"
+  retired_on: 2026-09-10
+  why: "internal project name that the employer asked not to publish"

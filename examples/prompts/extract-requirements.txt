@@ -1,0 +1,12 @@
+Read the job posting below and separate its requirements. Copy each requirement LITERALLY, exactly as written in the posting; do not summarize, do not translate, do not add anything that is not in the text. If the posting does not distinguish required from desirable, put everything under REQUIRED and leave DESIRABLE empty.
+
+Answer ONLY in this format:
+REQUIRED (at most 8, one per line):
+- ...
+DESIRABLE (at most 8, one per line):
+- ...
+YEARS OF EXPERIENCE ASKED: <number or "not stated">
+DEGREE ASKED: <literal or "not stated">
+MODALITY AND LOCATION: <literal or "not stated">
+
+POSTING:

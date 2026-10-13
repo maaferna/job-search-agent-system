@@ -1,0 +1,29 @@
+# image-manifest
+# image: cv-showcase-ai.png sha256=9b0541ba85546d1d599765f01b214af4c9c1f63862fa02888e1fce18d71408b2
+# source: examples/latex/compositions/showcase-ai-en.tex, built by examples/latex/build.sh and rendered by tools/latex_previews.py (invented data)
+# visible text below
+
+Example Candidate
+                   AI Engineer · Computer Vision & Data for Industrial Operations
+                    example.candidate@example.com · example.com/portfolio · example.com/code
+Profile
+Engineer who builds the software that optimizes a physical process. Sole developer of computer-vision and data
+systems used in field operations for five years, after eight years planning production in an industrial plant. Python,
+FastAPI, Docker, PyTorch; comfortable from the field camera to the API.
+Experience
+Software & AI Developer · Example Research Institute                                                   2019 – present
+– Built and operated an inference service for field images (Python, FastAPI, Docker, PyTorch).
+– Designed the data pipeline that feeds the planning models of three operating sites.
+– Cut the time from image capture to report from two days to two hours.
+Production Planning Engineer (2013 – 2019) and Process Engineer (2011 – 2013) · Example Manufacturing
+Co. — weekly production planning for two lines, sales-and-operations meetings, standardized changeovers.
+Projects
+Field vision pipeline — capture, inference and report for field images; open source at example.com/code.
+Scheduling optimizer — a mixed-integer model that sequences production orders; case study at example.com/port-
+folio.
+Skills
+AI: PyTorch, computer vision, model serving, image data
+Backend: Python, FastAPI, Linux
+Education and languages
+MSc in Operations Research · Industrial Engineering degree
+Spanish (native) · English (professional working proficiency)

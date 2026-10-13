@@ -1,0 +1,8 @@
+# INVENTED EXAMPLE — weekly goals read by the funnel metrics (see docs/metrics.md, "Funnel metrics").
+valid_since: 2026-09-01
+weekly:
+  submissions_min: 6          # documents sent per week
+  submissions_max: 10         # above this, quality drops: the cap is a goal too
+  direct_contacts_min: 2      # messages written to a person, outside any form
+latency_max_days: 3           # days between a posting's publication and the submission
+response_window_default_days: 30   # with no signal after this, an own closure is proposed

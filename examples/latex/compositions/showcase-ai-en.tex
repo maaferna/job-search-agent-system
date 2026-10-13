@@ -1,0 +1,39 @@
+% INVENTED EXAMPLE — showcase CV, AI track, English. A composition only selects and orders fragments:
+% it never contains a fact. Build from examples/latex/:  ./build.sh compositions/showcase-ai-en.tex
+\documentclass[a4paper,10pt]{article}
+\newcommand{\cvpdftitle}{Example Candidate - AI Engineer}
+\newcommand{\cvkeywords}{AI Engineer, Computer Vision, PyTorch, Python, FastAPI, Docker, data pipelines}
+\input{fragments/preamble/base.tex}
+\input{fragments/preamble/styles.tex}
+\input{fragments/preamble/contact.tex}
+\input{fragments/en/headline/ai.tex}
+
+\begin{document}
+\input{fragments/preamble/header.tex}
+
+\section*{Profile}
+\input{fragments/en/summary/ai.tex}
+
+\section*{Experience}
+\begin{cvexperience}
+\input{fragments/en/experience/example-institute.dev.tex}
+\input{fragments/en/experience/example-manufacturing.compressed.tex}
+\end{cvexperience}
+
+\section*{Projects}
+\begin{cvblock}
+\input{fragments/en/projects/vision-pipeline.tex}
+\input{fragments/en/projects/scheduling-optimizer.tex}
+\end{cvblock}
+
+\section*{Skills}
+\begin{cvcompact}
+\input{fragments/en/skills/ai.tex}
+\end{cvcompact}
+
+\section*{Education and languages}
+\begin{cvcompact}
+\input{fragments/en/sections/education.tex}
+\input{fragments/en/sections/languages.tex}
+\end{cvcompact}
+\end{document}

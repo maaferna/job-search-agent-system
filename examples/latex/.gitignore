@@ -1,0 +1,10 @@
+out/
+# LaTeX build artifacts (an editor building in place leaves them next to the sources)
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.xdv
+*.out
+*.synctex.gz
+*.pdf

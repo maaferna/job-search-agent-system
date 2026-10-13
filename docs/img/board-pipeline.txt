@@ -1,0 +1,364 @@
+# image-manifest
+# image: board-pipeline-desktop-dark.png sha256=0bf7d25b7cad63b98d1c979b94af8b8e8e2a0d488266fe2a327376ff227eb946
+# image: board-pipeline-desktop-light.png sha256=ad04729c22b6fe13f555f1c743d2c80857f05bc37ebd12f223d8ff4dcde39623
+# image: board-pipeline-mobile-light.png sha256=29d4b6f7539be42f8217e60c36de94e5be4984333ca4c271cad86fe3e0ffdb3f
+# source: invented data (examples/data/pipeline.example.yaml), rendered by tools/board_screenshots.py
+# the board's interface is in Spanish
+# visible text below
+
+Tablero de postulaciones
+Demo owner · generado el 2026-10-13 desde postulaciones/pipeline.yaml. Las alertas se calculan con la fecha de hoy en tu navegador.
+Hoy
+Pipeline
+Vivas
+Embudo
+Presencia
+OPORTUNIDADES VIVAS
+POR DECIDIR · 3
+AI Engineer
+Humongous Insurance · Prospecto
+calce Btriage 3P3 · foco principalexample.comPresencial
+⏱ 2026-10-14
+Próxima acción
+aviso
+Data Engineer
+Proseware Robotics · Prospecto
+calce Btriage 1P2 · foco secundarioexample.comHíbrido
+⏱ 2026-10-12 · atrasada 1 d
+Próxima acción
+aviso
+Production Planner
+Graphic Design Institute · Prospecto
+calce Ctriage 2P3 · foco principalexample.comRemoto
+⏱ 2026-10-13
+Próxima acción
+aviso
+PREPARADAS · 2
+ML Engineer
+Wide World Importers · Preparada
+calce Btriage 2P1 · foco secundarioexample.comHíbrido
+⏱ 2026-10-13
+Próxima acción
+aviso
+Computer Vision Engineer
+Margie's Travel · Preparada
+calce Ctriage 3P1 · foco secundarioexample.comPresencial
+⏱ 2026-10-11 · atrasada 2 d
+Próxima acción
+aviso
+CONTACTO ENVIADO · 1
+Operations Analyst
+Fourth Coffee · Contacto enviado
+calce Btriage 1P1 · foco secundarioCorreo directoPresencial
+⏱ 2026-10-16
+Próxima acción
+aviso
+ENVIADAS · 6
+Process Automation Lead
+Proseware Robotics · Enviada · enviada 2026-08-25
+calce Btriage 2P1 · foco secundarioSitio de consultoraRemoto👁 Visto · 08-27
+⏱ 2026-10-11 · atrasada 2 d
+Próxima acción
+aviso
+Computer Vision Engineer
+Lucerne Manufacturing · Enviada · enviada 2026-09-04
+calce Btriage 3P1 · foco secundarioPortal corporativoRemoto
+⏱ 2026-10-15
+Próxima acción
+aviso
+Production Planner
+Woodgrove Retail · Enviada · enviada 2026-09-20
+calce Btriage 1P2 · foco secundarioPortal corporativoPresencial👁 Visto · 09-22
+⏱ 2026-10-12 · atrasada 1 d
+Próxima acción
+aviso
+Python Backend Developer
+Relecloud · Enviada · enviada 2026-09-25
+calce Btriage 3P3 · foco principalPortal corporativoHíbrido
+⏱ 2026-10-11 · atrasada 2 d
+Próxima acción
+aviso
+Data Scientist
+Humongous Insurance · Enviada · enviada 2026-09-26
+calce Ctriage 3P2 · foco secundarioPortal corporativoHíbrido👁 Visto · 09-28
+⏱ 2026-10-12 · atrasada 1 d
+Próxima acción
+aviso
+ML Engineer
+Relecloud · Enviada · enviada 2026-09-01
+calce Ctriage 2P1 · foco secundarioSitio de consultoraHíbrido
+⏱ 2026-10-13
+Próxima acción
+aviso
+CON RESPUESTA · 3
+AI Engineer
+Margie's Travel · Entrevista · enviada 2026-09-17
+calce Atriage 1P3 · foco principalSitio de consultoraRemoto
+aviso
+Data Engineer
+Trey Research · Contacto · enviada 2026-10-02
+calce Atriage 3P3 · foco principalOtroRemoto
+aviso
+Process Automation Lead
+Humongous Insurance · Contacto · enviada 2026-08-19
+calce Btriage 2P3 · foco principalPortal corporativoRemoto
+aviso
+TODAS LAS OPORTUNIDADES (26)
+Todos los estados
+Prospecto
+Invitación
+Contacto enviado
+Preparada
+Enviada
+Contacto
+Entrevista
+Oferta
+Rechazada
+Cierre propio · sin respuesta
+Descartada
+Todos los perfiles
+P1
+P2
+P3
+Toda prioridad
+1
+2
+3
+incluir
+11
+descartadas
+Fichas
+Tabla
+AI Engineer
+Margie's Travel
+Entrevista
+Portal
+Sitio de consultora
+Aviso
+example.com/postings/30
+Calce / triage / perfil
+calce 96 (A) · triage 1 · P3 · familia N1-5
+Lugar
+Remoto
+Publicado
+2026-09-14
+Postulación enviada
+2026-09-17 · hace 26 d
+Historial
+2026-09-23 · respuesta
+2026-09-27 · entrevista
+Abrir aviso ↗
+id ex-30
+Data Engineer
+Trey Research
+Contacto
+Portal
+Otro
+Aviso
+example.com/postings/28
+Calce / triage / perfil
+calce 81 (A) · triage 3 · P3 · familia A1
+Lugar
+Remoto
+Publicado
+2026-09-29
+Postulación enviada
+2026-10-02 · hace 11 d
+Historial
+2026-10-02 · conexion
+2026-10-08 · respuesta
+Abrir aviso ↗
+id ex-28
+Process Automation Lead
+Humongous Insurance
+Contacto
+Portal
+Portal corporativo
+Aviso
+example.com/postings/29
+Calce / triage / perfil
+calce 66 (B) · triage 2 · P3 · familia A3
+Lugar
+Remoto
+Publicado
+2026-08-18
+Postulación enviada
+2026-08-19 · hace 55 d
+Historial
+2026-08-25 · respuesta
+Abrir aviso ↗
+id ex-29
+Process Automation Lead
+Proseware Robotics
+Enviada
+👁 Visto · 08-27
+Portal
+Sitio de consultora
+Aviso
+example.com/postings/25
+Calce / triage / perfil
+calce 65 (B) · triage 2 · P1 · familia A1
+Lugar
+Remoto
+Publicado
+2026-08-22
+Postulación enviada
+2026-08-25 · hace 49 d
+Próxima acción
+Invented example: check the status on the board (2026-10-11, atrasada)
+Abrir aviso ↗
+id ex-25
+Computer Vision Engineer
+Lucerne Manufacturing
+Enviada
+Portal
+Portal corporativo
+Aviso
+example.com/postings/26
+Calce / triage / perfil
+calce 60 (B) · triage 3 · P1 · familia A1
+Lugar
+Remoto
+Publicado
+2026-09-04
+Postulación enviada
+2026-09-04 · hace 39 d
+Próxima acción
+Invented example: check the status on the board (2026-10-15)
+Abrir aviso ↗
+id ex-26
+Production Planner
+Woodgrove Retail
+Enviada
+👁 Visto · 09-22
+Portal
+Portal corporativo
+Aviso
+example.com/postings/23
+Calce / triage / perfil
+calce 58 (B) · triage 1 · P2 · familia B1
+Lugar
+Presencial
+Publicado
+2026-09-18
+Postulación enviada
+2026-09-20 · hace 23 d
+Próxima acción
+Invented example: check the status on the board (2026-10-12, atrasada)
+Abrir aviso ↗
+id ex-23
+Python Backend Developer
+Relecloud
+Enviada
+Portal
+Portal corporativo
+Aviso
+example.com/postings/22
+Calce / triage / perfil
+calce 55 (B) · triage 3 · P3 · familia A3
+Lugar
+Híbrido
+Publicado
+2026-09-23
+Postulación enviada
+2026-09-25 · hace 18 d
+Próxima acción
+Invented example: check the status on the board (2026-10-11, atrasada)
+Abrir aviso ↗
+id ex-22
+Data Scientist
+Humongous Insurance
+Enviada
+👁 Visto · 09-28
+Portal
+Portal corporativo
+Aviso
+example.com/postings/27
+Calce / triage / perfil
+calce 54 (C) · triage 3 · P2 · familia B1
+Lugar
+Híbrido
+Publicado
+2026-09-24
+Postulación enviada
+2026-09-26 · hace 17 d
+Próxima acción
+Invented example: check the status on the board (2026-10-12, atrasada)
+Historial
+2026-09-26 · conexion
+Abrir aviso ↗
+id ex-27
+ML Engineer
+Relecloud
+Enviada
+Portal
+Sitio de consultora
+Aviso
+example.com/postings/24
+Calce / triage / perfil
+calce 51 (C) · triage 2 · P1 · familia A1
+Lugar
+Híbrido
+Publicado
+2026-08-31
+Postulación enviada
+2026-09-01 · hace 42 d
+Próxima acción
+Invented example: check the status on the board (2026-10-13)
+Abrir aviso ↗
+id ex-24
+Operations Analyst
+Fourth Coffee
+Contacto enviado
+Portal
+Correo directo
+Aviso
+example.com/postings/36
+Calce / triage / perfil
+calce 73 (B) · triage 1 · P1 · familia A1
+Lugar
+Presencial
+Publicado
+2026-09-20
+Próxima acción
+Invented example: one reminder if there is no reply (2026-10-16)
+Historial
+2026-10-11 · conexion
+Abrir aviso ↗
+id ex-36
+ML Engineer
+Wide World Importers
+Preparada
+Portal
+example.com
+Aviso
+example.com/postings/31
+Calce / triage / perfil
+calce 66 (B) · triage 2 · P1 · familia A3
+Lugar
+Híbrido
+Publicado
+2026-08-12
+Próxima acción
+Invented example: check the status on the board (2026-10-13)
+Abrir aviso ↗
+id ex-31
+Computer Vision Engineer
+Margie's Travel
+Preparada
+Portal
+example.com
+Aviso
+example.com/postings/32
+Calce / triage / perfil
+calce 47 (C) · triage 3 · P1 · familia A3
+Lugar
+Presencial
+Publicado
+2026-09-20
+Próxima acción
+Invented example: check the status on the board (2026-10-11, atrasada)
+Abrir aviso ↗
+id ex-32
+Mostrar 12 más (14 restantes de 26)
+Estados: prospecto → invitación → contacto enviado → preparada → enviada → contacto → entrevista → oferta · cierres: rechazada, sin respuesta, descartada. El CSV para Excel está en postulaciones/pipeline.csv.

@@ -1,0 +1,33 @@
+# image-manifest
+# image: cv-showcase-ops.png sha256=4d210a504d45c8d44809179fffda4e6fd5c0ea5ad545c74439e3632650c51277
+# source: examples/latex/compositions/showcase-ops-en.tex, built by examples/latex/build.sh and rendered by tools/latex_previews.py (invented data)
+# visible text below
+
+Example Candidate
+               Operations & Planning Engineer · Data, Automation and Optimization
+                    example.candidate@example.com · example.com/portfolio · example.com/code
+Profile
+Operations engineer with eight years planning production in an industrial plant and five more building the data and
+automation tools that operations teams use. Production planning, continuous improvement and operations research,
+with the ability to write the software that measures them.
+Experience
+Software & AI Developer · Example Research Institute                                                2019 – present
+– Turned field inspections at three operating sites into a measured process with a daily report.
+– Cut the time from image capture to report from two days to two hours.
+– Worked with site supervisors to define what the models measure and how it is used to plan.
+Production Planning Engineer · Example Manufacturing Co.                                              2013 – 2019
+– Planned weekly production for two lines; automated the planning report.
+– Led the monthly sales-and-operations meeting between plant and commercial teams.
+Process Engineer · Example Manufacturing Co.                                                          2011 – 2013
+– Documented and standardized the changeover procedure of the main line.
+Skills
+Operations: production planning, S&OP, continuous improvement, operations research
+Tools: Python, SQL, optimization solvers, dashboards
+Data: SQL, PostgreSQL, data pipelines, data modeling for operations and production planning
+Delivery: Python, Docker, CI, Linux
+Projects
+Scheduling optimizer — a mixed-integer model that sequences production orders; case study at example.com/port-
+folio.
+Education and languages
+MSc in Operations Research · Industrial Engineering degree
+Spanish (native) · English (professional working proficiency)

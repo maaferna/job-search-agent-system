@@ -1,0 +1,29 @@
+# image-manifest
+# image: cv-application.png sha256=44709a07e39e2d6a63c2259aee04602917dc2398dc52cf548580a84477711157
+# source: examples/latex/compositions/applications/2026-10-12-contoso-data-engineer/cv.tex, built by examples/latex/build.sh and rendered by tools/latex_previews.py (invented data)
+# visible text below
+
+Example Candidate
+                     Data Engineer · Pipelines and Models for Physical Operations
+                    example.candidate@example.com · example.com/portfolio · example.com/code
+Profile
+Engineer who builds the software that optimizes a physical process. Sole developer of computer-vision and data
+systems used in field operations for five years, after eight years planning production in an industrial plant. Python,
+FastAPI, Docker, PyTorch; comfortable from the field camera to the API.
+Experience
+Software & AI Developer · Example Research Institute                                                   2019 – present
+– Built and operated an inference service for field images (Python, FastAPI, Docker, PyTorch).
+– Designed the data pipeline that feeds the planning models of three operating sites.
+– Cut the time from image capture to report from two days to two hours.
+Production Planning Engineer (2013 – 2019) and Process Engineer (2011 – 2013) · Example Manufacturing
+Co. — weekly production planning for two lines, sales-and-operations meetings, standardized changeovers.
+Skills
+Data: SQL, PostgreSQL, data pipelines, data modeling for operations and production planning
+Delivery: Python, Docker, CI, Linux
+AI: PyTorch, computer vision, model serving, image data
+Backend: Python, FastAPI, Linux
+Projects
+Field vision pipeline — capture, inference and report for field images; open source at example.com/code.
+Education and languages
+MSc in Operations Research · Industrial Engineering degree
+Spanish (native) · English (professional working proficiency)

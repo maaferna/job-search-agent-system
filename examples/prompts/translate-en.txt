@@ -1,0 +1,3 @@
+Translate the following Spanish CV paragraph into professional English for a resume. Keep every number, percentage, date, product name and technology name exactly as written. Do not add achievements, adjectives or context that are not in the source. Use past tense for finished roles. Output only the translation, nothing else.
+
+TEXT:

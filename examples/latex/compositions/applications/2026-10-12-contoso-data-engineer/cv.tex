@@ -1,0 +1,43 @@
+% INVENTED EXAMPLE — per-application composition for an invented posting (Contoso Mining, Data Engineer).
+% It differs from the showcase only in WHICH fragments and in WHAT ORDER: the analysis of the posting
+% chose the data headline, the .dev variant, the data skills before the AI ones, and the pipeline
+% project. If this CV needed a sentence that no fragment has, the sentence would be written as a NEW FRAGMENT (and, once two
+% compositions use it, kept there) — never here. The folder also holds posting.md, analysis.md,
+% follow-up.md and, only after the owner approves the text, sent/cv.pdf.
+\documentclass[a4paper,10pt]{article}
+\newcommand{\cvpdftitle}{Example Candidate - Data Engineer}
+\newcommand{\cvkeywords}{Data Engineer, data pipelines, SQL, PostgreSQL, Python, Docker, operations data}
+\input{fragments/preamble/base.tex}
+\input{fragments/preamble/styles.tex}
+\input{fragments/preamble/contact.tex}
+\input{fragments/en/headline/data.tex}
+
+\begin{document}
+\input{fragments/preamble/header.tex}
+
+\section*{Profile}
+\input{fragments/en/summary/ai.tex}
+
+\section*{Experience}
+\begin{cvexperience}
+\input{fragments/en/experience/example-institute.dev.tex}
+\input{fragments/en/experience/example-manufacturing.compressed.tex}
+\end{cvexperience}
+
+\section*{Skills}
+\begin{cvcompact}
+\input{fragments/en/skills/data.tex}
+\input{fragments/en/skills/ai.tex}
+\end{cvcompact}
+
+\section*{Projects}
+\begin{cvblock}
+\input{fragments/en/projects/vision-pipeline.tex}
+\end{cvblock}
+
+\section*{Education and languages}
+\begin{cvcompact}
+\input{fragments/en/sections/education.tex}
+\input{fragments/en/sections/languages.tex}
+\end{cvcompact}
+\end{document}

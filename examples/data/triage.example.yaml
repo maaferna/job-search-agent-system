@@ -1,0 +1,26 @@
+# INVENTED EXAMPLE — the triage file: ANALYSES, saved before the owner is asked anything (ADR 0003).
+# The pipeline stores decisions; this file stores what was read in depth, so an unanswered question
+# does not lose the work. Pending verdicts reappear at the top of the next radar report.
+postings:
+  - key: example-board-10231          # stable key from the capture, so the posting is never analyzed twice
+    date: 2026-10-12                  # day of the analysis
+    title: "Data Engineer"
+    employer: "Contoso Mining"
+    url: https://example.com/postings/10231
+    verdict: recommended              # recommended | investigate | discarded
+    reason: "Functions 5 of 6 with evidence; asks for 2 years; hard requirements met."
+  - key: example-board-10244
+    date: 2026-10-12
+    title: "Head of Maintenance"
+    employer: "Fabrikam Logistics"
+    url: https://example.com/postings/10244
+    verdict: discarded
+    reason: "Rotating shifts outside the home region (owner rule rotating-shifts, valid since 2026-08-01)."
+  - key: example-board-10250
+    date: 2026-10-13
+    title: "Automation Engineer"
+    employer: "Lucerne Manufacturing"
+    url: https://example.com/postings/10250
+    verdict: investigate
+    reason: "The text does not say whether the role writes code or only configures vendor tools: read the
+             application form's structured fields before deciding."

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+
+# Local sanitization config: it lists what must not be published, so it is never committed
+.sanitize-local.yaml
+node_modules/

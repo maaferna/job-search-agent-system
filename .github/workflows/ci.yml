@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      # Static patterns and images only: the local denylist never leaves the owner's machine.
+      - name: Sanitization gate
+        run: ./scripts/sanitize_check.sh
+      - name: Links in the documentation
+        run: python3 scripts/check_links.py
+      - name: Example data against its schema
+        run: python3 reference/pipeline_check.py
+      - name: Unit tests
+        run: python3 -m unittest discover -s tests -t . -v
+
+  render-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - run: pip install -r requirements.txt
+      - run: npm ci
+      # GitHub's Ubuntu runners ship Google Chrome at this path.
+      - name: Rendered-board test
+        run: node reference/render_test.mjs
+        env:
+          CHROME_PATH: /usr/bin/google-chrome

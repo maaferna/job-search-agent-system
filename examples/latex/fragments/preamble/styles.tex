@@ -1,0 +1,8 @@
+% INVENTED EXAMPLE — section style and the four list environments every fragment uses.
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\newenvironment{cvexperience}{\begin{itemize}[leftmargin=0pt,label={},itemsep=6pt]}{\end{itemize}}
+\newenvironment{cvblock}{\begin{itemize}[leftmargin=0pt,label={},itemsep=4pt]}{\end{itemize}}
+\newenvironment{cvcompact}{\begin{itemize}[leftmargin=0pt,label={},itemsep=1pt]}{\end{itemize}}
+\newenvironment{cvbullets}{\begin{itemize}[leftmargin=14pt,itemsep=1pt,topsep=2pt]}{\end{itemize}}

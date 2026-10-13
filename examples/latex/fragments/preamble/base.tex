@@ -1,0 +1,12 @@
+% INVENTED EXAMPLE — shared preamble. Every composition defines two macros BEFORE \input-ing it:
+%   \cvpdftitle   the PDF title (a metadata field an ATS reads)
+%   \cvkeywords   the PDF keywords, comma-separated
+% Both are metadata: the per-application gate searches them for retired claims too.
+\usepackage[left=0.6in, right=0.6in, top=0.8in, bottom=0.8in]{geometry}
+\usepackage{enumitem}
+\usepackage{needspace}      % \needspace{N\baselineskip}: move an entry whole to the next page
+\usepackage{fontspec}       % LuaLaTeX/XeLaTeX: fonts embedded with a Unicode map, so text extraction works
+\setmainfont{Latin Modern Roman}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black]{hyperref}
+\hypersetup{pdftitle={\cvpdftitle}, pdfkeywords={\cvkeywords}, pdfauthor={Example Candidate}}
+\pagestyle{empty}

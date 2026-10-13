@@ -1,0 +1,195 @@
+# image-manifest
+# image: board-presence-desktop-dark.png sha256=6f2dfa08e65c20f06e4a7b20fff2d047aea27be7c7cfaa852d6dc4494fb895ea
+# image: board-presence-desktop-light.png sha256=1afbd2e024e1531c30222f06b8c3a97e85648661b4efa34f0d29e256d5f0e202
+# image: board-presence-mobile-light.png sha256=df110f99d8f37f29627065f859db28eaa8c9ffc5708fa9efeb485b2b2800ed8c
+# source: invented data (examples/data/pipeline.example.yaml), rendered by tools/board_screenshots.py
+# the board's interface is in Spanish
+# visible text below
+
+Tablero de postulaciones
+Demo owner · generado el 2026-10-13 desde postulaciones/pipeline.yaml. Las alertas se calculan con la fecha de hoy en tu navegador.
+Hoy
+Pipeline
+Vivas
+Embudo
+Presencia
+RESUMEN POR PLATAFORMA
+Red profesional
+al día · hace 1 d
+¿Me encuentran los reclutadores?
+28
+apariciones en búsquedas · 7 d
+▲ 3 desde el 5-oct
+10
+28
+10-ago
+12-oct
+Visitas al perfil (90 d): 136
+▲ 9 desde el 5-oct
+Mensajes de reclutadores esta semana: 1
+SIGUIENTE ACCIÓN
+Invented example: add a featured post with a measured result
+Credenciales
+al día · hace 2 d
+¿Alguien verifica mis credenciales?
+233
+vistas de badges · acumuladas
+incluye tus visitas
+▲ 25 desde el 11-sep
+120
+233
+14-may
+11-oct
+Badges: 7 · Profile Strength: 6/6 Strong
+SIGUIENTE ACCIÓN
+Sin pendientes
+GitHub
+al día · hace 1 d
+¿Alguien abre mis repos?
+139
+visitantes únicos · 14 d
+7
+9
+15-ago
+13-oct
+Más visitado: example-vision-pipeline (46)
+Seguidores: 24 · clones 14 d: 80 (casi todo rastreadores)
+SIGUIENTE ACCIÓN
+Revisar qué repos están públicos y fijados (README, afirmaciones retiradas)
+Portafolio
+al día · hace 1 d
+¿Llegan al sitio que enlaza el CV?
+230
+páginas vistas · 7 d
+incluye bots
+20
+32
+14-sep
+13-oct
+Días con log en la semana: 8 · ruido descartado: 226
+SIGUIENTE ACCIÓN
+Para separar personas de bots hace falta medir dentro de la app (user-agent)
+Miden la parte de arriba del embudo: si alguien llega a ti. Cada número sale de una sola fuente y cada variación dice contra qué lectura se compara. Se mueven por semana o por mes: por eso viven aquí y no en «Hoy».
+¿QUIÉN ME ESTÁ LEYENDO?
+PORTALES · SEÑALES EN TUS POSTULACIONES
+LEYERON LA POSTULACIÓN
+3
+VISTA · Visto · CV Visto · Solicitud vista
+DESCARGARON EL CV
+0
+CV descargado
+EL PROCESO AVANZÓ
+0
+En proceso · Finalista
+0
+1
+2
+1
+24
+31
+7/9
+14/9
+1
+21/9
+1
+28/9
+5/10
+12/10
+Leyeron la postulación
+Descargaron el CV
+El proceso avanzó
+Cada postulación cuenta una vez, con su señal más fuerte y la fecha en que llegó. Es lectura, no contacto: nadie escribió ni llamó. Los cierres del portal («Finalizado») no cuentan. Pasa el cursor por una semana para ver cuáles son.
+RED PROFESIONAL · RECLUTADORES QUE TE MIRARON
+Sin lecturas de visitantes.
+Ventana móvil de 90 días: el número puede bajar aunque llegue una visita nueva, porque salen las antiguas. Una lectura por día.
+RED PROFESIONAL · PERFIL Y CONTENIDO
+Última lectura 12-oct · 10 lectura(s). Visitas, apariciones y mensajes están en la tarjeta de arriba; aquí, el contenido y el perfil.
+Ver detalle completo
+DÍAS SIN PUBLICAR
+1
+meta: una publicación por semana · última ~12-oct
+PUBLICACIONES PROPIAS
+5
+1 de 5 son certificados o celebraciones
+IMPRESIONES 365 D
+12600
+291 interacciones · tasa 2.31 %
+354 seguidores · 1008 contactos.
+QUÉ HACER (2)
+Owner · 17-oct (en 4 d) — Invented example: add a featured post with a measured result
+Owner · 23-oct (en 10 d) — Invented example: ask for one recommendation from a former team
+SECCIONES DEL PERFIL
+✓ Acerca de
+✓ Destacado 3
+✓ Experiencia 6
+✓ Educación 2
+✓ Licencias 9
+✓ Proyectos 4
+✓ Aptitudes 30
+✓ Idiomas 2
+✓ Recomendaciones 3
+PUBLICACIONES POR IMPRESIONES
+Contenido propio
+Certificado o celebración
+Invented example post 2
+articulo · ~2026-08-31
+1340
+Invented example post 5
+aprendizaje · ~2026-10-12
+1210
+Invented example post 4
+proyecto · ~2026-09-28
+960
+Invented example post 1
+proyecto · ~2026-08-17
+820
+Invented example post 3
+certificado · ~2026-09-14
+410
+METAS AL 12-NOV
+MÉTRICA	HOY	META	AVANCE
+Search appearances, 7 d	28	30
+Profile visits, 90 d	136	150
+Own posts since the start	5	6
+Se comparan con la última lectura de /revisar-red-profesional. Las acciones (publicar, comentar, pedir recomendaciones) son las que mueven el resto.
+CREDENCIALES
+Última lectura 11-oct · 6 lectura(s) · se revisa una vez al mes. Ver perfil público Las vistas están en la tarjeta de arriba.
+BADGES
+7
+= 0 desde el 11-sep
+SKILLS
+50
+▲ 2 desde el 11-sep
+COMPARTIDOS
+23
+acumulados · ▲ 1 desde el 11-sep
+PROFILE STRENGTH
+6/6
+Strong
+WORK HISTORY
+6
+cargos cargados · public
+PENDIENTES
+Sin alertas.
+CÓMO LEER ESTOS NÚMEROS
+Vistas y Compartidos son acumulados desde que se creó la cuenta: la señal es la diferencia entre dos lecturas. Una vista es una visita a la página de un badge, no al perfil; cuenta también cuando la abres tú, y repetir el mismo badge en segundos no suma. Un «compartido» es, con toda probabilidad, cada uso de las herramientas de compartir de la plataforma sobre un badge. Es inferencia, no dato de la plataforma.
+Ver lecturas de la plataforma (6)
+GITHUB Y PORTAFOLIO
+GITHUB · REPOS CON TRÁFICO EN 14 DÍAS
+REPO	VISITANTES	CLONES
+example-vision-pipeline	46	20
+example-scheduling-optimizer	39	20
+example-data-api	30	20
+example-portfolio	24	20
+DE DÓNDE LLEGAN
+example-vision-pipeline ← example.com (5 únicos)
+PORTAFOLIO · PÁGINAS MÁS VISTAS EN 7 DÍAS
+/ · 109
+/projects/ · 58
+/cv/ · 42
+Visitantes únicos de GitHub es la señal; los clones son casi todos rastreadores (un repo: muchos clones y cero visitas en un día). GitHub guarda 14 días y el router de Heroku unas horas: por eso el hook captura una vez al día y la serie vive en perfil/presencia-tecnica.yaml. Heroku no registra user-agent: sus números incluyen bots.
+HISTORIAL · REGISTRO SEMANAL DE SEÑALES
+Última fila: 12-oct · 10 semana(s) registradas.
+Ver historial de señales semanales (10)
+Registro semanal manual en perfil/senales-perfil.md.
+Estados: prospecto → invitación → contacto enviado → preparada → enviada → contacto → entrevista → oferta · cierres: rechazada, sin respuesta, descartada. El CSV para Excel está en postulaciones/pipeline.csv.

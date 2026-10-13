@@ -1,0 +1,26 @@
+# INVENTED EXAMPLE — the owner's decision rules, stored as dated data (ADR 0004).
+# A rule never changes in place: a new version is appended with the day it became valid and why.
+# reference/dated_rules.py uses `since` to find live discards that relied on a superseded version.
+rules:
+  - id: management-roles-location
+    versions:
+      - since: 2026-08-01
+        rule: "Operations management roles: always discard; the focus is technical roles."
+        reason: "Initial focus of the search."
+      - since: 2026-09-09
+        rule: "Operations management roles: accepted in the home city; discarded elsewhere."
+        reason: "The owner decided to widen the search in the home city."
+  - id: contract-length
+    versions:
+      - since: 2026-08-01
+        rule: "Contracts shorter than six months: no."
+        reason: "Initial criterion."
+      - since: 2026-09-24
+        rule: "Contracts shorter than six months: only for project roles with a deliverable that can be
+               shown in a portfolio."
+        reason: "A short project with a visible result was judged worth more than its duration."
+  - id: rotating-shifts
+    versions:
+      - since: 2026-08-01
+        rule: "Rotating shifts outside the home region: always no."
+        reason: "Personal criterion of the owner."
