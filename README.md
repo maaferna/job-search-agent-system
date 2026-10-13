@@ -42,7 +42,7 @@ decision — with a human reading and approving every document, and making every
 
 **Start here**
 
-- *Recruiters:* the poster on the right (click to enlarge) → [the board](docs/board.md) →
+- *Recruiters:* [the one-page poster](docs/img/poster-architecture.png) → [the board](docs/board.md) →
   [lessons](docs/lessons.md) → [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does).
 - *Engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
   [audits](docs/audits.md) → run [`reference/gate.py`](reference/) and the [LaTeX example](examples/latex/).
