@@ -19,7 +19,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 LOCAL = ROOT / ".sanitize-local.yaml"
 SKIP_FILES = {".sanitize-local.yaml"}
 TEXT_EXT = {".md", ".txt", ".mmd", ".svg", ".yaml", ".yml", ".json", ".sh", ".py", ".mjs", ".js", ".html", ".css",
-            ".tex", ".cls", ".sty", ".log", ".aux", ".fls", ".fdb_latexmk", ".toml", ".cfg", ".ini", ".csv"}
+            ".tex", ".cls", ".sty", ".log", ".aux", ".fls", ".fdb_latexmk", ".toml", ".cfg", ".ini", ".csv", ".cff"}
 IMAGE_EXT = {".png", ".jpg", ".jpeg", ".gif", ".webp"}
 SKIP_DIRS = {".git", "node_modules", "__pycache__"}
 
@@ -36,7 +36,9 @@ EMAIL_OK = re.compile(r"@(users\.noreply\.github\.com|example\.(com|org|net))\b"
 GENERIC = re.compile(r"confidencial|no identificad|reservad|empresa |^empresa$|consultora|estado|"
                      r"oferente|cliente", re.I)
 # The only places a local-denylist label is allowed on purpose: (label, file). Narrow by design.
-ALLOWED = {("owner name", "LICENSE"), ("owner name", "LICENSE-CODE"), ("owner name", "README.md")}
+# The owner's name is authorship: the license files, the README's Author section and the citation file.
+ALLOWED = {("owner name", "LICENSE"), ("owner name", "LICENSE-CODE"), ("owner name", "README.md"),
+           ("owner name", "CITATION.cff")}
 MANIFEST_HEAD = "# image-manifest"
 MANIFEST_ITEM = re.compile(r"^# image: (\S+) sha256=([0-9a-f]{64})$")
 

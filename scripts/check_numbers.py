@@ -86,6 +86,10 @@ CHECKS = [
     ("tools/poster.html", r'<div class="big">(?P<recommended>\d+) <small>approved by the owner</small></div>'
                           r'<div class="d"[^>]*>(?P<recommended_dropped>\d+) of them'),
     ("tools/poster.html", r'<div class="big">(?P<discards_reopened>\d+) <small>of (?P<triage_discarded>\d+) reopened'),
+    # the social card
+    ("tools/social-card.html", r'<div class="n">~(?P<seen__en>[\d,]+)</div><div class="l">postings seen'),
+    ("tools/social-card.html", r'<div class="n">(?P<triage>\d+)</div><div class="l">analyzed in writing'),
+    ("tools/social-card.html", r'<div class="n">(?P<sent>\d+)</div><div class="l">sent, by the human'),
 ]
 
 

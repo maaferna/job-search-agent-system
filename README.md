@@ -69,7 +69,8 @@ published · **License:** documentation [CC BY 4.0](LICENSE), code [MIT](LICENSE
 **Contents:** [What it does](#what-it-does--and-what-it-does-not) · [Stack](#stack) ·
 [Architecture](#architecture-in-one-page) · [Life of a posting](#the-life-of-a-posting) ·
 [Numbers](#numbers) · [Repository map](#repository-map) ·
-[Run it](#run-the-reference-code) · [Kept clean](#how-this-repository-is-kept-clean) · [Author](#author)
+[Run it](#run-the-reference-code) · [Kept clean](#how-this-repository-is-kept-clean) · [Author](#author) ·
+[License](#license-and-citation)
 
 ---
 
@@ -216,7 +217,8 @@ Nothing here is copied from the private repository: everything is rewritten, and
 for amounts, emails, IDs and phones, and — on the owner's machine — for every employer and contact name
 of the private pipeline, from a local denylist that is never committed (the list would leak what it
 protects). Images cannot be searched, so each one carries a manifest with its hash and visible text
-([ADR 0009](docs/decisions/0009-board-published-as-synthetic-screenshots.md)).
+([ADR 0009](docs/decisions/0009-board-published-as-synthetic-screenshots.md)). Found something that should not be
+here? Report it privately: [`SECURITY.md`](SECURITY.md).
 
 ## Author
 
@@ -224,9 +226,12 @@ Marco Antonio Parra Fernández — industrial engineer working on applied AI, da
 physical operations · [LinkedIn](https://www.linkedin.com/in/marco-antonio-parra-82999337) ·
 [GitHub](https://github.com/maaferna)
 
-## License
+## License and citation
 
 | What | License | Files |
 |---|---|---|
 | Documentation | [CC BY 4.0](LICENSE) — reuse with attribution | Markdown, images, example data (YAML), example skills and prompts |
 | Code | [MIT](LICENSE-CODE) | `.py`, `.mjs`, `.sh`, `.tex`, `.html`, JSON, the Makefile, CI and tool configuration |
+
+To cite the repository, use [`CITATION.cff`](CITATION.cff) (GitHub's *Cite this repository* button).
+Changes between versions: [`CHANGELOG.md`](CHANGELOG.md).

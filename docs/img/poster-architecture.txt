@@ -1,6 +1,6 @@
 # image-manifest
 # image: poster-architecture.png sha256=06ef6b343fcb36dbf309b62521edcf936a4f8f1ebcbc2b26a9e7a8cb44d11180
-# source: tools/poster.html, rendered by tools/poster.py (aggregate numbers only)
+# source: tools/poster.html, rendered by tools/poster.py (A4 architecture poster; aggregate numbers only)
 # visible text below
 
 ARCHITECTURE POSTER · PUBLIC-SAFE DOCUMENTATION

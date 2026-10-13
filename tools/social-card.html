@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Social preview card (1280×640, the size the code host recommends). Source of docs/img/social-card.png:
+     edit here, then run python3 tools/poster.py. Same palette and fonts as tools/poster.html. -->
+<html><head><meta charset="utf-8">
+<style>
+:root{--bg:#0A101C;--card:#141E31;--line:#1F2E47;--txt:#EAF0FA;--mut:#94A6C4;--dim:#63799B;
+--blue:#4FA8FF;--green:#7ED957;--amber:#FFB13D;--violet:#B98BFF;--rose:#FF7E8E;--cyan:#35D6D0}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1280px;height:640px;color:var(--txt);font-family:Lato,'DejaVu Sans',sans-serif;
+background:linear-gradient(160deg,#15213A 0%,#0A101C 70%)}
+main{padding:64px 72px;height:100%;display:flex;flex-direction:column}
+.kick{color:var(--amber);font:700 16px Lato;letter-spacing:.2em}
+h1{font:800 64px/1.05 Montserrat,sans-serif;margin:20px 0 22px;letter-spacing:-.01em}
+.sub{color:var(--mut);font-size:23px;line-height:1.45;max-width:1040px}
+.sub b{color:var(--txt)}
+.funnel{display:flex;gap:16px;margin-top:auto;align-items:flex-end}
+.s{flex:1;border-top:5px solid var(--c);background:var(--card);border-radius:10px;padding:14px 18px}
+.s .n{font:800 36px Montserrat;color:var(--c)}
+.s .l{color:var(--mut);font-size:16px;margin-top:2px}
+.arrow{color:var(--dim);font:700 26px Lato;padding-bottom:28px}
+footer{margin-top:22px;display:flex;justify-content:space-between;color:var(--dim);font-size:16px}
+footer .m{font-family:'Liberation Mono',monospace;color:var(--mut)}
+</style></head><body><main>
+  <div class="kick">CLAUDE CODE · HUMAN IN THE LOOP · PUBLIC-SAFE DOCUMENTATION</div>
+  <h1>Agentic Job-Search<br>Decision Support System</h1>
+  <p class="sub">An AI agent reads, filters and composes. <b>A human approves every document and makes every
+    submission.</b></p>
+  <div class="funnel">
+    <div class="s" style="--c:var(--blue)"><div class="n">~14,800</div><div class="l">postings seen</div></div>
+    <div class="arrow">→</div>
+    <div class="s" style="--c:var(--cyan)"><div class="n">822</div><div class="l">analyzed in writing</div></div>
+    <div class="arrow">→</div>
+    <div class="s" style="--c:var(--amber)"><div class="n">G1–G12</div><div class="l">blocking checks</div></div>
+    <div class="arrow">→</div>
+    <div class="s" style="--c:var(--green)"><div class="n">77</div><div class="l">sent, by the human</div></div>
+  </div>
+  <footer><span class="m">github.com/maaferna/job-search-agent-system</span><span>architecture · controls · decisions · reference code</span></footer>
+</main></body></html>

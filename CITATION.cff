@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you reuse the design or the code of this repository, please cite it as below."
+type: software
+title: "Job Search Agent System: an agentic decision-support system with human review"
+abstract: >-
+  Public documentation of a decision-support system for a job search, operated daily with an AI agent
+  (Claude Code): architecture, quality controls, decision records, lessons from real failures and
+  reference implementations, documented with invented data. A human approves every document and makes
+  every submission.
+authors:
+  - given-names: "Marco Antonio"
+    family-names: "Parra Fernández"
+repository-code: "https://github.com/maaferna/job-search-agent-system"
+license:
+  - CC-BY-4.0
+  - MIT
+version: 1.0.0
+date-released: 2026-10-13
+keywords:
+  - claude-code
+  - ai-agents
+  - human-in-the-loop
+  - decision-support
+  - latex
+  - python

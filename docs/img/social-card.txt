@@ -1,0 +1,22 @@
+# image-manifest
+# image: social-card.png sha256=50ae8b730cca6d0b11fbf8c7c2ba7e97883868c462fbe1e32b56a66fc840e45e
+# source: tools/social-card.html, rendered by tools/poster.py (social preview card; aggregate numbers only)
+# visible text below
+
+CLAUDE CODE · HUMAN IN THE LOOP · PUBLIC-SAFE DOCUMENTATION
+Agentic Job-Search
+Decision Support System
+An AI agent reads, filters and composes. A human approves every document and makes every submission.
+~14,800
+postings seen
+→
+822
+analyzed in writing
+→
+G1–G12
+blocking checks
+→
+77
+sent, by the human
+github.com/maaferna/job-search-agent-system
+architecture · controls · decisions · reference code
