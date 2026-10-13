@@ -9,7 +9,8 @@ holds:
 
 - `examples/` — invented data, the pipeline JSON Schema, translated skills and prompts, a CLAUDE.md template;
 - `reference/` — small implementations of key mechanisms, **written from scratch** here, with tests in `tests/`;
-- `docs/img/` — board screenshots and CV previews generated from invented data by `tools/`;
+- `docs/img/` — board screenshots and CV previews generated from invented data, and the architecture poster,
+  all by `tools/`;
 - `scripts/` — the sanitization gate, the link checker and the hook installer.
 
 The private system lives in a sibling folder and is the **read-only source** for this repository.
@@ -51,7 +52,9 @@ operating the owner's accounts: browser work happens only in a session the owner
 
 **Images.** A raster image cannot be searched: each one needs a manifest (`docs/img/README.md`) with its
 SHA-256 and its visible text. Board screenshots and CV previews are only regenerated with
-`tools/board_screenshots.py` and `tools/latex_previews.py`, never edited or replaced by hand. The presence
+`tools/board_screenshots.py` and `tools/latex_previews.py`, and the poster only with `tools/poster.py` from
+`tools/poster.html` (its numbers must match the README's "Numbers" table); never edited or replaced by hand.
+Diagrams stay in Mermaid inside the Markdown, so they can be diffed and searched. The presence
 view must keep running on generated series (`tools/presence_fixture.py`), never on the owner's metrics. The owner reviews every image before publishing.
 
 **The local denylist.** `.sanitize-local.yaml` (gitignored; template in `.sanitize-local.example.yaml`)

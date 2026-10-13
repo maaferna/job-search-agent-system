@@ -46,4 +46,19 @@ python3 tools/latex_previews.py         # needs lualatex and poppler
 | `cv-showcase-ops.txt` | `cv-showcase-ops.png` | the same fragment library, operations choices |
 | `cv-application.txt` | `cv-application.png` | a per-application composition for an invented posting |
 
+## Architecture poster
+
+The one-page view used outside the code host (the project image on the professional network). Its source
+is `tools/poster.html`; it holds only aggregate numbers, which must match the README's "Numbers" table.
+
+```bash
+python3 tools/poster.py                 # needs Chrome and Node (npm ci)
+```
+
+| Manifest | Image | What it is |
+|---|---|---|
+| `poster-architecture.txt` | `poster-architecture.png` | A4 portrait, 2480×3508: funnel, who does what, the gate, decisions, evaluation |
+
+Diagrams are not images: they stay in Mermaid inside the Markdown, where they can be diffed and searched.
+
 Any other image added to the repository needs a manifest written by hand, and the same review.

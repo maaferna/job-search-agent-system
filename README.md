@@ -12,7 +12,8 @@ decision — with a human reading and approving every document, and making every
 
 [Architecture](docs/architecture.md) · [The board](docs/board.md) · [Audits](docs/audits.md) ·
 [Quality controls](docs/quality-controls.md) · [Decisions (ADR)](docs/decisions/) ·
-[Lessons](docs/lessons.md) · [Examples](examples/) · [Reference code](reference/)
+[Lessons](docs/lessons.md) · [Examples](examples/) · [Reference code](reference/) ·
+[Poster](docs/img/poster-architecture.png)
 
 > <a id="lector-no-tecnico"></a>**Para el lector no técnico.** Este repositorio describe un sistema que
 > su autor usa a diario para gestionar su propia búsqueda de empleo junto a un agente de IA (Claude Code).
@@ -36,7 +37,7 @@ decision — with a human reading and approving every document, and making every
 - **Data design for decisions.** Every fact lives in one file, closed vocabularies validated by a schema,
   dated rules that reopen old decisions, sent documents kept as immutable records.
 
-**Start here** — *recruiters:* [the board](docs/board.md) → [lessons](docs/lessons.md) →
+**Start here** — *recruiters:* [the one-page poster](docs/img/poster-architecture.png) → [the board](docs/board.md) → [lessons](docs/lessons.md) →
 [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does) ·
 *engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
 [audits](docs/audits.md) → run [`reference/gate.py`](reference/) and the [LaTeX example](examples/latex/).
@@ -166,7 +167,7 @@ and how the agent itself is evaluated.
 | [`docs/decisions/`](docs/decisions/) | Architecture decision records |
 | [`examples/`](examples/) | Invented example data, the pipeline JSON Schema, seven translated agent skills, the [Claude Code settings and hooks](examples/claude/), local-model prompts, a `CLAUDE.md` template, and a [compiling LaTeX example](examples/latex/) of fragments and compositions |
 | [`reference/`](reference/) | Working minimal versions of six mechanisms: closed-vocabulary validator, dated rules, fit and call probability, per-application gate, ATS coverage, rendered-page test |
-| [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews — each gated before it is written |
+| [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews, the architecture poster — each gated before it is written |
 
 ## Run the reference code
 

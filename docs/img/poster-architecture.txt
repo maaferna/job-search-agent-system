@@ -1,0 +1,117 @@
+# image-manifest
+# image: poster-architecture.png sha256=06ef6b343fcb36dbf309b62521edcf936a4f8f1ebcbc2b26a9e7a8cb44d11180
+# source: tools/poster.html, rendered by tools/poster.py (aggregate numbers only)
+# visible text below
+
+ARCHITECTURE POSTER · PUBLIC-SAFE DOCUMENTATION
+Agentic Job-Search
+Decision Support System
+An AI agent (Claude Code) that captures, reads and filters job postings and composes each CV from a library of verified facts. A human approves every document and always performs the final submission.
+Claude Code
+Agent skills
+Python
+YAML + JSON Schema
+LuaLaTeX
+JavaScript
+HTML / CSS
+Playwright
+Bash
+GitHub Actions
+THE FUNNEL
+it discards far more than it sends
+~14,800
+Capture
+Public sources, deduplicated; one capture mode per source
+822
+Triage
+Read in depth; a written analysis and a reason for every call
+332
+Pipeline
+Closed vocabularies, schema-checked, dated owner rules
+G1–G12
+Compose & gate
+CV built from one fact library, then 12 blocking checks
+77
+Sent
+Immutable record; follow-up and portal signals tracked
+AGENT
+Proposes
+analysis, fit, call probability, a composed CV
+→
+HUMAN
+Reads the full text and approves
+approval bound to a fingerprint of that text
+→
+HUMAN
+Submits, always
+no document leaves the system on its own
+WHO DOES WHAT
+one agent, one owner, written boundaries
+AGENT · CLAUDE CODE
+Works through 25 written skills
+Captures and deduplicates postings every day
+Triages with a written reason; audits each posting before effort is spent
+Composes the CV in LaTeX from versioned fragments
+Runs the gate, the ATS audit and the board render test
+Wrote much of the code, under the owner's direction and review
+OWNER · HUMAN
+Designs, decides and operates
+Designed the process, rules, controls and data architecture
+Writes dated rules; a rule is never edited in place
+Reads and approves every document's full text
+Performs every submission
+Reviews the agent's discards and reopens the wrong ones
+THE AGENT NEVER
+submits an application
+sends a message for the owner
+invents a fact, metric or date
+changes a state on its own
+THE APPLICATION GATE
+each check was born from a real failure · red blocks
+G1
+Structure, unresolved markers
+G2
+Mechanics & ATS reading
+G3
+Sent PDFs are immutable
+G4
+Retired claims, text + metadata
+G5
+Coverage of the posting
+G6
+Headline vs. role family
+G7
+Every date traceable
+G8
+Every link answers
+G9
+Pipeline entry complete
+G10
+Letter consistent with CV
+G11
+Expectation declared
+G12
+Human approval, fingerprinted
+DECISIONS THAT DEFINE THE SYSTEM
+9 ADRs in the repository
+Approval before send
+The agent prepares; only the human approves the full text and submits.
+Gates block
+A warning gets read once and ignored. A red check stops the document.
+Rules carry dates
+When a rule changes, discards made under the old version are surfaced again.
+One source of facts
+Each fact lives in one file; every CV variant is composed from it.
+EVALUATING THE AGENT
+measured against the owner's decisions
+TWO METRICS, NEVER MIXED
+Fit ≠ call probability
+"Would they pick me?" vs. "will anyone read it?". The second is calibrated with a Brier score.
+RECOMMENDATIONS
+33 approved by the owner
+8 of them later dropped at the posting audit
+DISCARDS
+5 of 789 reopened
+the owner reviews the agent's discards, not only its picks
+github.com/maaferna/job-search-agent-system
+Public-safe · no personal data, employers or postings · board images use invented data
