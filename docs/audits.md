@@ -113,3 +113,14 @@ owner's reading of the full text before approving it (G12). This is a known gap,
 documentation does not suggest a control that does not exist. The mechanical step that would close it —
 running a spell and grammar checker over the **extracted text** of every deliverable, in both languages,
 inside the repository QA — has not been built.
+
+**Transitions between states are not checked.** The pipeline's states and vocabularies are validated, but
+not whether an entry moved along an allowed arrow of the [state machine](state-machine.md).
+
+**Gate results are not kept.** The per-application gate prints its verdict and can write a report, but
+runs are not logged, so there is no measured rate of how often each check blocks.
+
+**The approval record is recent.** The fingerprint of the approved text exists since late September 2026
+([ADR 0001](decisions/0001-human-approval-before-send.md)).
+Documents sent before that were approved by reading, under the same rule, but left no record a script can
+check — and no check yet fails when a document sent after that date lacks one.

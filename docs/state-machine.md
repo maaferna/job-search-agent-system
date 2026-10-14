@@ -15,6 +15,7 @@ stateDiagram-v2
     outreach --> contact: the person answered
     outreach --> no_response
     prepared --> sent: the owner submitted it
+    prepared --> discarded: NO-GO after composing (e.g. screening questions)
     sent --> contact: a person wrote or called
     sent --> rejected: employer or job board closed it
     sent --> no_response: own closure after a silence
@@ -79,6 +80,10 @@ real silences, and the generated board showed as pending processes that were ove
 - **Closed vocabularies are validated by a script**: modality (`onsite | hybrid | remote | unresolved |
   not_stated`), channel, closure fields. Free text that a generator had to interpret was the source of a
   board that showed "remote" for an onsite job ([ADR 0005](decisions/0005-closed-vocabularies.md)).
+- **States are validated; transitions are not.** A script rejects a state that is not in the list, but no
+  script checks that an entry moved along an arrow of the diagram above. The diagram is the rule the
+  agent and the owner follow, not something a check enforces
+  ([what is not audited](audits.md#what-is-not-audited)).
 
 ## Invented example of an entry
 

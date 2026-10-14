@@ -24,5 +24,8 @@ without a matching approval; the per-application gate (G12) blocks as well.
   that does not come from an interactive terminal, and the [example settings](../../examples/claude/)
   show the proposed hardening: a deny rule and a hook that block the approval command and any write to a
   sent record, whatever the agent was told.
+- The fingerprint was introduced in late September 2026. Documents sent before that were approved by
+  reading, under the same rule, without a record a script can check
+  ([what is not audited](../audits.md#what-is-not-audited)).
 - It adds a few minutes per application. Since more than ten postings are discarded for every application
   sent, those minutes are a small share of the effort.

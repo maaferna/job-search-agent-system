@@ -97,8 +97,11 @@ Measured from the private repository on 2026-10-13 (read only):
 | Documents sent | 77 | entries with a `sent` date — includes 2 later withdrawn and recorded as discarded |
 | Tailored CV compositions | 76 | application folders with a composition; a few submissions went out with a showcase CV or as a direct message, and a few compositions were never sent |
 
-**Reading:** about a thousand discards with a written reason against 77 documents sent, and no document
-sent without the owner approving its text. That is the opposite of a mass-application bot.
+**Reading:** about a thousand discards with a written reason against 77 documents sent, every one read and
+approved by the owner. That is the opposite of a mass-application bot. Two limits of that claim: the
+approval is recorded as a fingerprint of the text only since late September 2026 (before, it was a rule
+without a record; [ADR 0001](decisions/0001-human-approval-before-send.md)), and one application left by accident with a CV approved for another employer
+([lessons](lessons.md#the-document-that-was-sent-was-not-the-one-that-was-composed)).
 
 ## Evaluating the agent
 

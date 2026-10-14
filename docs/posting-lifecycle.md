@@ -12,14 +12,23 @@ flowchart TD
     D -- yes --> E[5 · Posting audit<br/>GO / NO-GO / DIRECT-CONTACT]
     E -- NO-GO --> X[discarded with reason]
     E -- DIRECT-CONTACT --> K[message drafted;<br/>owner sends it]
-    E -- GO --> F[6 · Compose CV<br/>from fragments]
-    F --> G[7 · Owner reads the full<br/>text and approves]
+    E -- GO --> F[6 · Compose CV<br/>proposal + composition report]
+    F --> R{Owner accepts<br/>the composition?}
+    R -- change --> F
+    R -- yes --> G[7 · Owner reads the full<br/>text and approves]
     G --> H[8 · Per-application gate<br/>G1–G12]
-    H -- red: G1–G11 --> F
-    H -- red: G12 --> G
-    H -- green --> I[9 · Owner submits]
+    H -- "red: CV or letter<br/>(fixed in fragments)" --> F
+    H -- "red: pipeline data<br/>(G9, G11)" --> P[fix the entry]
+    P --> H
+    H -- "red: G12, text changed<br/>after approval" --> G
+    H -- green --> Q{9 · Screening questions,<br/>right CV loaded:<br/>two or more honest no?}
+    Q -- yes --> X
+    Q -- no --> I[Owner submits]
     I --> J[10 · Follow-up<br/>portal signals, closure rules]
 ```
+
+<sub>A red G3 is not drawn: it means the document was already sent, and a sent document is never rebuilt
+(<a href="decisions/0006-sent-documents-are-immutable.md">ADR 0006</a>).</sub>
 
 ## 1 · Capture
 
@@ -148,6 +157,42 @@ The agent prepares everything; the final click on *send* is always the owner's (
 only in a session the owner opened and supervises. Two lessons shaped this step: verify which file the
 form will actually attach, and never open an application form "just to read the questions" before the
 right CV is loaded ([lessons](lessons.md)).
+
+### From GO to submission, in order
+
+The order of steps 6–9 is fixed, and two real failures fixed it
+([lessons](lessons.md#the-document-that-was-sent-was-not-the-one-that-was-composed)): the form is never
+opened before the right CV is approved, and its questions are read only with that CV loaded.
+
+```mermaid
+sequenceDiagram
+    actor O as Owner
+    participant A as Agent
+    participant S as Scripts
+    participant B as Browser session (opened by the owner)
+    A->>A: compose from fragments (compose-cv)
+    A->>S: build PDF, measure coverage
+    S-->>A: PDF and coverage
+    A->>O: composition report: choices, coverage, open gaps
+    O-->>A: accept or change each choice (the agent rebuilds)
+    S->>O: preview, block by block, numbers flagged
+    O->>S: approve the full text
+    S->>S: store the fingerprint of the approved text
+    A->>S: run the gate G1–G12
+    alt a check is red
+        S-->>A: fix at the source — a changed text needs a new approval
+    end
+    O->>B: open the form, load THAT CV, check the file name
+    A->>B: read the screening questions (read only)
+    alt two or more honest "no"
+        A->>O: NO-GO, or a bet declared as low probability
+    else
+        O->>B: submit
+        S->>S: copy the PDF to sent/ — refused without a matching approval, never rebuilt
+        A->>O: propose the state change
+        O-->>A: confirm
+    end
+```
 
 ## 10 · Follow-up
 

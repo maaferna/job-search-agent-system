@@ -150,20 +150,32 @@ flowchart LR
 
 Dependencies flow **one way**: facts → fragments → compositions → operations. A composition never
 contains a fact; it only chooses fragments and their order. Correcting a fact means editing one file.
+There is one way back, and it goes through the owner: when an application surfaces a true fact that is not
+recorded, it is added to the facts after the owner confirms it — never written into a composition.
 Details: [`docs/architecture.md`](docs/architecture.md).
 
 ## The life of a posting
 
 ```mermaid
 flowchart LR
-    A[capture] --> B[score & dedupe] --> C[triage<br/>analysis saved] --> D{human:<br/>authorize?}
-    D -- no --> X[discarded<br/>with reason]
-    D -- yes --> E[posting audit:<br/>GO / NO-GO / direct contact] --> F[compose CV<br/>from fragments]
-    F --> G[human reads<br/>full text & approves] --> H[per-application gate<br/>G1–G12] --> I[human submits] --> J[follow-up &<br/>portal signals]
+    A[capture &<br/>score] --> C[triage<br/>analysis saved] --> D{owner:<br/>authorize?}
+    D -- no / no answer --> T[(stays in<br/>triage)]
+    D -- yes --> E[posting audit<br/>GO / NO-GO /<br/>direct contact]
+    E -- NO-GO --> X[discarded<br/>with reason]
+    E -- direct contact --> K[owner sends the<br/>drafted message]
+    E -- GO --> F[agent proposes<br/>the CV + report] --> R{owner accepts<br/>the composition?}
+    R -- change --> F
+    R -- yes --> G[owner reads the<br/>full text, approves] --> H[gate<br/>G1–G12] --> I[owner<br/>submits] --> J[follow-up]
+    H -- "red: fix,<br/>approve again" --> G
+    classDef owner fill:#FCE3CF,stroke:#E8833A,color:#222
+    classDef script fill:#E3ECF7,stroke:#2F6FB5,color:#222
+    class D,R,G,I,K owner
+    class H script
 ```
 
-Every arrow that crosses into a submission passes through a human. Details:
-[`docs/posting-lifecycle.md`](docs/posting-lifecycle.md).
+Orange: what only the owner decides or does; blue: a script that blocks; the rest is the agent's work.
+Every application passes through the owner at least three times — authorize, approve the full text,
+submit — and the owner sees the agent's composition report before approving. Details: [`docs/posting-lifecycle.md`](docs/posting-lifecycle.md).
 
 ## Numbers
 
@@ -187,8 +199,11 @@ posters and every other page that quotes a figure agree with it.
 | Period of active development | August 2026 → today |
 
 **For every document sent, more than ten opportunities were discarded with a written reason**
-(about a thousand discards between triage and pipeline), and none was sent without the owner approving
-its full text.
+(about a thousand discards between triage and pipeline). Every document sent was read and approved by the
+owner; since late September 2026 the approval is also recorded as a fingerprint of the approved text
+([ADR 0001](docs/decisions/0001-human-approval-before-send.md)). One
+left by accident with a CV approved for another employer — that failure is the
+[first lesson](docs/lessons.md#the-document-that-was-sent-was-not-the-one-that-was-composed).
 
 **The agent is evaluated against the owner's decisions, in both directions.** Its picks: the owner authorized
 all 33 of its recommendations; 24 were sent and 8 were dropped later, at the posting audit (GO / NO-GO). Its

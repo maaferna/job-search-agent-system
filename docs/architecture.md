@@ -1,9 +1,11 @@
 # Architecture
 
 The system started as "a CV in LaTeX" and grew into four layers with a single rule: **dependencies flow
-one way**. Facts feed fragments, fragments feed compositions, and operations read from all three but
-never write back into the facts. The [architecture poster](img/poster-architecture.png) puts this
-page, the application gate and the evaluation of the agent on one sheet.
+one way**. Facts feed fragments, fragments feed compositions, and operations read from all three.
+Operations never write into the facts on their own: when an application surfaces a true fact that is not
+recorded, it goes back to the facts only after the owner confirms it. The
+[architecture poster](img/poster-architecture.png) puts this page, the application gate and the evaluation
+of the agent on one sheet.
 
 ```
 facts/            LAYER 1 — the only source of truth about the career

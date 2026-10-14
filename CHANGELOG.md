@@ -22,6 +22,14 @@ a minor one adds a document, a mechanism or an image, a patch fixes text or numb
   languages), the composition step of the life of a posting rewritten as what the agent proposes and what
   the owner decides, and *variant*, *recipe* and *composition report* in the glossary. The overview poster
   shows the same step: one tailored CV per posting, proposed by the agent.
+- Diagrams corrected after a review by four reviewer agents (recruiting, information design, agent
+  engineering, governance): the README flow (a posting the owner does not authorize
+  stays in triage; owner and script steps are colored), the red routes of the gate and the post-approval
+  NO-GO in the life of a posting, `prepared → discarded` in the state machine, and the way back from
+  operations to facts through the owner. New: a sequence diagram from GO to submission.
+- The approval claim is stated with its limits: recorded as a fingerprint only since late September 2026,
+  and one document sent by accident with a CV approved for another employer. *What is not audited* adds
+  unchecked state transitions, unlogged gate runs and the recent approval record.
 
 **Examples**
 - The `compose-cv` skill, translated from the private original: the eighth example skill.
