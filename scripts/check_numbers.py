@@ -43,6 +43,7 @@ CHECKS = [
     ("README.md", r"\| Agent discards the owner reopened \| (?P<discards_reopened>\d+) of (?P<triage_discarded>\d+) \|"),
     ("README.md", r"authorized all (?P<recommended>\d+) of its recommendations; (?P<recommended_sent>\d+) were sent "
                   r"and (?P<recommended_dropped>\d+) were dropped"),
+    ("README.md", r"(?P<compositions>\d+) tailored CVs so far"),
     ("README.md", r"the owner\s+reopened (?P<discards_reopened>\d+) of (?P<triage_discarded>\d+)\."),
     # docs/metrics.md
     ("docs/metrics.md", r"Measured from the private repository on (?P<as_of>[\d-]+)"),
@@ -77,8 +78,8 @@ CHECKS = [
     ("docs/quality-controls.md", r"## Repository QA — (?P<qa_blocks>\d+) blocks"),
     ("docs/quality-controls.md", r"## Per-application gate — (?P<gate_checks>\d+) checks"),
     ("docs/glossary.md", r"The (?P<qa_blocks>\d+) blocks of `check.sh`"),
-    ("examples/README.md", r"seven of the (?P<skills>\d+) agent skills"),
-    ("examples/skills/README.md", r"Seven of the system's (?P<skills>\d+) skills"),
+    ("examples/README.md", r"eight of the (?P<skills>\d+) agent skills"),
+    ("examples/skills/README.md", r"Eight of the system's (?P<skills>\d+) skills"),
     # the poster
     ("tools/poster.html", r'<div class="num">~(?P<seen__en>[\d,]+)</div>'),
     ("tools/poster.html", r'<div class="num">(?P<triage>\d+)</div><div class="bar" style="height:84px">'),
@@ -105,6 +106,7 @@ CHECKS = [
     ("tools/poster-overview.html", r"all (?P<recommended>\d+) were authorized"),
     ("tools/poster-overview.html", r'data-total="(?P<triage_discarded>\d+)" data-part="(?P<discards_reopened>\d+)"'),
     ("tools/poster-overview.html", r"against <b>(?P<sent>\d+) documents sent"),
+    ("tools/poster-overview.html", r"<span>(?P<compositions>\d+) so far · each choice"),
     # the social card
     ("tools/social-card.html", r'<div class="n">~(?P<seen__en>[\d,]+)</div><div class="l">postings seen'),
     ("tools/social-card.html", r'<div class="n">(?P<triage>\d+)</div><div class="l">analyzed in writing'),

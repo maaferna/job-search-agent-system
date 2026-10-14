@@ -18,6 +18,15 @@ a minor one adds a document, a mechanism or an image, a patch fixes text or numb
   as a policy, with a link to the harness rules that would enforce them; the metric on discards is read as
   a lower bound on disagreement, not an accuracy.
 - ADRs 0004–0006 name the checks that implement them.
+- Tailoring a CV to each posting is stated as a central capability: a new point in the README (both
+  languages), the composition step of the life of a posting rewritten as what the agent proposes and what
+  the owner decides, and *variant*, *recipe* and *composition report* in the glossary. The overview poster
+  shows the same step: one tailored CV per posting, proposed by the agent.
+
+**Examples**
+- The `compose-cv` skill, translated from the private original: the eighth example skill.
+- An invented composition report for the example Data Engineer application: family, choices with their
+  reasons, deviations from the recipe, coverage against the showcase CVs and open gaps.
 
 ## [1.0.0] — 2026-10-13
 

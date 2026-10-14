@@ -1,5 +1,5 @@
 # image-manifest
-# image: poster-overview.png sha256=1a1f82818c4c5e3c29e367a305d9b788dca4fb988d79c599b641e73e755ea5bd
+# image: poster-overview.png sha256=4460f73dc843dad69fd1ff09d0cbba3ca1f038b6585cf5619ec6f2d1241f2f09
 # source: tools/poster-overview.html, rendered by tools/poster.py (overview infographic poster; aggregate numbers only)
 # visible text below
 
@@ -25,8 +25,8 @@ by name
 Posting audit
 GO / NO-GO
 →
-Compose CV
-from fact fragments
+Tailor the CV
+one per posting, agent proposes
 →
 Approve + gate
 full text, G1–G12
@@ -40,7 +40,7 @@ KEY COMPONENTS
 Claude Code + 25 skills
 Written procedures for every recurring task, and boundaries the agent never crosses.
 One library of facts
-Every fact lives in one file; each CV is composed from LaTeX fragments.
+Every fact lives in one file; per posting the agent proposes fragments and order.
 Closed vocabularies
 States, channels and closures validated by a JSON Schema.
 Application gate
@@ -52,7 +52,7 @@ EXAMPLE RESULTS
 · invented data
 The board · pipeline view
 The board · funnel view
-Tailored CV (LaTeX)
+Tailored CV · 81 % vs 65–74 %
 $ python3 reference/gate.py …/applications/blocked
 ✗ G1  placeholder left in the CV: [[metric?]]
 ✗ G1  open question left in the analysis (ASK:)
@@ -108,8 +108,8 @@ reopened by the owner
 5 of 789 discards reopened · 784 kept
 6
 OUTPUTS
-Tailored CV (PDF)
-two pages, ATS-readable, every line traced to a fact
+One tailored CV per posting
+76 so far · each choice explained, gaps declared
 A written analysis per posting
 verdict and reason, kept even when nobody answers
 The board (HTML)

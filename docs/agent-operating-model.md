@@ -12,7 +12,7 @@ the recipe to compose a CV for that kind of role, its ATS keywords and its known
 
 The rule that keeps the number of skills small: *a new kind of job is a new family, not a new skill.*
 
-Seven of the 25 skills, translated and without real cases, are in [`examples/skills/`](../examples/skills/),
+Eight of the 25 skills, translated and without real cases, are in [`examples/skills/`](../examples/skills/),
 next to a template of the project instructions the agent reads every session
 ([`examples/CLAUDE.template.md`](../examples/CLAUDE.template.md)).
 

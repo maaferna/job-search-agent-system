@@ -89,11 +89,38 @@ It also asks two questions that were added after real misses:
 - *Does the posting ask for much less than the candidate has?* Overqualification is a **risk**, not an
   advantage: recruiters assume the candidate will leave.
 
-## 6 · Composition
+## 6 · Composition — one CV per posting, proposed by the agent
+
+Every application gets its own CV, built for that posting. This is the step where the agent's reading of
+the posting matters most — and where an agent is most tempted to embellish, so the design separates two
+things: **choosing** is the agent's job, **facts** are not.
 
 A per-application composition selects fragments and their order according to a **recipe** for the role
 family (13 families, each with its fragments, ATS keywords and known gaps). The composition contains no
-facts ([architecture](architecture.md)).
+facts ([architecture](architecture.md)). The same role exists as fragments told from different sides —
+software or operations, full or compressed — with the same employer, dates and figures, so the emphasis
+can change without a fact changing.
+
+| The agent | The owner |
+|---|---|
+| reads the posting and extracts its keywords, in its own words, marked required or desirable | — |
+| picks the role family and takes its recipe; a tie goes to the family that closes more gaps with verified facts | accepts or changes the family |
+| **proposes** the headline, the summary, which variant of each role, the order of the experience, the projects, the skills and the credentials — each with the line of the posting that motivated it | accepts, changes or rejects each choice |
+| builds the PDF and measures coverage of the posting against the closest showcase CV | — |
+| writes down the deviations from the recipe and the **open gaps**, with what can honestly be said about each | decides whether to apply with those gaps |
+| proposes a new fragment when the library lacks a true sentence the posting needs | approves its text |
+
+What never changes from one CV to another: dates, employers, job titles, verified metrics, credentials held,
+and the fact that every role is named ([ADR 0007](decisions/0007-every-role-is-named.md)). A term the
+profile does not support is never added to raise coverage: it goes to the gaps.
+
+The agent hands all this over as a **composition report**, and records the deviations and open gaps in the
+application's analysis, where the review reads them. The procedure is the
+[`compose-cv`](../examples/skills/compose-cv/SKILL.md) skill, and an
+[invented report](../examples/latex/compositions/applications/2026-10-12-contoso-data-engineer/composition-report.md)
+shows one for a Data Engineer posting. In that example the tailored CV covers 81 % of the posting's
+relevant terms, against 65 % and 74 % for the two showcase CVs built from the same facts; the orchestrator
+the posting requires stays missing in all three, because the candidate does not have it.
 
 <a href="../examples/latex/"><img width="240" alt="Page 1 of a per-application CV composed from invented fragments for an invented Data Engineer posting" src="img/cv-application.png"></a>
 

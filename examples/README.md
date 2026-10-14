@@ -10,7 +10,7 @@ invented**; every data file says so in its first line.
 | [`data/owner-rules.example.yaml`](data/owner-rules.example.yaml) | the owner's rules as dated, versioned data ([ADR 0004](../docs/decisions/0004-dated-owner-rules.md)) |
 | [`data/goals.example.yaml`](data/goals.example.yaml) | weekly goals read by the funnel metrics |
 | [`schemas/pipeline-entry.schema.json`](schemas/pipeline-entry.schema.json) | JSON Schema of a pipeline entry: closed vocabularies as enums, and the rules between fields ([ADR 0005](../docs/decisions/0005-closed-vocabularies.md)) |
-| [`skills/`](skills/) | seven of the 25 agent skills, translated and without real cases |
+| [`skills/`](skills/) | eight of the 25 agent skills, translated and without real cases |
 | [`prompts/`](prompts/) | prompts for a small local model, with their measured reliability |
 | [`latex/`](latex/) | a working fragment library and three compositions: how one set of facts becomes several CVs |
 | [`claude/`](claude/) | the Claude Code settings: permissions, the session-start hook, and a proposed guard that makes two boundaries impossible instead of forbidden |

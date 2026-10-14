@@ -128,7 +128,7 @@ footer .auth{font-size:10.5px;line-height:1.5;color:#DCE6F2}
         <div class="st"><svg class="i"><use href="#doc"/></svg><b>Triage</b>written analysis, saved first</div><div class="ar">→</div>
         <div class="st h"><svg class="i"><use href="#user"/></svg><b>Owner authorizes</b>by name</div><div class="ar">→</div>
         <div class="st"><svg class="i"><use href="#clip"/></svg><b>Posting audit</b>GO / NO-GO</div><div class="ar">→</div>
-        <div class="st"><svg class="i"><use href="#layers"/></svg><b>Compose CV</b>from fact fragments</div><div class="ar">→</div>
+        <div class="st"><svg class="i"><use href="#layers"/></svg><b>Tailor the CV</b>one per posting, agent proposes</div><div class="ar">→</div>
         <div class="st h"><svg class="i"><use href="#shield"/></svg><b>Approve + gate</b>full text, <span style="white-space:nowrap">G1–G12</span></div><div class="ar">→</div>
         <div class="st h"><svg class="i"><use href="#send"/></svg><b>Owner submits</b>always by hand</div>
       </div>
@@ -141,7 +141,7 @@ footer .auth{font-size:10.5px;line-height:1.5;color:#DCE6F2}
     <div class="card">
       <h2><b>3</b>Key components</h2>
       <div class="comp"><svg class="i"><use href="#bot"/></svg><div><b>Claude Code + 25 skills</b><span>Written procedures for every recurring task, and boundaries the agent never crosses.</span></div></div>
-      <div class="comp"><svg class="i"><use href="#book"/></svg><div><b>One library of facts</b><span>Every fact lives in one file; each CV is composed from LaTeX fragments.</span></div></div>
+      <div class="comp"><svg class="i"><use href="#book"/></svg><div><b>One library of facts</b><span>Every fact lives in one file; per posting the agent proposes fragments and order.</span></div></div>
       <div class="comp"><svg class="i"><use href="#list"/></svg><div><b>Closed vocabularies</b><span>States, channels and closures validated by a JSON Schema.</span></div></div>
       <div class="comp"><svg class="i"><use href="#shield"/></svg><div><b>Application gate</b><span>12 blocking checks, from ATS readability to the approval fingerprint.</span></div></div>
       <div class="comp"><svg class="i"><use href="#browser"/></svg><div><b>Rendered-page test</b><span>A headless browser compares what the board shows with what the data says.</span></div></div>
@@ -151,7 +151,7 @@ footer .auth{font-size:10.5px;line-height:1.5;color:#DCE6F2}
       <div class="shots">
         <div class="shot">The board · pipeline view<div class="im"><img src="../docs/img/board-pipeline-desktop-light.png" alt=""></div></div>
         <div class="shot">The board · funnel view<div class="im"><img src="../docs/img/board-funnel-desktop-light.png" alt=""></div></div>
-        <div class="shot">Tailored CV (LaTeX)<div class="im"><img src="../docs/img/cv-application.png" alt=""></div></div>
+        <div class="shot">Tailored CV · 81 % vs 65–74 %<div class="im"><img src="../docs/img/cv-application.png" alt=""></div></div>
       </div>
       <div class="code">
 <pre><span class="c">$ python3 reference/gate.py …/applications/blocked</span>
@@ -217,7 +217,7 @@ footer .auth{font-size:10.5px;line-height:1.5;color:#DCE6F2}
   <div class="row" style="grid-template-columns:1fr 1fr 1.1fr">
     <div class="card list">
       <h2><b>6</b>Outputs</h2>
-      <div><svg class="i"><use href="#doc"/></svg><p><b>Tailored CV (PDF)</b><span>two pages, ATS-readable, every line traced to a fact</span></p></div>
+      <div><svg class="i"><use href="#doc"/></svg><p><b>One tailored CV per posting</b><span>76 so far · each choice explained, gaps declared</span></p></div>
       <div><svg class="i"><use href="#list"/></svg><p><b>A written analysis per posting</b><span>verdict and reason, kept even when nobody answers</span></p></div>
       <div><svg class="i"><use href="#chart"/></svg><p><b>The board (HTML)</b><span>today, pipeline, funnel and presence, generated daily</span></p></div>
       <div><svg class="i"><use href="#lock"/></svg><p><b>An immutable sent record</b><span>what the recruiter read is never rebuilt</span></p></div>

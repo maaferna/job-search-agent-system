@@ -7,8 +7,8 @@
 [![license](https://img.shields.io/badge/license-CC%20BY%204.0%20%2B%20MIT-blue)](LICENSE)
 
 **An agentic decision-support system for a job search:** capture postings, triage them against explicit
-rules, compose each CV from a library of verified facts, pass it through quality checks and record every
-decision — with a human reading and approving every document, and making every submission.
+rules, compose a CV for each posting from a library of verified facts, pass it through quality checks and
+record every decision — with a human reading and approving every document, and making every submission.
 About 14,800 postings seen, 822 analyzed in writing, 77 documents sent: it discards far more than it sends.
 
 [Architecture](docs/architecture.md) · [The board](docs/board.md) · [Audits](docs/audits.md) ·
@@ -22,6 +22,10 @@ About 14,800 postings seen, 822 analyzed in writing, 77 documents sent: it disca
 >
 > - **Qué hace:** encuentra avisos de empleo, los evalúa contra reglas escritas, arma cada CV solo con
 >   datos verificados de su trayectoria, lo revisa con controles automáticos y registra cada decisión.
+> - **Un CV distinto para cada aviso:** el agente lee lo que pide el cargo y propone qué destacar
+>   (titular, resumen, qué parte de cada experiencia, en qué orden, qué proyectos), explica por qué y
+>   declara lo que el perfil no cubre. Los hechos son siempre los mismos; cambia qué se elige y en qué
+>   orden.
 > - **Quién decide:** ningún documento sale sin que el autor lea y apruebe su texto completo, y el envío
 >   siempre lo hace el autor.
 > - **No es un bot que postula en masa:** unos 14.800 avisos vistos, 822 analizados por escrito y
@@ -45,6 +49,13 @@ About 14,800 postings seen, 822 analyzed in writing, 77 documents sent: it disca
   compares what a page *shows* with what the data says, a calibrated probability (Brier score), the
   measured reliability of a small local model — and a written list of what is *not* checked
   ([quality controls](docs/quality-controls.md), [audits](docs/audits.md#what-is-not-audited)).
+- **One CV per posting, composed, not written.** For each posting the agent reads its requirements,
+  picks the closest role family and proposes what to put in front — headline, summary, which variant of
+  each role, order, projects, skills — with the reason for each choice and the gaps it cannot cover; the
+  owner decides. The facts never change, only their selection: 76 tailored CVs so far, and on the
+  [invented example](examples/latex/compositions/applications/2026-10-12-contoso-data-engineer/composition-report.md)
+  the tailored CV covers 81 % of the posting's terms against 65 % and 74 % for the two showcase CVs built
+  from the same facts ([how a CV is composed](docs/posting-lifecycle.md#6--composition--one-cv-per-posting-proposed-by-the-agent)).
 - **Data design for decisions.** Every fact lives in one file, closed vocabularies validated by a schema,
   dated rules that reopen old decisions, sent documents kept as immutable records
   ([architecture](docs/architecture.md)).
@@ -201,7 +212,7 @@ recomputed, and the calibration of the call probability.
 | [`docs/decisions/`](docs/decisions/) | Architecture decision records |
 | [`docs/glossary.md`](docs/glossary.md) | Every term with one meaning, and the Spanish words of the screenshots |
 | [`docs/numbers.yaml`](docs/numbers.yaml) | The single source of every published number, checked in CI |
-| [`examples/`](examples/) | Invented example data, the pipeline JSON Schema, seven translated agent skills, the [Claude Code settings and hooks](examples/claude/), local-model prompts, a `CLAUDE.md` template, and a [compiling LaTeX example](examples/latex/) of fragments and compositions |
+| [`examples/`](examples/) | Invented example data, the pipeline JSON Schema, eight translated agent skills, the [Claude Code settings and hooks](examples/claude/), local-model prompts, a `CLAUDE.md` template, and a [compiling LaTeX example](examples/latex/) of fragments and compositions |
 | [`reference/`](reference/) | Working minimal versions of six mechanisms: closed-vocabulary validator, dated rules, fit and call probability, per-application gate, ATS coverage, rendered-page test |
 | [`.claude/skills/`](.claude/skills/) | The four skills this repository is maintained with: [`doc-review`](.claude/skills/doc-review/SKILL.md) (editorial review), [`refresh-numbers`](.claude/skills/refresh-numbers/SKILL.md), [`publish-check`](.claude/skills/publish-check/SKILL.md) and [`new-adr`](.claude/skills/new-adr/SKILL.md) |
 | [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews, the two posters and the social card — each gated before it is written |

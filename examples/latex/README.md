@@ -50,7 +50,9 @@ flowchart LR
   [`showcase-ops-en.tex`](compositions/showcase-ops-en.tex): same library, other choices.
 - **A per-application CV is just another composition**, in the application's folder:
   [`cv.tex`](compositions/applications/2026-10-12-contoso-data-engineer/cv.tex). The analysis of the
-  posting decides the headline, the variants and the order. If the CV needs a sentence no fragment has,
+  posting decides the headline, the variants and the order, and the agent explains each choice in a
+  [composition report](compositions/applications/2026-10-12-contoso-data-engineer/composition-report.md)
+  that the owner accepts or changes. If the CV needs a sentence no fragment has,
   that sentence becomes a new fragment — a fact written inside a composition would be lost for every
   other CV.
 - **The point of composing is measurable.** For the invented posting in the application folder

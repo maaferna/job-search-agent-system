@@ -21,6 +21,9 @@ listed at the end.
 | **Composition** | A CV that only selects fragments and orders them. It cannot contain a fact. |
 | **Showcase CV** | A general composition for one career track, used when no posting justifies a tailored one. |
 | **Tailored CV** | The composition made for one application; also called a *per-application CV*. |
+| **Variant** | The same role told from another side (`.dev`, `.ops`) or at another length (`.full`, `.compressed`): same employer, dates and figures. Choosing the variant is part of tailoring; changing a fact is not. |
+| **Recipe** | The starting composition of a role family: headline, summary, experience fragments in order, projects, skills, credentials. The agent deviates from it only with a written reason. |
+| **Composition report** | What the agent hands the owner with a tailored CV: the family, each choice with the line of the posting behind it, deviations from the recipe, coverage and open gaps ([example](../examples/latex/compositions/applications/2026-10-12-contoso-data-engineer/composition-report.md)). |
 | **Retired claim** | A statement removed from the CV on purpose. A list of them is searched in every PDF, source, backup and PDF metadata so none comes back. |
 | **Sent document** | The PDF a recruiter actually received. It is a record: never rebuilt or corrected ([ADR 0006](decisions/0006-sent-documents-are-immutable.md)). |
 
