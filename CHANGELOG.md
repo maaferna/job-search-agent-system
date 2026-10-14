@@ -30,6 +30,10 @@ a minor one adds a document, a mechanism or an image, a patch fixes text or numb
 - The approval claim is stated with its limits: recorded as a fingerprint only since late September 2026,
   and one document sent by accident with a CV approved for another employer. *What is not audited* adds
   unchecked state transitions, unlogged gate runs and the recent approval record.
+- Lessons open with a map of which failure produced which control, and which controls came from design
+  instead; a fourteenth lesson (a role hidden to raise coverage) gives ADR 0007 its origin.
+- The agent's boundaries show what keeps each one today — script, instruction or the owner — and the
+  proposed hardening; the weakest row, the approval command, is named.
 
 **Examples**
 - The `compose-cv` skill, translated from the private original: the eighth example skill.

@@ -1,8 +1,9 @@
 # Quality controls
 
-Checks run in three places. Each one exists because something went wrong without it
-([lessons](lessons.md)). The same checks grouped by what they protect — ATS mechanics, truth, judgment —
-and what is *not* checked: [audits](audits.md).
+Checks run in three places. Some exist because something went wrong without them, others were designed
+before any failure; [the lessons map](lessons.md#which-failure-produced-which-control) shows which is
+which. The same checks grouped by what they protect — ATS mechanics, truth, judgment — and what is *not*
+checked: [audits](audits.md).
 
 | Layer | Runs | Blocks |
 |---|---|---|

@@ -1,12 +1,93 @@
 # Lessons — real failures turned into controls
 
-Each lesson below is a real failure and the control it produced. The failures are described
-generically: no employer, person or posting is identifiable.
+Each lesson is a real failure and the control it produced; the map first shows them side by side. The
+failures are described generically: no employer, person or posting is identifiable.
 
 **If you read three:**
 [the wrong file was attached](#the-document-that-was-sent-was-not-the-one-that-was-composed) ·
 [a changed rule did not reopen its discards](#a-rule-changed-the-discards-it-justified-did-not) ·
 [overqualification read as a strength](#overqualification-was-read-as-an-advantage).
+
+## Which failure produced which control
+
+Not every control came from a failure, and not every failure produced a check a script runs. The map below
+shows both. A solid border is a control a script runs; a dashed border is a written procedure the agent
+follows and the owner reviews — nothing fails automatically if it is skipped. The box *Controls with no
+lesson* holds the ones that came from a design decision, not an incident.
+
+```mermaid
+flowchart LR
+    subgraph LS["Lessons"]
+        direction TB
+        L1[wrong file sent]
+        L2[posting text ≠<br/>real requirements]
+        L3[requirements read,<br/>responsibilities not]
+        L4[generator failed<br/>silently]
+        L5[report overwritten]
+        L6[analyses lost]
+        L7[one column,<br/>two questions]
+        L8[finished vs. pending]
+        L9[job-board data<br/>hid the candidate]
+        L10[rule changed,<br/>discards did not]
+        L11[retired claim<br/>came back]
+        L12[rate limits]
+        L13[overqualification<br/>read as strength]
+        L14[a role hidden<br/>to raise coverage]
+    end
+    subgraph CS["Controls"]
+        direction TB
+        P1[file checked by name,<br/>fixed order]
+        P2[screening questions<br/>counted]
+        P3[responsibilities<br/>counted first]
+        Q11[QA 11 · pipeline<br/>and folders]
+        Q12[QA 12 · rendered<br/>board, freshness]
+        V5[closed vocabularies<br/>QA 11]
+        S5[automatic report<br/>suffixes]
+        Q13[QA 13 · triage]
+        Q14[QA 14 · two metrics]
+        P7[metrics audit]
+        P9[job-board data audit]
+        Q16[QA 16 · live discards]
+        Q4[QA 4–5 · G4 · G10<br/>retired claims]
+        S12[pauses, circuit<br/>breaker, time budget]
+        P13[overqualification<br/>is a risk]
+        P14[every role named:<br/>recipes, compose-cv]
+    end
+    subgraph DS["Decisions"]
+        direction TB
+        D3[ADR 0003]
+        D4[ADR 0004]
+        D5[ADR 0005]
+        D7[ADR 0007]
+        D8[ADR 0008]
+    end
+    subgraph NL["Controls with no lesson"]
+        direction TB
+        N1[G2 · G5–G9 · G11 · G12]
+        N2[ADR 0001 · 0002<br/>0006 · 0009]
+    end
+    L1 --> P1
+    L2 --> P2
+    L3 --> P3
+    L4 --> Q11 & Q12
+    L5 --> S5
+    L6 --> Q13 --> D3
+    L7 --> Q14 & P7
+    L8 --> V5 --> D5
+    L9 --> P9
+    L10 --> Q16 --> D4
+    L11 --> Q4
+    L12 --> S12 --> D8
+    L13 --> P13
+    L14 --> P14 --> D7
+    classDef proc stroke-dasharray:5 4
+    class P1,P2,P3,P7,P9,P13,P14 proc
+```
+
+Read it two ways. Six of the fourteen lessons produced only a procedure, so they depend on the agent
+following it and the owner noticing when it does not. And most of the per-application gate — and the
+approval of the full text itself (ADR 0001) — came from design, before any incident: the gate was built
+to prevent failures, not only to answer them.
 
 ## The document that was sent was not the one that was composed
 
@@ -118,6 +199,16 @@ postings as another, so it was removed (~100 fewer queries per run). Then: a ran
 queries, a circuit breaker after three consecutive throttled queries (counting throttles that succeeded on
 retry), a time budget, interleaving queries across locations so a cut loses the tail of the list instead of
 a whole location, and a progress line in the log. The limit is respected, never evaded.
+
+## A higher coverage score hid a role
+
+**What happened.** A CV variant for one application raised its coverage of the posting by several points
+by leaving out an older role and a recent one. The score improved, and the timeline gained two
+artificial gaps — in a profile where real gaps are already a risk a recruiter asks about.
+
+**Control.** Every role is named in every CV; space is recovered by shortening text, never by removing a
+role ([ADR 0007](decisions/0007-every-role-is-named.md)). The rule lives in the recipes and in the
+composition procedure ([`compose-cv`](../examples/skills/compose-cv/SKILL.md)); no script checks it yet.
 
 ## Overqualification was read as an advantage
 
