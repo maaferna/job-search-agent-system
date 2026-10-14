@@ -20,7 +20,7 @@ listed at the end.
 | **Fragment** | A small LaTeX file holding one block (a role, a project, a summary). A fact lives in exactly one fragment. |
 | **Composition** | A CV that only selects fragments and orders them. It cannot contain a fact. |
 | **Showcase CV** | A general composition for one career track, used when no posting justifies a tailored one. |
-| **Tailored CV** | The composition made for one application. |
+| **Tailored CV** | The composition made for one application; also called a *per-application CV*. |
 | **Retired claim** | A statement removed from the CV on purpose. A list of them is searched in every PDF, source, backup and PDF metadata so none comes back. |
 | **Sent document** | The PDF a recruiter actually received. It is a record: never rebuilt or corrected ([ADR 0006](decisions/0006-sent-documents-are-immutable.md)). |
 
@@ -36,7 +36,7 @@ listed at the end.
 | **Call probability** | The channel's view: will anybody read it? Written once at submission and never edited. |
 | **Brier score** | How far the predicted call probabilities were from what happened; it measures calibration. |
 | **Coverage** | The share of a posting's relevant terms that appear in the CV. A floor, not a target ([audits](audits.md#coverage-of-the-posting)). |
-| **Application gate** | The twelve checks (G1–G12) a document must pass before it can be sent; a red check blocks it ([quality controls](quality-controls.md#per-application-gate--12-checks)). |
+| **Per-application gate** | The twelve checks (G1–G12) a document must pass before it can be sent; a red check blocks it ([quality controls](quality-controls.md#per-application-gate--12-checks)). |
 | **Approval fingerprint** | A hash of the text the owner approved. If the text changes afterwards, the approval no longer matches (G12). |
 | **Repository QA** | The 25 blocks of `check.sh` that check the whole repository, not one application. |
 
@@ -49,6 +49,7 @@ listed at the end.
 | **Own closure** | The owner closes an application after its window expired with no signal (`no_response`). It is reopened if a signal arrives later. |
 | **Closed vocabulary** | A field that only accepts listed values (states, channels, who closed and why), validated by a script ([ADR 0005](decisions/0005-closed-vocabularies.md)). |
 | **Owner rules** | Decision rules stored as data with the date they became valid; a change reopens the discards made under the old version ([ADR 0004](decisions/0004-dated-owner-rules.md)). |
+| **Live discard** | A discard whose posting is still open, so a rule change can still reopen it ([ADR 0004](decisions/0004-dated-owner-rules.md)). |
 
 ## This repository
 

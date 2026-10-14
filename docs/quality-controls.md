@@ -1,6 +1,6 @@
 # Quality controls
 
-Three layers of checks. Each one exists because something went wrong without it
+Checks run in three places. Each one exists because something went wrong without it
 ([lessons](lessons.md)). The same checks grouped by what they protect — ATS mechanics, truth, judgment —
 and what is *not* checked: [audits](audits.md).
 
@@ -20,8 +20,8 @@ Grouped by what they protect:
 3. Language parity — a fragment changed in one language must change in the other.
 4. Retired claims must not reappear — searched in the **text extracted from the PDFs**, not the source.
    A claim removed on purpose (a figure later re-measured more conservatively, a hardware detail, a project
-   name) is easy to bring
-   back by copying an old paragraph; the script does not forget what a person forgets.
+   name) is easy to bring back by copying an old paragraph; the script does not forget what a person
+   forgets.
 5. Retired claims in the **sources** too (a clean PDF built from a dirty `.tex` is a time bomb), and in
    the `.docx` backups that are also sent.
 6. Placeholders — a letter with `[[ ]]` is not sent.
@@ -57,8 +57,8 @@ Grouped by what they protect:
 |---|---|---|
 | G1 | Structure and unresolved markers | a composition with a placeholder or an analysis with "ASK" left unresolved |
 | G2 | Mechanics and ATS reading | pages, Unicode map, extractable contact data, replacement characters, density |
-| G3 | Immutability | if the application was already sent, its PDF is a record and is never regenerated |
-| G4 | Retired claims, in text **and** metadata | red, because it can still be fixed before sending |
+| G3 | Immutability | if the application was already sent, its PDF is a record and is never regenerated ([ADR 0006](decisions/0006-sent-documents-are-immutable.md)) |
+| G4 | Retired claims, in text **and** metadata | red, because it can still be fixed before sending ([lesson](lessons.md#a-retired-claim-traveled-again)) |
 | G5 | Coverage of the posting | threshold, and which technical term of the posting is missing |
 | G6 | Headline vs. role family | the composed CV must say what the analysis chose |
 | G7 | Date traceability | every date range in the PDF must exist in the master profile |
@@ -66,20 +66,20 @@ Grouped by what they protect:
 | G9 | Pipeline entry complete | family, profile, channel, URL, call probability, gaps, salary expectation |
 | G10 | Cover letter vs. its CV | pages, retired claims, numbers the CV does not support |
 | G11 | Salary expectation | declared, and contrasted with the dated market anchors |
-| G12 | Human review | the owner read the full text and approved it; the approval fingerprint matches the current text |
+| G12 | Human review | the owner read the full text and approved it; the approval fingerprint matches the current text ([ADR 0001](decisions/0001-human-approval-before-send.md)) |
 
 The gate is written for the common case (an application to a published posting). For atypical cases — a
 direct request from a contact, for example — some checks do not apply. Those exceptions are written down
 in the application's analysis; the gate is never edited to turn green
 ([ADR 0002](decisions/0002-gates-block.md)).
 
-## A note on what a check cannot do
+## No check decides whether a line holds in an interview
 
 No script decides whether a sentence will hold in an interview. The procedure for reviewing an
 application ends with a manual reading of exactly that question: *can the candidate defend every line?*
 The checks remove the mechanical failures so that the human attention goes there.
 
-## Try it
+## Run a minimal gate
 
 [`reference/gate.py`](../reference/gate.py) implements G1, G2, G4, G7 and G12 over two invented
 applications — one ready, one that is blocked six times across four checks — and

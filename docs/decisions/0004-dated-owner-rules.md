@@ -16,3 +16,6 @@ pipeline: a **live** discard (its posting still open) that cites a superseded ru
 - "Why was this discarded?" has an answer that survives rule changes.
 - A rule change has a cost — reviewing the flagged discards — which is exactly the point.
 - The agent's memory notes point to these rules but never replace them.
+
+**Implemented by:** repository QA block 16
+([quality controls](../quality-controls.md#repository-qa--25-blocks)); a minimal version in [`reference/dated_rules.py`](../../reference/dated_rules.py).

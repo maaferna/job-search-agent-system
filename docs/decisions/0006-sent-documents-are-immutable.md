@@ -17,3 +17,6 @@ version.
 - An audit of sent PDFs can tell, for each one, which retired claim traveled and how to answer it in an
   interview.
 - Fixing a fragment does not silently "fix" what an employer already has.
+
+**Implemented by:** gate check G3 and repository QA block 19; the
+[audit of what was already sent](../audits.md#the-audit-of-what-was-already-sent).

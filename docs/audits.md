@@ -19,13 +19,13 @@ unreadable to it, and nobody notices because nobody reads the extracted text.
 | Check | What fails | Where |
 |---|---|---|
 | Pages | more than two | build helper, QA block 8, gate G2 |
-| Missing glyphs | a character the font cannot draw is also a character no parser can extract | build helper, QA 8 |
-| Unicode map (ToUnicode) | every font must carry one, or the text extracts as garbage | QA 8, G2 |
+| Missing glyphs | a character the font cannot draw is also a character no parser can extract | build helper, QA block 8 |
+| Unicode map (ToUnicode) | every font must carry one, or the text extracts as garbage | QA block 8, G2 |
 | Replacement characters | U+FFFD in the extracted text | G2 |
 | Contact data extractable | email and links must come out as text, not only as link targets | G2 |
-| **Parser extraction** | an external parser must read full date ranges, role · employer, and no "prepared on" date | QA 10 |
+| **Parser extraction** | an external parser must read full date ranges, role · employer, and no "prepared on" date | QA block 10 |
 | Metadata | PDF title and keywords are read by some ATS — and searched for retired claims too | G4 |
-| Freshness | a deliverable older than the sources it uses | QA 9 |
+| Freshness | a deliverable older than the sources it uses | QA block 9 |
 
 The parser-extraction check came from documents that passed **every** mechanical check — two pages, no
 missing glyphs, extractable email — and still could not give a parser the data that matters most in a
@@ -99,7 +99,7 @@ it** is left alone.
 | Audit | Question | Who |
 |---|---|---|
 | **ATS review** ([skill](../examples/skills/ats-review/SKILL.md)) | match table with four verdicts — *solid*, *exists but invisible* (the most profitable fix), *adjacent*, *absent* (never filled in); fit over hard requirements; literal-keyword and parsing risks | the agent, before composing or when a CV gets no replies |
-| **Six-second screen** | reading only name, headline, first line, latest role, employers and education: what does a recruiter conclude? | the agent proposes; part of the ATS review and of the pre-send review |
+| **Six-second screen** | reading only name, headline, first line, latest role, employers and education: what does a recruiter conclude? | the agent proposes; part of the ATS review and of the pre-send review ([skill](../examples/skills/review-application/SKILL.md)) |
 | **Verb intensity** | "led", "designed the architecture", "in production": does the master profile support that **same** intensity? Inflation is not a lie, it is one degree too many | read at the pre-send review |
 | **What the cut left out** | a two-page CV always cuts something; is it what the posting asks for? | read at the pre-send review |
 | **Owner's approval** (G12) | the owner read the full text and approved it; the fingerprint of the approved text must match the current one | the owner — the only control that is a person by design |

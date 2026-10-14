@@ -12,14 +12,14 @@ the recipe to compose a CV for that kind of role, its ATS keywords and its known
 
 The rule that keeps the number of skills small: *a new kind of job is a new family, not a new skill.*
 
-Seven of them, translated and without real cases, are in [`examples/skills/`](../examples/skills/), next to a
-template of the project instructions the agent reads every session
+Seven of the 25 skills, translated and without real cases, are in [`examples/skills/`](../examples/skills/),
+next to a template of the project instructions the agent reads every session
 ([`examples/CLAUDE.template.md`](../examples/CLAUDE.template.md)).
 
 | Group | Skills (translated names) |
 |---|---|
 | Daily operation | `day` (the whole daily procedure in one command), `status` (opening ritual, read only), `radar-full`, `radar-daily` |
-| From posting to submission | `apply`, `audit-posting` (the GO / NO-GO gate), `analyze-role`, `compose-cv`, `review-application` (the gate), `ats-review`, `cover-letter`, `estimate-salary`, `portal-content` |
+| From posting to submission | `apply`, `audit-posting` (GO / NO-GO), `analyze-role`, `compose-cv`, `review-application` (the per-application gate), `ats-review`, `cover-letter`, `estimate-salary`, `portal-content` |
 | Channels | `direct-contact` (draft a message to the person who decides; the owner sends it) |
 | Follow-up | `review-portals`, `audit-portal-data`, `audit-sent-pdfs`, `interview-prep` |
 | Presence | `review-presence`, `review-professional-network`, `review-credentials` (the owner's own profiles) |
@@ -39,14 +39,14 @@ a YAML file, each with the **date it became valid** and the reason. Two conseque
   version, so they are reviewed instead of silently staying discarded
   ([ADR 0004](decisions/0004-dated-owner-rules.md)).
 
-## Memory
+## Memory holds how to work, never facts
 
 Corrections and preferences the owner gives during a session ("never ask me to open the form to see the
 questions before the CV is loaded", "a distant city is not worth it for a long shot") are stored as short
 memory notes with the reason and how to apply them. The repository records *what* is true; the memory
 records *how the owner wants the work done*. Facts never live in memory: they live in the master profile.
 
-## Hooks
+## Hooks run the session-start routine
 
 Hooks are commands the Claude Code harness runs on events ([example configuration](../examples/claude/)). At
 session start a hook synchronizes the repository, launches the automatic capture in the background if there is
@@ -69,6 +69,11 @@ Browser work happens only in a session the owner opened and supervises, and it i
 default: reading application statuses, reading postings, reading the owner's own profile metrics. Each
 write action (filling a form field, editing a profile) is authorized separately — and the final
 submission is never one of them.
+
+These boundaries are kept by instructions (the project's `CLAUDE.md`, each skill's hard rules) and by
+the owner's explicit OK in the conversation: a policy, not a mechanism. How the two most important ones
+become rules the harness enforces is shown in the
+[example settings](../examples/claude/README.md#why-the-proposed-rows-exist).
 
 ## Without credits
 

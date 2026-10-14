@@ -41,8 +41,8 @@ Only what is alive, in five columns that follow the [state machine](state-machin
 the **fit band** (*calce A/B/C*, the employer's view) and the **triage priority** (*triage 1–3*) given
 when the entry was created — plus search profile (*P1–P3*), channel, modality and the next action.
 Closed and discarded entries live in a searchable list below, not in the columns: they once accounted
-for most of the page's size. A fifth view, *Vivas* (live), lists the same live entries as a table and is
-not shown here.
+for most of the page's size. The board has one more view, *Vivas* (live), which lists the same live
+entries as a table; it is not shown here.
 
 ## Funnel (*Embudo*)
 
@@ -94,8 +94,8 @@ process advanced), the profile's sections and posts, and the weekly signals log.
 
 These series are **generated** ([`tools/presence_fixture.py`](../tools/presence_fixture.py)); the real view
 reads the owner's own metrics and would never be published. Before capturing, job-board names and the names of
-the platforms are replaced on the page by generic labels (*red profesional*, *credenciales*); the metrics of
-the real view are read by the owner on their own profiles.
+the platforms are replaced on the page by generic labels (*red profesional*, professional network;
+*credenciales*, credentials); the metrics of the real view are read by the owner on their own profiles.
 
 ## On a phone
 

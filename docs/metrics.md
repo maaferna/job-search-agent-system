@@ -1,5 +1,8 @@
 # Metrics
 
+How the system scores an opportunity, measures the funnel and evaluates the agent, and where each
+published number comes from. Every aggregate figure is also in [`numbers.yaml`](numbers.yaml).
+
 ## Two numbers that are never mixed
 
 For a while a single column — "probability of being called" — tried to answer two questions at once:
@@ -69,6 +72,11 @@ hand in a report: if a report needs one, it runs the script.
 | Call-probability calibration | predicted call probability vs. outcomes, excluding retroactive values |
 | Gaps by frequency | normalized `gaps` across postings: what the market asks for that the profile lacks — the input for what to study next |
 
+<a href="board.md#funnel-embudo"><img width="320" alt="The board's funnel view, from invented data: composition of sent applications, KPI tiles, funnel bars, goals and gaps, a table per channel, weekly activity and response windows" src="img/board-funnel-desktop-light.png"></a>
+
+<sub>The same metrics on the board's <i>Embudo</i> (funnel) view, rendered from invented data and
+explained in <a href="board.md#funnel-embudo">the board</a>.</sub>
+
 ## Repository numbers
 
 Measured from the private repository on 2026-10-13 (read only):
@@ -99,10 +107,13 @@ The agent's judgment is measured against the owner's decisions, from the triage 
 
 | Question | Measure |
 |---|---|
-| When the agent recommends a posting, does the owner agree? | 33 postings recommended (or flagged to investigate) after a written analysis; the owner authorized all 33 |
+| When the agent recommends a posting, does the owner agree? | 33 postings recommended (or flagged to investigate) after a written analysis; the owner authorized all 33 — agreement on what the agent picked; it says nothing about what it discarded (next rows) |
 | …and does the recommendation survive the deeper audit? | 24 of the 33 were sent; 8 were dropped at the posting audit (GO / NO-GO), 1 is pending |
-| When the agent discards, is it right? | 789 discards with a written reason; the owner reopened 5 (0.6 %) |
+| How often does the owner overturn a discard? | 789 discards with a written reason; the owner reopened 5 (0.6 %) |
 | Do corrections stick? | 56 memory notes record how the owner wants the work done; each correction is written once and applied in later sessions |
+
+A discard the owner never looked at cannot be reopened, so the reopened share is a lower bound on
+disagreement, not an accuracy.
 
 What this does not measure yet: how often the per-application gate blocked a document the agent composed,
 by check — the gate's results are not stored, only its final state.

@@ -27,6 +27,8 @@ CHECKS = [
     # README
     ("README.md", r"unos (?P<seen__es>[\d.]+) avisos vistos, (?P<triage>\d+) analizados por escrito y "
                   r"(?P<sent>\d+) postulaciones enviadas"),
+    ("README.md", r"About (?P<seen__en>[\d,]+) postings seen, (?P<triage>\d+) analyzed in writing, "
+                  r"(?P<sent>\d+) documents sent"),
     ("README.md", r"\*\*Measured on (?P<as_of>[\d-]+)"),
     ("README.md", r"\| Commits \(small, reviewed\) \| (?P<commits>\d+) \|"),
     ("README.md", r"\| Agent skills \(written procedures\) \| (?P<skills>\d+) \|"),

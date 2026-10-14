@@ -4,7 +4,8 @@ Small, working versions of six mechanisms of the private system, **written from 
 repository**. The private code cannot be published even with its data removed: every rule in it is
 explained by a comment that names the real case behind it. These keep the mechanism and drop the case.
 
-Standard library and PyYAML only; each runs on the [invented example data](../examples/data/).
+The Python scripts use the standard library and PyYAML only; `render_test.mjs` needs Node and Chrome. Each
+runs on the [invented example data](../examples/data/).
 
 | Script | Mechanism | Documented in |
 |---|---|---|

@@ -18,7 +18,9 @@ stateDiagram-v2
     sent --> contact: a person wrote or called
     sent --> rejected: employer or job board closed it
     sent --> no_response: own closure after a silence
+    sent --> discarded: withdrawn by the owner, with reason
     no_response --> sent: reopened by a later signal
+    no_response --> contact: a person wrote after the closure
     contact --> interview
     interview --> offer
     interview --> rejected
@@ -31,14 +33,14 @@ stateDiagram-v2
 |---|---|
 | `prospect` | authorized, not yet worked |
 | `invitation` | a job board invited the candidate; pending a decision (some invitations expire on their own) |
-| `outreach` | an **outgoing** direct message was sent; requires a follow-up date and a `connection` event |
+| `outreach` | an **outgoing** direct message was sent; requires a follow-up date and a `connection` event (see the [schema](../examples/schemas/pipeline-entry.schema.json)) |
 | `prepared` | folder, CV and analysis ready; not sent |
 | `sent` | submitted (date in `sent`) |
 | `contact` | an **incoming** reply from a person (call, message, test) |
 | `interview` / `offer` | as named |
 | `rejected` | the employer said no — **including** an automatic "process finished" status from a job board |
-| `no_response` | **own closure**: the deadline passed with no signal while the job board still shows the application as open |
-| `discarded` | decided not to apply, with a reason |
+| `no_response` | **own closure**: the response window expired with no signal while the job board still shows the application as open |
+| `discarded` | decided not to apply, with a reason — or a sent application the owner withdrew |
 
 ## Two questions every closure answers
 
@@ -49,14 +51,14 @@ that informs the next application:
 |---|---|
 | `board` | an automatic status of the job board ("process finished", posting removed) |
 | `employer` | a person or an email from the employer or the recruiting firm |
-| `own` | the owner closed it after the follow-up window expired |
+| `own` | the owner closed it after the response window expired |
 
 | `closure_reason` | When |
 |---|---|
 | `generic_board` | automatic end of process, no person, no reason — the most common, the least informative |
 | `with_feedback` | the employer said why (the reason goes to the notes) |
 | `other_candidate` | they declared they chose someone else |
-| `conditions` | closed for pay, location, contract or modality — **not** a profile rejection, and excluded from the calibration of the gate |
+| `conditions` | closed for pay, location, contract or modality — **not** a profile rejection, and excluded from the call-probability calibration |
 | `posting_down` | the posting disappeared or the vacancy closed unresolved |
 | `silence` | the window expired with no signal — the default for `no_response` |
 | `to_classify` | legacy entries without evidence; **debt, not a value** |
@@ -70,7 +72,7 @@ real silences, and the generated board showed as pending processes that were ove
 - **A signal is not a state change.** "Your application was viewed" or "CV downloaded" are recorded as a
   *portal signal* with its literal text, date and strength. Only a person moves the state to `contact`.
 - **Never close for silence while the posting is still receiving applications.** A script reads each live
-  posting's closing date (over public HTTP) and protects those entries; the follow-up window is counted
+  posting's closing date (over public HTTP) and protects those entries; the response window is counted
   from the posting's close, not from the submission.
 - **Reopen, don't leave closed.** If an own closure later receives a signal, the entry goes back to
   `sent` (or `contact`).

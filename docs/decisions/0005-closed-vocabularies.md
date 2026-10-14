@@ -17,3 +17,7 @@ value is `unresolved` and the owner is asked — a hypothesis is never stored as
 ## Consequences
 - Metrics can be computed without interpreting prose.
 - Adding a new value is a deliberate change to the list, with a comment on why.
+
+**Implemented by:** repository QA block 11; the public
+[schema](../../examples/schemas/pipeline-entry.schema.json) and its validator,
+[`reference/pipeline_check.py`](../../reference/pipeline_check.py).

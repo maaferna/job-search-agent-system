@@ -2,7 +2,8 @@
 
 The system started as "a CV in LaTeX" and grew into four layers with a single rule: **dependencies flow
 one way**. Facts feed fragments, fragments feed compositions, and operations read from all three but
-never write back into the facts.
+never write back into the facts. The [architecture poster](img/poster-architecture.png) puts this
+page, the application gate and the evaluation of the agent on one sheet.
 
 ```
 facts/            LAYER 1 — the only source of truth about the career
@@ -17,6 +18,8 @@ scripts/          capture, scoring, gates, generators, QA
 
 ## Layer 1 — Facts
 
+<a href="img/poster-architecture.png"><img align="right" width="280" alt="Architecture poster: the funnel from about 14,800 postings seen to 77 documents sent, who does what between the agent and the owner, the twelve checks of the application gate, four design decisions and how the agent is evaluated" src="img/poster-architecture.png"></a>
+
 - **Master profile.** Every role, date, metric, tool and credential, each with its evidence and the date
   it was confirmed by the owner. Corrections are written with the date and the reason ("this said X
   until date D; the owner corrected it because…"), so the history of a fact is never lost.
@@ -30,7 +33,10 @@ scripts/          capture, scoring, gates, generators, QA
 
 **Rule zero: no invention.** If a posting asks for something that is not in the facts, it is reported
 as a gap. It is never written into a document. A CV with an invented number fails in the technical
-interview, and the system is designed so that inventing one takes deliberate effort.
+interview, and the system is designed so that inventing one takes deliberate effort. Dates are traced by script
+(G7); every other fact is traced by reading ([audits](audits.md#layer-2--truth-and-coherence)).
+
+<br clear="right">
 
 ## Layer 2 — Fragments
 

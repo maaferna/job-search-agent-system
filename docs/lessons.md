@@ -1,12 +1,17 @@
 # Lessons — real failures turned into controls
 
-Every control in this system can be traced to something that went wrong. The failures are described
+Each lesson below is a real failure and the control it produced. The failures are described
 generically: no employer, person or posting is identifiable.
+
+**If you read three:**
+[the wrong file was attached](#the-document-that-was-sent-was-not-the-one-that-was-composed) ·
+[a changed rule did not reopen its discards](#a-rule-changed-the-discards-it-justified-did-not) ·
+[overqualification read as a strength](#overqualification-was-read-as-an-advantage).
 
 ## The document that was sent was not the one that was composed
 
 **What happened.** A one-click application form attached the *first* file of the candidate's uploaded
-list, not the tailored CV. Another time, a mass-apply form had no extra questions: the "review" step went
+list, not the tailored CV. Another time, a one-click form had no extra questions: the "review" step went
 straight to "submit", and the application left with a CV composed for a different employer. That job
 board does not allow replacing the file.
 
@@ -72,7 +77,8 @@ displayed as fixed? does anyone recompute it by hand? ([metrics](metrics.md)).
 response", and the board showed them as still waiting.
 
 **Control.** Closures record **who** closed (board / employer / own) and **why**, in a closed vocabulary.
-An automatic "finished" is a rejection, not a silence ([state machine](state-machine.md)).
+An automatic "finished" is a rejection, not a silence ([state machine](state-machine.md),
+[ADR 0005](decisions/0005-closed-vocabularies.md)).
 
 ## Data declared in a job board's profile made the candidate invisible
 

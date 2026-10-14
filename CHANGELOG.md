@@ -5,6 +5,20 @@ are refreshed from it (see [`docs/numbers.yaml`](docs/numbers.yaml)). Versions f
 [semantic versioning](https://semver.org) loosely: a major version changes the structure of the documentation,
 a minor one adds a document, a mechanism or an image, a patch fixes text or numbers.
 
+## [Unreleased]
+
+**Documentation**
+- The README opens with the overview poster and the headline numbers in English; the architecture poster
+  moves to [`docs/architecture.md`](docs/architecture.md). *Who did what* and the status line come before
+  the first screenshot, and the numbers table lists outcomes before activity.
+- Screenshots where the process is explained: a tailored CV and the *today* view in the life of a posting,
+  the funnel view in the metrics page.
+- One name per thing: *per-application gate*, *response window*; *live discard* added to the glossary.
+- The state machine shows withdrawals and replies after an own closure; the agent's boundaries are stated
+  as a policy, with a link to the harness rules that would enforce them; the metric on discards is read as
+  a lower bound on disagreement, not an accuracy.
+- ADRs 0004–0006 name the checks that implement them.
+
 ## [1.0.0] — 2026-10-13
 
 First public version.

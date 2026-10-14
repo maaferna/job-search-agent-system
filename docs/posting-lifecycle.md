@@ -14,8 +14,9 @@ flowchart TD
     E -- DIRECT-CONTACT --> K[message drafted;<br/>owner sends it]
     E -- GO --> F[6 · Compose CV<br/>from fragments]
     F --> G[7 · Owner reads the full<br/>text and approves]
-    G --> H[8 · Quality gate<br/>G1–G12]
-    H -- red --> F
+    G --> H[8 · Per-application gate<br/>G1–G12]
+    H -- red: G1–G11 --> F
+    H -- red: G12 --> G
     H -- green --> I[9 · Owner submits]
     I --> J[10 · Follow-up<br/>portal signals, closure rules]
 ```
@@ -67,17 +68,20 @@ Pending analyses reappear at the top of the next report without being re-analyze
 
 ## 4 · The owner authorizes, by name
 
-Only the postings the owner authorizes by name enter the pipeline. Nothing enters by default.
+Only the postings the owner authorizes by name enter the pipeline, as `prospect`. The one other way in is
+an `invitation` from a job board, recorded so it can be declined with a reason
+([state machine](state-machine.md)).
 
-## 5 · Posting audit — the gate before composing
+## 5 · Posting audit — GO / NO-GO before composing
 
-Reading a posting is cheap; composing a tailored CV is not. The audit produces a verdict and two
-numbers that are never mixed ([metrics](metrics.md)):
+Reading a posting is cheap; composing a tailored CV is not. The audit produces a verdict and the fit
+score; the call probability is estimated with it and frozen when the document is sent. The two numbers
+are never mixed ([metrics](metrics.md#two-numbers-that-are-never-mixed)):
 
 - **GO** — in focus, reachable seniority, no missing hard requirement.
-- **NO-GO** — with a one-line reason, so the radar never proposes it again.
-- **DIRECT-CONTACT** — the content fits but the channel is poor (a mass-apply form, seniority at the
-  edge): writing to a person beats the form.
+- **NO-GO** — with a one-line reason, so the radar never proposes it again (→ `discarded`).
+- **DIRECT-CONTACT** — the content fits but the channel is poor (a one-click form, seniority at the
+  edge): writing to a person beats the form (→ `outreach`).
 
 It also asks two questions that were added after real misses:
 - *Has this employer already screened the candidate out?* (an employer-history script flags repeated closures
@@ -91,6 +95,11 @@ A per-application composition selects fragments and their order according to a *
 family (13 families, each with its fragments, ATS keywords and known gaps). The composition contains no
 facts ([architecture](architecture.md)).
 
+<a href="../examples/latex/"><img width="240" alt="Page 1 of a per-application CV composed from invented fragments for an invented Data Engineer posting" src="img/cv-application.png"></a>
+
+<sub>A per-application CV composed from the <a href="../examples/latex/">invented fragment library</a>: same
+facts as the showcase CVs, different selection and order.</sub>
+
 ## 7 · Human review of the full text
 
 A preview script prints the CV section by section, marking the origin of each block (library fragment or
@@ -99,7 +108,7 @@ explicit OK, the approval is recorded together with a **fingerprint of the appro
 changes afterwards, the approval no longer matches
 ([ADR 0001](decisions/0001-human-approval-before-send.md)).
 
-## 8 · Quality gate
+## 8 · Per-application gate
 
 Twelve checks per application, from unresolved placeholders to the owner's approval fingerprint; a red check
 blocks the document ([quality controls](quality-controls.md)). The gate runs **after** the review: its last
@@ -108,7 +117,7 @@ the current text, so any change made to turn a check green sends the document ba
 
 ## 9 · Submission — always by the person
 
-The agent prepares everything; the final click on *send* is always the owner's. Browser work happens
+The agent prepares everything; the final click on *send* is always the owner's (→ `sent`). Browser work happens
 only in a session the owner opened and supervises. Two lessons shaped this step: verify which file the
 form will actually attach, and never open an application form "just to read the questions" before the
 right CV is loaded ([lessons](lessons.md)).
@@ -121,3 +130,11 @@ right CV is loaded ([lessons](lessons.md)).
 - Closures are classified by **who** closed the process (job board, employer, or the owner after a
   silence) and **why**, in a closed vocabulary ([state machine](state-machine.md)).
 - A process is never closed for silence while its posting is still receiving applications.
+
+<a href="board.md#today-hoy"><picture>
+  <source media="(prefers-color-scheme: dark)" srcset="img/board-today-desktop-dark.png">
+  <img width="560" alt="The board's today view, from invented data: conversations with people on the left, actions due today and overdue on the right" src="img/board-today-desktop-light.png">
+</picture></a>
+
+<sub>Follow-up lives on the board's <i>Hoy</i> (today) view: who wrote, what is due and what is overdue.
+More views: <a href="board.md">the board</a>.</sub>

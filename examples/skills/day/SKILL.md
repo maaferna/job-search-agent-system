@@ -44,7 +44,7 @@ someone or sending something is *proposed*, never done on its own.
 
 If the last review of the owner's job-board accounts is more than seven days old, run `review-portals`
 (it needs the owner's browser session, read only). With the same cadence, a script reads over public HTTP
-whether each live posting still accepts applications and records its closing date: the follow-up window
+whether each live posting still accepts applications and records its closing date: the response window
 is counted from the posting's close, not from the submission, and a closed posting is **not** a rejection.
 
 ## 5. Metrics — always

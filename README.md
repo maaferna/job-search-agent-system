@@ -9,18 +9,19 @@
 **An agentic decision-support system for a job search:** capture postings, triage them against explicit
 rules, compose each CV from a library of verified facts, pass it through quality checks and record every
 decision — with a human reading and approving every document, and making every submission.
+About 14,800 postings seen, 822 analyzed in writing, 77 documents sent: it discards far more than it sends.
 
 [Architecture](docs/architecture.md) · [The board](docs/board.md) · [Audits](docs/audits.md) ·
 [Quality controls](docs/quality-controls.md) · [Decisions (ADR)](docs/decisions/) ·
 [Lessons](docs/lessons.md) · [Glossary](docs/glossary.md) · [Examples](examples/) ·
-[Reference code](reference/) · Posters: [architecture](docs/img/poster-architecture.png),
-[overview](docs/img/poster-overview.png)
+[Reference code](reference/) · Posters: [overview](docs/img/poster-overview.png),
+[architecture](docs/img/poster-architecture.png)
 
 > <a id="lector-no-tecnico"></a>**Para el lector no técnico.** Este repositorio describe un sistema que
 > su autor usa a diario para gestionar su propia búsqueda de empleo junto a un agente de IA (Claude Code).
 >
-> - **Qué hace:** encuentra avisos, los evalúa contra reglas escritas, arma cada CV desde una biblioteca
->   de hechos verificados, lo revisa con controles automáticos y registra cada decisión.
+> - **Qué hace:** encuentra avisos de empleo, los evalúa contra reglas escritas, arma cada CV solo con
+>   datos verificados de su trayectoria, lo revisa con controles automáticos y registra cada decisión.
 > - **Quién decide:** ningún documento sale sin que el autor lea y apruebe su texto completo, y el envío
 >   siempre lo hace el autor.
 > - **No es un bot que postula en masa:** unos 14.800 avisos vistos, 822 analizados por escrito y
@@ -28,44 +29,55 @@ decision — with a human reading and approving every document, and making every
 > - **Qué se publica:** el sistema real es privado porque contiene datos personales; aquí está su diseño,
 >   con capturas generadas con **datos inventados**.
 >
-> Para empezar: [el póster](docs/img/poster-overview.png), que lo resume en una página;
-> [el tablero](docs/board.md), que muestra el trabajo diario; y [las lecciones](docs/lessons.md), que
-> cuentan qué falló y qué control nació de cada falla. Las páginas están en inglés; el
+> Para empezar: [el póster](docs/img/poster-overview.png) (en inglés), que lo resume en una página;
+> [las lecciones](docs/lessons.md), que cuentan qué falló y qué control nació de cada falla; y
+> [el tablero](docs/board.md), que muestra el trabajo diario. Las páginas están en inglés; el
 > [glosario](docs/glossary.md) explica cada término.
 
 ## What this project demonstrates
 
-<a href="docs/img/poster-architecture.png"><img align="right" width="300" alt="Architecture poster: the funnel from about 14,800 postings seen to 77 documents sent, who does what between the agent and the owner, the twelve checks of the application gate, four design decisions and how the agent is evaluated" src="docs/img/poster-architecture.png"></a>
+<a href="docs/img/poster-overview.png"><img align="right" width="300" alt="Overview poster: motivation, the seven-step workflow with the three human decisions marked, key components, example results from invented data, the funnel from about 14,800 postings seen to 77 documents sent, how the agent's picks and discards were reviewed by the owner, design principles and impact" src="docs/img/poster-overview.png"></a>
 
 - **Governing an agent, not just using one.** Written procedures (skills), explicit boundaries, a human
-  approval bound to a fingerprint of the approved text, and rules the agent must cite with their date.
+  approval tied to the exact text approved, and rules the agent must cite with their date
+  ([operating model](docs/agent-operating-model.md)).
 - **Controls that block, and evaluation that is honest.** Twelve per-application checks, a test that
   compares what a page *shows* with what the data says, a calibrated probability (Brier score), the
-  measured reliability of a small local model — and a written list of what is *not* checked.
+  measured reliability of a small local model — and a written list of what is *not* checked
+  ([quality controls](docs/quality-controls.md), [audits](docs/audits.md#what-is-not-audited)).
 - **Data design for decisions.** Every fact lives in one file, closed vocabularies validated by a schema,
-  dated rules that reopen old decisions, sent documents kept as immutable records.
+  dated rules that reopen old decisions, sent documents kept as immutable records
+  ([architecture](docs/architecture.md)).
+
+**Who did what.** *The owner* is the candidate: the person who designed the system and uses it for
+their own search. The agent is [Claude Code](https://claude.com/claude-code). The owner designed the
+process, the rules, the controls and the data architecture, and operates the system daily. Much of the
+code was written by the agent under the owner's direction and review. This is work *with* an agent, not
+hand-written code.
 
 **Start here**
 
-- *Recruiters:* [the overview poster](docs/img/poster-overview.png) → [the board](docs/board.md) →
-  [lessons](docs/lessons.md) →
-  [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does).
+- *Recruiters (5 min):* [the overview poster](docs/img/poster-overview.png) →
+  [lessons: failures turned into controls](docs/lessons.md) →
+  [how the agent is evaluated](docs/metrics.md#evaluating-the-agent) →
+  [what the agent may and may not do](docs/agent-operating-model.md#boundaries--what-the-agent-never-does) →
+  [the board](docs/board.md).
 - *Engineers:* [architecture](docs/architecture.md) → [posting lifecycle](docs/posting-lifecycle.md) →
   [audits](docs/audits.md) → run [`reference/gate.py`](reference/) and the [LaTeX example](examples/latex/).
 
 <br clear="right">
+
+**Status:** private system in daily use since August 2026; this repository is its public documentation ·
+**Data:** everything shown here is invented · **Code:** [reference implementations](reference/) written
+from scratch for this repository, by the agent under the owner's review; the private code is not
+published · **License:** documentation [CC BY 4.0](LICENSE), code [MIT](LICENSE-CODE).
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/img/board-pipeline-desktop-dark.png">
   <img alt="The pipeline view of the board, generated from invented data: five columns of opportunity cards by state" src="docs/img/board-pipeline-desktop-light.png">
 </picture>
 
-<sub>The board's pipeline view, rendered by the real generator from <a href="examples/data/pipeline.example.yaml">invented data</a>. The interface is in Spanish: <i>calce A/B/C</i> = fit band · <i>triage 1–3</i> = priority given when the entry was created · <i>P1–P3</i> = search profile · <i>Por decidir / Preparadas / Enviadas</i> = to decide / prepared / sent. More views: <a href="docs/board.md">docs/board.md</a>.</sub>
-
-**Status:** private system in daily use since August 2026; this repository is its public documentation ·
-**Data:** everything shown here is invented · **Code:** [reference implementations](reference/) written
-from scratch for this repository, by the agent under the owner's review; the private code is not
-published · **License:** documentation [CC BY 4.0](LICENSE), code [MIT](LICENSE-CODE).
+<sub>The board's pipeline view, rendered by the real generator from <a href="examples/data/pipeline.example.yaml">invented data</a>. The interface is in Spanish: <i>calce A/B/C</i> = fit band · <i>triage 1–3</i> = priority given when the entry was created · <i>P1–P3</i> = search profile · <i>Por decidir / Preparadas / Contacto enviado / Enviadas / Con respuesta</i> = to decide / prepared / outreach sent / sent / with a reply. More views: <a href="docs/board.md">docs/board.md</a>.</sub>
 
 **Contents:** [What it does](#what-it-does--and-what-it-does-not) · [Stack](#stack) ·
 [Architecture](#architecture-in-one-page) · [Life of a posting](#the-life-of-a-posting) ·
@@ -86,12 +98,6 @@ published · **License:** documentation [CC BY 4.0](LICENSE), code [MIT](LICENSE
 | Records each opportunity in a state machine with closed vocabularies | Decide: the owner makes every go / no-go and every submission |
 | Works in a browser session the owner opened, under the owner's supervision | Log in, solve CAPTCHAs or get around rate limits on any site |
 
-**Who did what.** *The owner* is the candidate: the person who designed the system and uses it for
-their own search. The agent is [Claude Code](https://claude.com/claude-code). The owner designed the
-process, the rules, the controls and the data architecture, and operates the system daily. Much of the
-code was written by the agent under the owner's direction and review. This is work *with* an agent, not
-hand-written code.
-
 ## Stack
 
 | Layer | Tools | Used for |
@@ -103,7 +109,7 @@ hand-written code.
 | **Board** | HTML, CSS and plain JavaScript generated by Python — no framework, no build step | the daily view: one self-contained page with its data embedded |
 | **Data** | YAML and Markdown in git | pipeline, triage, owner rules, fact library: plain text, diffable, validated by scripts |
 | **Local model** | Ollama (a 3B model on CPU) | some reading tasks when there are no agent credits |
-| **CI** | GitHub Actions | sanitization gate, link check, schema check, unit tests, rendered-page test (this repository) |
+| **CI** | GitHub Actions | sanitization gate, links and anchors, published numbers, spelling, schema check, unit tests, rendered-page test (this repository) |
 
 ## Architecture in one page
 
@@ -142,7 +148,7 @@ flowchart LR
     A[capture] --> B[score & dedupe] --> C[triage<br/>analysis saved] --> D{human:<br/>authorize?}
     D -- no --> X[discarded<br/>with reason]
     D -- yes --> E[posting audit:<br/>GO / NO-GO / direct contact] --> F[compose CV<br/>from fragments]
-    F --> G[human reads<br/>full text & approves] --> H[application gate<br/>G1–G12] --> I[human submits] --> J[follow-up &<br/>portal signals]
+    F --> G[human reads<br/>full text & approves] --> H[per-application gate<br/>G1–G12] --> I[human submits] --> J[follow-up &<br/>portal signals]
 ```
 
 Every arrow that crosses into a submission passes through a human. Details:
@@ -151,23 +157,23 @@ Every arrow that crosses into a submission passes through a human. Details:
 ## Numbers
 
 **Measured on 2026-10-13** in the private repository, read only. Every figure published here comes from
-[`docs/numbers.yaml`](docs/numbers.yaml), and CI checks that the README, the metrics page and the poster agree
-with it.
+[`docs/numbers.yaml`](docs/numbers.yaml), and CI checks that the README, the metrics page, the
+posters and every other page that quotes a figure agree with it.
 
 | | |
 |---|---|
-| Period of active development | August 2026 → today |
-| Commits (small, reviewed) | 876 |
-| Agent skills (written procedures) | 25 |
-| Scripts | 35 |
-| Repository QA blocks (`check.sh`) | 25 |
-| Per-application quality checks | 12 |
 | Unique postings seen from public sources | ~14,800 |
 | Postings analyzed in writing (triage) | 822 |
 | Opportunities recorded in the pipeline | 332 |
 | Documents actually sent | 77 |
-| Agent recommendations the owner authorized / later dropped at the posting audit | 33 / 8 |
+| Agent recommendations: authorized by the owner / dropped later at the posting audit | 33 / 8 |
 | Agent discards the owner reopened | 5 of 789 |
+| Per-application quality checks | 12 |
+| Agent skills (written procedures) | 25 |
+| Scripts | 35 |
+| Repository QA blocks (`check.sh`) | 25 |
+| Commits (small, reviewed) | 876 |
+| Period of active development | August 2026 → today |
 
 **For every document sent, more than ten opportunities were discarded with a written reason**
 (about a thousand discards between triage and pipeline), and none was sent without the owner approving
@@ -198,7 +204,7 @@ recomputed, and the calibration of the call probability.
 | [`examples/`](examples/) | Invented example data, the pipeline JSON Schema, seven translated agent skills, the [Claude Code settings and hooks](examples/claude/), local-model prompts, a `CLAUDE.md` template, and a [compiling LaTeX example](examples/latex/) of fragments and compositions |
 | [`reference/`](reference/) | Working minimal versions of six mechanisms: closed-vocabulary validator, dated rules, fit and call probability, per-application gate, ATS coverage, rendered-page test |
 | [`.claude/skills/`](.claude/skills/) | The four skills this repository is maintained with: [`doc-review`](.claude/skills/doc-review/SKILL.md) (editorial review), [`refresh-numbers`](.claude/skills/refresh-numbers/SKILL.md), [`publish-check`](.claude/skills/publish-check/SKILL.md) and [`new-adr`](.claude/skills/new-adr/SKILL.md) |
-| [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews, the architecture poster — each gated before it is written |
+| [`tools/`](tools/) | How the published images are produced: board screenshots from invented data, CV previews, the two posters and the social card — each gated before it is written |
 
 ## Run the reference code
 
@@ -219,8 +225,8 @@ Nothing here is copied from the private repository: everything is rewritten, and
 for amounts, emails, IDs and phones, and — on the owner's machine — for every employer and contact name
 of the private pipeline, from a local denylist that is never committed (the list would leak what it
 protects). Images cannot be searched, so each one carries a manifest with its hash and visible text
-([ADR 0009](docs/decisions/0009-board-published-as-synthetic-screenshots.md)). Found something that should not be
-here? Report it privately: [`SECURITY.md`](SECURITY.md).
+([ADR 0009](docs/decisions/0009-board-published-as-synthetic-screenshots.md)).
+Found something that should not be here? Report it privately: [`SECURITY.md`](SECURITY.md).
 
 ## Author
 

@@ -47,11 +47,13 @@ python3 tools/latex_previews.py         # needs lualatex and poppler
 | `cv-showcase-ops.txt` | `cv-showcase-ops.png` | the same fragment library, operations choices |
 | `cv-application.txt` | `cv-application.png` | a per-application composition for an invented posting |
 
-## Architecture poster and social card
+## Posters and social card
 
-The one-page view used outside the code host (the project image on the professional network). Its source
-is `tools/poster.html` (the overview's, `tools/poster-overview.html`; the card's, `tools/social-card.html`); they hold only aggregate numbers, which must
-match `docs/numbers.yaml` (`scripts/check_numbers.py`).
+Two one-page views for readers who will not open the code: the **overview** poster opens the README, and the
+**architecture** poster opens [`docs/architecture.md`](../architecture.md); either can be shared on its own.
+Their sources are `tools/poster-overview.html` and `tools/poster.html`, and the card's is
+`tools/social-card.html`. They hold only aggregate numbers, which must match `docs/numbers.yaml`
+(`scripts/check_numbers.py`).
 
 ```bash
 python3 tools/poster.py                 # needs Chrome and Node (npm ci)
